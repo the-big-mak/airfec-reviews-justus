@@ -1,7 +1,10 @@
 const express = require('express');
 const path = require('path');
 const db = require('../database/index.js');
+const aws = require('aws-sdk');
+const helper = require('../s3Helpers/getPhotos.js');
 
+const s3 = new aws.S3(); // Pass in opts to S3 if necessary
 const app = express();
 
 const port = 3001;
@@ -23,6 +26,26 @@ app.get('/reviews', (req, res) => {
   })
 });
 
+app.get('/photos', (req, res) => {
+  helper.getPhotos((err, photos) => {
+    if (err) {
+      console.log('failed to get photos', err);
+    } else {
+      db.addHostPhotos(photos);
+      // res.send(photos);
+    }
+  })
+});
+
 app.listen(port, () => {
   console.log('server listening on port ' + port);
 });
+
+// const aws = require('aws-sdk');
+// const s3 = new aws.S3(); // Pass in opts to S3 if necessary
+
+// var getParams = {
+//     Bucket: 'abc', // your bucket name,
+//     Key: 'abc.txt' // path to the object you're looking for
+// }
+

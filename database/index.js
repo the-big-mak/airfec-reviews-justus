@@ -29,8 +29,26 @@ let getData = (id, callback) => {
   })
 };
 
+let addHostPhotos = (photos) => {
+  console.log('photos', photos)
+  for (let i = 0; i < photos.length; i++) {
+    let queryStr = `UPDATE properties SET host_photo='${photos[i].Key}' WHERE id=${i}`;
+    console.log('photos[i].key', photos[i].Key);
+    connection.query(queryStr, (err, data) =>{ 
+      if (err) {
+        //callback(err, null);
+        console.log('failed to update host photos', err);
+      } else {
+        //callback(null, data);
+        console.log('succefully updated host photos');
+      }
+    });
+  }
+}
+
 module.exports = {
   connection,
-  getData
+  getData,
+  addHostPhotos
 };
 

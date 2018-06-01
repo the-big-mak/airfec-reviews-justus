@@ -2,10 +2,10 @@ CREATE DATABASE IF NOT EXISTS airFeC_reviews;
 
 USE airFeC_reviews;
 
-CREATE TABLE IF NOT EXISTS hosts (
+CREATE TABLE IF NOT EXISTS properties (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(250),
-  photo VARCHAR(300)
+  host_name VARCHAR(250),
+  host_photo VARCHAR(300)
 );
 
 CREATE TABLE IF NOT EXISTS reviews (
@@ -21,20 +21,110 @@ CREATE TABLE IF NOT EXISTS reviews (
   location_rating TINYINT NOT NULL,
   checkin_rating TINYINT NOT NULL,
   value_rating TINYINT NOT NULL,
-  FOREIGN KEY fk(hostId) REFERENCES hosts(id)
+  FOREIGN KEY fk(hostId) REFERENCES properties(id)
 );
 
+insert into properties (id, host_name, host_photo) values (1, 'Ingeberg', null);
+insert into properties (id, host_name, host_photo) values (2, 'Aeriel', null);
+insert into properties (id, host_name, host_photo) values (3, 'Iggy', null);
+insert into properties (id, host_name, host_photo) values (4, 'Nikoletta', null);
+insert into properties (id, host_name, host_photo) values (5, 'Angele', null);
+insert into properties (id, host_name, host_photo) values (6, 'Shelden', null);
+insert into properties (id, host_name, host_photo) values (7, 'Trixy', null);
+insert into properties (id, host_name, host_photo) values (8, 'Edgard', null);
+insert into properties (id, host_name, host_photo) values (9, 'Carry', null);
+insert into properties (id, host_name, host_photo) values (10, 'Val', null);
+insert into properties (id, host_name, host_photo) values (11, 'Jacquelyn', null);
+insert into properties (id, host_name, host_photo) values (12, 'Kacie', null);
+insert into properties (id, host_name, host_photo) values (13, 'Alexandr', null);
+insert into properties (id, host_name, host_photo) values (14, 'Lorrie', null);
+insert into properties (id, host_name, host_photo) values (15, 'Byran', null);
+insert into properties (id, host_name, host_photo) values (16, 'Madeline', null);
+insert into properties (id, host_name, host_photo) values (17, 'Chelsie', null);
+insert into properties (id, host_name, host_photo) values (18, 'Lianna', null);
+insert into properties (id, host_name, host_photo) values (19, 'Melly', null);
+insert into properties (id, host_name, host_photo) values (20, 'Archaimbaud', null);
+insert into properties (id, host_name, host_photo) values (21, 'Lorena', null);
+insert into properties (id, host_name, host_photo) values (22, 'Grazia', null);
+insert into properties (id, host_name, host_photo) values (23, 'Xylina', null);
+insert into properties (id, host_name, host_photo) values (24, 'Camilla', null);
+insert into properties (id, host_name, host_photo) values (25, 'Giacopo', null);
+insert into properties (id, host_name, host_photo) values (26, 'Fayina', null);
+insert into properties (id, host_name, host_photo) values (27, 'Minette', null);
+insert into properties (id, host_name, host_photo) values (28, 'Gottfried', null);
+insert into properties (id, host_name, host_photo) values (29, 'Hedi', null);
+insert into properties (id, host_name, host_photo) values (30, 'Donnamarie', null);
+insert into properties (id, host_name, host_photo) values (31, 'Kimberley', null);
+insert into properties (id, host_name, host_photo) values (32, 'Genni', null);
+insert into properties (id, host_name, host_photo) values (33, 'Adolphus', null);
+insert into properties (id, host_name, host_photo) values (34, 'Gabriela', null);
+insert into properties (id, host_name, host_photo) values (35, 'Sheppard', null);
+insert into properties (id, host_name, host_photo) values (36, 'Guss', null);
+insert into properties (id, host_name, host_photo) values (37, 'Buffy', null);
+insert into properties (id, host_name, host_photo) values (38, 'Rickert', null);
+insert into properties (id, host_name, host_photo) values (39, 'Bryna', null);
+insert into properties (id, host_name, host_photo) values (40, 'Torr', null);
+insert into properties (id, host_name, host_photo) values (41, 'Antonio', null);
+insert into properties (id, host_name, host_photo) values (42, 'Yank', null);
+insert into properties (id, host_name, host_photo) values (43, 'Peggy', null);
+insert into properties (id, host_name, host_photo) values (44, 'Cherilynn', null);
+insert into properties (id, host_name, host_photo) values (45, 'Angela', null);
+insert into properties (id, host_name, host_photo) values (46, 'Angelia', null);
+insert into properties (id, host_name, host_photo) values (47, 'Fredrika', null);
+insert into properties (id, host_name, host_photo) values (48, 'Teddie', null);
+insert into properties (id, host_name, host_photo) values (49, 'Hedwig', null);
+insert into properties (id, host_name, host_photo) values (50, 'Perrine', null);
+insert into properties (id, host_name, host_photo) values (51, 'Luther', null);
+insert into properties (id, host_name, host_photo) values (52, 'Kassey', null);
+insert into properties (id, host_name, host_photo) values (53, 'Allister', null);
+insert into properties (id, host_name, host_photo) values (54, 'Reuben', null);
+insert into properties (id, host_name, host_photo) values (55, 'Sully', null);
+insert into properties (id, host_name, host_photo) values (56, 'Alair', null);
+insert into properties (id, host_name, host_photo) values (57, 'Pattin', null);
+insert into properties (id, host_name, host_photo) values (58, 'Marrilee', null);
+insert into properties (id, host_name, host_photo) values (59, 'Ariella', null);
+insert into properties (id, host_name, host_photo) values (60, 'Marlie', null);
+insert into properties (id, host_name, host_photo) values (61, 'Emmye', null);
+insert into properties (id, host_name, host_photo) values (62, 'Mario', null);
+insert into properties (id, host_name, host_photo) values (63, 'Igor', null);
+insert into properties (id, host_name, host_photo) values (64, 'Edik', null);
+insert into properties (id, host_name, host_photo) values (65, 'Fredi', null);
+insert into properties (id, host_name, host_photo) values (66, 'Olly', null);
+insert into properties (id, host_name, host_photo) values (67, 'Martelle', null);
+insert into properties (id, host_name, host_photo) values (68, 'Brodie', null);
+insert into properties (id, host_name, host_photo) values (69, 'Delaney', null);
+insert into properties (id, host_name, host_photo) values (70, 'Robert', null);
+insert into properties (id, host_name, host_photo) values (71, 'Bettye', null);
+insert into properties (id, host_name, host_photo) values (72, 'Georgina', null);
+insert into properties (id, host_name, host_photo) values (73, 'Casandra', null);
+insert into properties (id, host_name, host_photo) values (74, 'Alverta', null);
+insert into properties (id, host_name, host_photo) values (75, 'Renate', null);
+insert into properties (id, host_name, host_photo) values (76, 'Penelope', null);
+insert into properties (id, host_name, host_photo) values (77, 'Mavra', null);
+insert into properties (id, host_name, host_photo) values (78, 'Sigismund', null);
+insert into properties (id, host_name, host_photo) values (79, 'Shep', null);
+insert into properties (id, host_name, host_photo) values (80, 'Marthena', null);
+insert into properties (id, host_name, host_photo) values (81, 'Preston', null);
+insert into properties (id, host_name, host_photo) values (82, 'Ava', null);
+insert into properties (id, host_name, host_photo) values (83, 'Michele', null);
+insert into properties (id, host_name, host_photo) values (84, 'Maddi', null);
+insert into properties (id, host_name, host_photo) values (85, 'Bronny', null);
+insert into properties (id, host_name, host_photo) values (86, 'Alric', null);
+insert into properties (id, host_name, host_photo) values (87, 'Dimitry', null);
+insert into properties (id, host_name, host_photo) values (88, 'Esther', null);
+insert into properties (id, host_name, host_photo) values (89, 'Donnamarie', null);
+insert into properties (id, host_name, host_photo) values (90, 'Carolee', null);
+insert into properties (id, host_name, host_photo) values (91, 'Carole', null);
+insert into properties (id, host_name, host_photo) values (92, 'Kendricks', null);
+insert into properties (id, host_name, host_photo) values (93, 'Davis', null);
+insert into properties (id, host_name, host_photo) values (94, 'Terrill', null);
+insert into properties (id, host_name, host_photo) values (95, 'Darius', null);
+insert into properties (id, host_name, host_photo) values (96, 'Starlene', null);
+insert into properties (id, host_name, host_photo) values (97, 'Aaren', null);
+insert into properties (id, host_name, host_photo) values (98, 'Eva', null);
+insert into properties (id, host_name, host_photo) values (99, 'Kelby', null);
+insert into properties (id, host_name, host_photo) values (100, 'Debera', null);
 
-INSERT INTO `hosts` (`id`,`name`) VALUES (1,"Lysandra"),(2,"Wendy"),(3,"Keelie"),(4,"Igor"),(5,"Dorothy"),(6,"Shelley"),(7,"Erich"),(8,"Cailin"),(9,"Sylvia"),(10,"Chiquita");
-INSERT INTO `hosts` (`id`,`name`) VALUES (11,"Adena"),(12,"Forrest"),(13,"Lester"),(14,"Olympia"),(15,"Edan"),(16,"Rose"),(17,"Shea"),(18,"Mia"),(19,"Ross"),(20,"Adria");
-INSERT INTO `hosts` (`id`,`name`) VALUES (21,"Ferris"),(22,"Hillary"),(23,"Nissim"),(24,"Lucius"),(25,"Yen"),(26,"Cyrus"),(27,"Kai"),(28,"Myra"),(29,"Bianca"),(30,"Colin");
-INSERT INTO `hosts` (`id`,`name`) VALUES (31,"Jaden"),(32,"Cheyenne"),(33,"Sheila"),(34,"Kevin"),(35,"Cailin"),(36,"Hiram"),(37,"Tana"),(38,"Lester"),(39,"Christine"),(40,"Josephine");
-INSERT INTO `hosts` (`id`,`name`) VALUES (41,"Boris"),(42,"Maya"),(43,"Fredericka"),(44,"Pamela"),(45,"Aquila"),(46,"Gail"),(47,"Lucius"),(48,"Hyatt"),(49,"Ezekiel"),(50,"Gage");
-INSERT INTO `hosts` (`id`,`name`) VALUES (51,"Hayfa"),(52,"Raja"),(53,"Indigo"),(54,"Quail"),(55,"Colton"),(56,"Owen"),(57,"Kennedy"),(58,"Kelsey"),(59,"Salvador"),(60,"Trevor");
-INSERT INTO `hosts` (`id`,`name`) VALUES (61,"Kirby"),(62,"MacKenzie"),(63,"Ryder"),(64,"Owen"),(65,"Yen"),(66,"Keegan"),(67,"Nasim"),(68,"Hedley"),(69,"Robin"),(70,"Beverly");
-INSERT INTO `hosts` (`id`,`name`) VALUES (71,"Jacob"),(72,"Quemby"),(73,"Ima"),(74,"Wing"),(75,"Porter"),(76,"Skyler"),(77,"William"),(78,"Hollee"),(79,"Price"),(80,"Omar");
-INSERT INTO `hosts` (`id`,`name`) VALUES (81,"Lael"),(82,"Amery"),(83,"Abra"),(84,"Kiona"),(85,"Stacey"),(86,"Troy"),(87,"Eleanor"),(88,"Simon"),(89,"Chanda"),(90,"Omar");
-INSERT INTO `hosts` (`id`,`name`) VALUES (91,"Kiara"),(92,"Scott"),(93,"Daquan"),(94,"Bert"),(95,"Hedwig"),(96,"Jesse"),(97,"Tatiana"),(98,"Mufutau"),(99,"Martha"),(100,"Arden");
 
 INSERT INTO `reviews` (`id`,`guest_name`,`review_text`,`date`,`hostId`,`accuracy_rating`,`communication_rating`,`cleanliness_rating`,`location_rating`,`checkin_rating`,`value_rating`) VALUES (1,"Susan","lorem, sit amet ultricies sem magna nec quam. Curabitur vel lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim magna a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia orci, consectetuer euismod est arcu ac orci. Ut semper pretium neque. Morbi quis urna. Nunc quis arcu vel quam dignissim pharetra. Nam ac nulla. In tincidunt congue turpis. In condimentum.","25/07/2015",50,5,4,5,3,3,2),(2,"Lamar","ut lacus. Nulla tincidunt, neque vitae semper egestas, urna justo faucibus lectus, a sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet lectus quis massa. Mauris vestibulum, neque sed dictum eleifend, nunc risus varius orci, in consequat enim diam vel arcu. Curabitur ut odio vel est tempor bibendum. Donec felis orci, adipiscing non, luctus","13/01/2015",3,3,3,2,5,3,5),(3,"Reece","tempus eu, ligula. Aenean euismod mauris eu elit. Nulla facilisi. Sed neque. Sed eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Mauris","03/07/2017",57,5,5,2,2,3,3),(4,"Marny","pede et risus. Quisque libero lacus, varius et, euismod et, commodo at, libero. Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet luctus","03/04/2014",12,3,1,2,4,5,4),(5,"Fletcher","elit. Nulla facilisi. Sed neque. Sed eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus","13/11/2017",44,2,1,1,2,2,4),(6,"Ivory","nec luctus felis purus ac tellus. Suspendisse sed dolor. Fusce mi lorem, vehicula et, rutrum eu, ultrices sit amet, risus. Donec nibh enim, gravida sit amet, dapibus id, blandit at, nisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vel nisl. Quisque","10/03/2017",59,1,2,5,4,3,2),(7,"Nelle","non arcu. Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis non, cursus non, egestas a, dui. Cras pellentesque. Sed dictum. Proin eget odio. Aliquam vulputate ullamcorper magna. Sed eu eros. Nam consequat dolor vitae dolor. Donec fringilla. Donec feugiat metus sit amet ante.","23/12/2012",57,1,3,1,4,1,2),(8,"Victoria","dictum eu, placerat eget, venenatis a, magna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam laoreet, libero et tristique pellentesque, tellus sem mollis dui, in sodales elit erat vitae risus. Duis a mi fringilla mi lacinia mattis. Integer eu lacus.","24/10/2017",38,4,3,4,2,5,4),(9,"Elton","non ante bibendum ullamcorper. Duis cursus, diam at pretium aliquet, metus urna convallis erat, eget tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel, venenatis vel, faucibus id, libero. Donec consectetuer mauris id sapien. Cras dolor dolor, tempus non, lacinia at, iaculis quis, pede. Praesent eu dui. Cum sociis natoque penatibus et magnis dis parturient montes,","21/05/2014",96,1,4,2,1,5,4),(10,"Wyoming","amet, faucibus ut, nulla. Cras eu tellus eu augue porttitor interdum. Sed auctor odio a purus. Duis","10/12/2017",27,3,3,1,5,3,1);
 INSERT INTO `reviews` (`id`,`guest_name`,`review_text`,`date`,`hostId`,`accuracy_rating`,`communication_rating`,`cleanliness_rating`,`location_rating`,`checkin_rating`,`value_rating`) VALUES (11,"Len","purus. Maecenas libero est, congue a, aliquet vel, vulputate eu, odio. Phasellus at augue id ante dictum cursus. Nunc mauris elit, dictum eu, eleifend nec, malesuada ut, sem. Nulla interdum. Curabitur dictum. Phasellus in felis. Nulla tempor augue ac ipsum. Phasellus vitae mauris sit amet lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis risus. In mi pede, nonummy ut, molestie in, tempus eu, ligula. Aenean euismod mauris eu elit. Nulla facilisi. Sed","17/02/2014",6,3,3,2,4,2,5),(12,"Miranda","rutrum. Fusce dolor quam, elementum at, egestas a, scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed orci lobortis augue scelerisque mollis. Phasellus libero mauris, aliquam eu, accumsan sed,","22/02/2017",80,2,3,2,5,2,1),(13,"Avye","consectetuer adipiscing elit. Aliquam auctor, velit eget laoreet posuere, enim nisl elementum purus, accumsan interdum libero dui nec","26/04/2016",76,1,5,5,5,3,3),(14,"Jason","Praesent luctus. Curabitur egestas nunc sed libero. Proin sed turpis nec mauris blandit mattis. Cras eget nisi dictum augue malesuada malesuada. Integer id magna et ipsum cursus vestibulum. Mauris magna. Duis dignissim tempor arcu. Vestibulum ut eros non enim commodo hendrerit. Donec porttitor tellus non magna. Nam ligula elit, pretium et, rutrum non, hendrerit id, ante. Nunc mauris sapien, cursus in, hendrerit consectetuer, cursus et, magna. Praesent interdum ligula eu enim. Etiam imperdiet dictum magna. Ut tincidunt orci","27/04/2017",70,5,2,5,3,3,1),(15,"Petra","nec orci. Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis non, cursus non, egestas a, dui. Cras pellentesque. Sed dictum. Proin eget","23/02/2014",1,1,4,1,5,5,1),(16,"Nathan","vel sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas. Duis ac arcu. Nunc mauris. Morbi non sapien molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero at auctor ullamcorper, nisl arcu iaculis enim, sit amet ornare lectus justo eu arcu. Morbi sit amet massa. Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices a, auctor non, feugiat nec, diam. Duis mi enim, condimentum eget, volutpat ornare, facilisis eget, ipsum. Donec sollicitudin adipiscing ligula. Aenean gravida nunc sed pede. Cum sociis natoque penatibus et","17/07/2013",98,3,2,5,4,5,5),(17,"Adele","a neque. Nullam ut nisi a odio semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices iaculis odio. Nam interdum enim non nisi. Aenean eget metus. In nec orci. Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis non, cursus non, egestas a, dui. Cras pellentesque. Sed dictum. Proin eget odio. Aliquam vulputate ullamcorper magna. Sed eu eros. Nam consequat dolor","03/01/2017",82,3,4,1,4,4,2),(18,"Faith","quis massa. Mauris vestibulum, neque sed dictum eleifend, nunc risus varius orci, in consequat enim diam vel arcu. Curabitur ut odio vel est tempor bibendum. Donec felis orci, adipiscing non, luctus sit amet, faucibus ut, nulla. Cras eu tellus eu augue porttitor interdum. Sed auctor odio a purus. Duis elementum,","06/09/2012",79,5,5,5,5,4,4),(19,"Lila","penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum metus. Aenean sed pede nec ante blandit viverra. Donec tempus, lorem fringilla ornare placerat, orci lacus vestibulum lorem, sit amet ultricies sem magna nec quam. Curabitur vel lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim magna a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet","11/09/2017",58,4,2,5,4,4,4),(20,"Hiram","ridiculus mus. Donec dignissim magna a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia orci, consectetuer euismod est arcu ac orci. Ut semper pretium neque. Morbi quis urna. Nunc quis arcu vel quam dignissim pharetra. Nam ac nulla. In tincidunt congue turpis. In condimentum. Donec at arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec tincidunt. Donec vitae erat","27/01/2015",51,1,3,2,5,3,2);
