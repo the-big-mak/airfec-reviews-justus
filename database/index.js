@@ -5,10 +5,10 @@ const config = {
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'airFeC_reviews'
+  database: 'airFeC_reviews',
 };
 
-let connection = mysql.createConnection(config);
+const connection = mysql.createConnection(config);
 
 connection.connect((err) => {
   if (err) {
@@ -18,37 +18,45 @@ connection.connect((err) => {
   }
 });
 
-let getData = (id, callback) => {
-  let queryStr = `select reviews.*, hosts.name from reviews, hosts where reviews.hostId = ${id} && hosts.id = ${id}`;
+const getData = (callback) => {
+  const queryStr = `SELECT reviews.*, properties.host_name FROM reviews, properties WHERE reviews.hostId = ${5} AND properties.id = ${5}`;
   connection.query(queryStr, (err, data) => {
     if (err) {
       callback(err, null);
     } else {
       callback(null, data);
     }
-  })
+  });
 };
 
-let addHostPhotos = (photos) => {
-  console.log('photos', photos)
-  for (let i = 0; i < photos.length; i++) {
-    let queryStr = `UPDATE properties SET host_photo='${photos[i].Key}' WHERE id=${i}`;
-    console.log('photos[i].key', photos[i].Key);
-    connection.query(queryStr, (err, data) =>{ 
+const addPhotos = (photos) => {
+  for (let i = 0; i < photos.length; i + 1) {
+    // update the host photos, only 100 hosts
+    if (i <= 100) {
+      const hostPhotosQuery = `UPDATE properties SET host_photo='${photos[i].Key}' WHERE id=${i}`;
+      connection.query(hostPhotosQuery, (err) => {
+        if (err) {
+          console.log('failed to update host photos', err);
+        } else {
+          console.log('succefully updated host photos');
+        }
+      });
+    }
+    // update the guests photos
+    const guestPhotosQuery = `UPDATE reviews SET photo='${photos[i].Key}' WHERE id=${i}`;
+    connection.query(guestPhotosQuery, (err) => {
       if (err) {
-        //callback(err, null);
-        console.log('failed to update host photos', err);
+        console.log('failed to update guest photos', err);
       } else {
-        //callback(null, data);
-        console.log('succefully updated host photos');
+        console.log('succefully updated guest photos');
       }
     });
   }
-}
+};
 
 module.exports = {
   connection,
   getData,
-  addHostPhotos
+  addPhotos,
 };
 
