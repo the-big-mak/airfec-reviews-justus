@@ -3,12 +3,11 @@
   font-size: 14px;
   line-height: 1.43;
   color: #484848;
-  /* width: 33%; */
+  width: 33%;
 }
 
 .report {
   position: relative;
-  
   margin-left: 100px;
   cursor: pointer !important;
   background-color: transparent !important;
