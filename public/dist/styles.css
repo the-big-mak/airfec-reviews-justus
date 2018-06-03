@@ -5,6 +5,10 @@
   color: #484848;
 }
 
+.report {
+  float: right;
+}
+
 .reviewHeader {
   width: 100% !important;
   vertical-align: top !important;
@@ -88,4 +92,39 @@
 
 .bottomBorder {
   border-bottom: 1px solid #DBDBDB;
+}
+
+.submitReport:disabled {
+  color: rgb(255, 255, 255) !important;
+  cursor: default !important;
+  background: rgba(0, 132, 137, 0.3) !important;
+  border-color: transparent !important;
+}
+
+.submitReport {
+  cursor: pointer !important;
+  display: inline-block !important;
+  position: relative !important;
+  text-align: center !important;
+  transition-property: background, border-color, color !important;
+  transition-duration: 0.2s !important;
+  transition-timing-function: ease-out !important;
+  width: auto !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 21px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  font-weight: 800 !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  min-width: 77.6656px !important;
+  color: rgb(255, 255, 255) !important;
+  margin: 0px !important;
+  text-decoration: none !important;
+  border-radius: 4px !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  background: rgb(0, 132, 137) !important;
+  border-color: transparent !important;
 }

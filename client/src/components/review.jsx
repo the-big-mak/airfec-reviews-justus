@@ -1,5 +1,7 @@
 import React from 'react';
+import Popup from 'reactjs-popup';
 import ReviewText from './reviewText.jsx';
+import Report from './report.jsx';
 
 class Review extends React.Component {
   constructor(props) {
@@ -30,7 +32,8 @@ class Review extends React.Component {
     return (
       <div className="review">
         <img className="guestPhoto" src="https://s3-us-west-1.amazonaws.com/guestpics/1Spy3bu.jpg" />
-        <button className="report">a</button>
+        {/* <button className="report">a</button> */}
+        <Report />
         <div className="reviewHeader">
           <div className="guestName">{this.props.review.guest_name}</div>
           <div className="date">{formatedDate}</div>
