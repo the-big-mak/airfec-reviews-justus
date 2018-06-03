@@ -8,7 +8,7 @@ export default class App extends React.Component {
     this.state = {
       roomId: 5,
       reviewData: [],
-    }
+    };
   }
 
   componentDidMount() {
@@ -19,13 +19,13 @@ export default class App extends React.Component {
     axios.get('/reviews', {
       params: {
         ID: this.state.roomId,
-      }
+      },
     })
-    .then((response) => {
-      console.log('success got data', response.data);
-      callback(response.data);
-    })
-    .catch(error => console.error('failed to get room data', error))
+      .then((response) => {
+        console.log('success got data', response.data);
+        callback(response.data);
+      })
+      .catch(error => console.error('failed to get room data', error))
   }
 
   handleReceivedReviewData(data) {
@@ -42,4 +42,4 @@ export default class App extends React.Component {
       </div>
     );
   }
-};
+}
