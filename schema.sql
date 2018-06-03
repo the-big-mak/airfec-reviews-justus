@@ -5,7 +5,8 @@ USE airFeC_reviews;
 CREATE TABLE IF NOT EXISTS properties (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   host_name VARCHAR(250),
-  host_photo VARCHAR(500)
+  host_photo VARCHAR(500),
+  host_text TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS reviews (
@@ -24,106 +25,307 @@ CREATE TABLE IF NOT EXISTS reviews (
   FOREIGN KEY fk(hostId) REFERENCES properties(id)
 );
 
-insert into properties (id, host_name, host_photo) values (1, 'Ingeberg', null);
-insert into properties (id, host_name, host_photo) values (2, 'Aeriel', null);
-insert into properties (id, host_name, host_photo) values (3, 'Iggy', null);
-insert into properties (id, host_name, host_photo) values (4, 'Nikoletta', null);
-insert into properties (id, host_name, host_photo) values (5, 'Angele', null);
-insert into properties (id, host_name, host_photo) values (6, 'Shelden', null);
-insert into properties (id, host_name, host_photo) values (7, 'Trixy', null);
-insert into properties (id, host_name, host_photo) values (8, 'Edgard', null);
-insert into properties (id, host_name, host_photo) values (9, 'Carry', null);
-insert into properties (id, host_name, host_photo) values (10, 'Val', null);
-insert into properties (id, host_name, host_photo) values (11, 'Jacquelyn', null);
-insert into properties (id, host_name, host_photo) values (12, 'Kacie', null);
-insert into properties (id, host_name, host_photo) values (13, 'Alexandr', null);
-insert into properties (id, host_name, host_photo) values (14, 'Lorrie', null);
-insert into properties (id, host_name, host_photo) values (15, 'Byran', null);
-insert into properties (id, host_name, host_photo) values (16, 'Madeline', null);
-insert into properties (id, host_name, host_photo) values (17, 'Chelsie', null);
-insert into properties (id, host_name, host_photo) values (18, 'Lianna', null);
-insert into properties (id, host_name, host_photo) values (19, 'Melly', null);
-insert into properties (id, host_name, host_photo) values (20, 'Archaimbaud', null);
-insert into properties (id, host_name, host_photo) values (21, 'Lorena', null);
-insert into properties (id, host_name, host_photo) values (22, 'Grazia', null);
-insert into properties (id, host_name, host_photo) values (23, 'Xylina', null);
-insert into properties (id, host_name, host_photo) values (24, 'Camilla', null);
-insert into properties (id, host_name, host_photo) values (25, 'Giacopo', null);
-insert into properties (id, host_name, host_photo) values (26, 'Fayina', null);
-insert into properties (id, host_name, host_photo) values (27, 'Minette', null);
-insert into properties (id, host_name, host_photo) values (28, 'Gottfried', null);
-insert into properties (id, host_name, host_photo) values (29, 'Hedi', null);
-insert into properties (id, host_name, host_photo) values (30, 'Donnamarie', null);
-insert into properties (id, host_name, host_photo) values (31, 'Kimberley', null);
-insert into properties (id, host_name, host_photo) values (32, 'Genni', null);
-insert into properties (id, host_name, host_photo) values (33, 'Adolphus', null);
-insert into properties (id, host_name, host_photo) values (34, 'Gabriela', null);
-insert into properties (id, host_name, host_photo) values (35, 'Sheppard', null);
-insert into properties (id, host_name, host_photo) values (36, 'Guss', null);
-insert into properties (id, host_name, host_photo) values (37, 'Buffy', null);
-insert into properties (id, host_name, host_photo) values (38, 'Rickert', null);
-insert into properties (id, host_name, host_photo) values (39, 'Bryna', null);
-insert into properties (id, host_name, host_photo) values (40, 'Torr', null);
-insert into properties (id, host_name, host_photo) values (41, 'Antonio', null);
-insert into properties (id, host_name, host_photo) values (42, 'Yank', null);
-insert into properties (id, host_name, host_photo) values (43, 'Peggy', null);
-insert into properties (id, host_name, host_photo) values (44, 'Cherilynn', null);
-insert into properties (id, host_name, host_photo) values (45, 'Angela', null);
-insert into properties (id, host_name, host_photo) values (46, 'Angelia', null);
-insert into properties (id, host_name, host_photo) values (47, 'Fredrika', null);
-insert into properties (id, host_name, host_photo) values (48, 'Teddie', null);
-insert into properties (id, host_name, host_photo) values (49, 'Hedwig', null);
-insert into properties (id, host_name, host_photo) values (50, 'Perrine', null);
-insert into properties (id, host_name, host_photo) values (51, 'Luther', null);
-insert into properties (id, host_name, host_photo) values (52, 'Kassey', null);
-insert into properties (id, host_name, host_photo) values (53, 'Allister', null);
-insert into properties (id, host_name, host_photo) values (54, 'Reuben', null);
-insert into properties (id, host_name, host_photo) values (55, 'Sully', null);
-insert into properties (id, host_name, host_photo) values (56, 'Alair', null);
-insert into properties (id, host_name, host_photo) values (57, 'Pattin', null);
-insert into properties (id, host_name, host_photo) values (58, 'Marrilee', null);
-insert into properties (id, host_name, host_photo) values (59, 'Ariella', null);
-insert into properties (id, host_name, host_photo) values (60, 'Marlie', null);
-insert into properties (id, host_name, host_photo) values (61, 'Emmye', null);
-insert into properties (id, host_name, host_photo) values (62, 'Mario', null);
-insert into properties (id, host_name, host_photo) values (63, 'Igor', null);
-insert into properties (id, host_name, host_photo) values (64, 'Edik', null);
-insert into properties (id, host_name, host_photo) values (65, 'Fredi', null);
-insert into properties (id, host_name, host_photo) values (66, 'Olly', null);
-insert into properties (id, host_name, host_photo) values (67, 'Martelle', null);
-insert into properties (id, host_name, host_photo) values (68, 'Brodie', null);
-insert into properties (id, host_name, host_photo) values (69, 'Delaney', null);
-insert into properties (id, host_name, host_photo) values (70, 'Robert', null);
-insert into properties (id, host_name, host_photo) values (71, 'Bettye', null);
-insert into properties (id, host_name, host_photo) values (72, 'Georgina', null);
-insert into properties (id, host_name, host_photo) values (73, 'Casandra', null);
-insert into properties (id, host_name, host_photo) values (74, 'Alverta', null);
-insert into properties (id, host_name, host_photo) values (75, 'Renate', null);
-insert into properties (id, host_name, host_photo) values (76, 'Penelope', null);
-insert into properties (id, host_name, host_photo) values (77, 'Mavra', null);
-insert into properties (id, host_name, host_photo) values (78, 'Sigismund', null);
-insert into properties (id, host_name, host_photo) values (79, 'Shep', null);
-insert into properties (id, host_name, host_photo) values (80, 'Marthena', null);
-insert into properties (id, host_name, host_photo) values (81, 'Preston', null);
-insert into properties (id, host_name, host_photo) values (82, 'Ava', null);
-insert into properties (id, host_name, host_photo) values (83, 'Michele', null);
-insert into properties (id, host_name, host_photo) values (84, 'Maddi', null);
-insert into properties (id, host_name, host_photo) values (85, 'Bronny', null);
-insert into properties (id, host_name, host_photo) values (86, 'Alric', null);
-insert into properties (id, host_name, host_photo) values (87, 'Dimitry', null);
-insert into properties (id, host_name, host_photo) values (88, 'Esther', null);
-insert into properties (id, host_name, host_photo) values (89, 'Donnamarie', null);
-insert into properties (id, host_name, host_photo) values (90, 'Carolee', null);
-insert into properties (id, host_name, host_photo) values (91, 'Carole', null);
-insert into properties (id, host_name, host_photo) values (92, 'Kendricks', null);
-insert into properties (id, host_name, host_photo) values (93, 'Davis', null);
-insert into properties (id, host_name, host_photo) values (94, 'Terrill', null);
-insert into properties (id, host_name, host_photo) values (95, 'Darius', null);
-insert into properties (id, host_name, host_photo) values (96, 'Starlene', null);
-insert into properties (id, host_name, host_photo) values (97, 'Aaren', null);
-insert into properties (id, host_name, host_photo) values (98, 'Eva', null);
-insert into properties (id, host_name, host_photo) values (99, 'Kelby', null);
-insert into properties (id, host_name, host_photo) values (100, 'Debera', null);
+insert into properties (id, host_name, host_photo, host_text) values (1, 'Hyacinth', null, 'In congue. Etiam justo. Etiam pretium iaculis justo.');
+insert into properties (id, host_name, host_photo, host_text) values (2, 'Shanie', null, 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+
+Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.');
+insert into properties (id, host_name, host_photo, host_text) values (3, 'Lyndy', null, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.');
+insert into properties (id, host_name, host_photo, host_text) values (4, 'Aldon', null, 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into properties (id, host_name, host_photo, host_text) values (5, 'Edie', null, 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
+insert into properties (id, host_name, host_photo, host_text) values (6, 'Deeanne', null, 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.');
+insert into properties (id, host_name, host_photo, host_text) values (7, 'Elmore', null, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.');
+insert into properties (id, host_name, host_photo, host_text) values (8, 'Korrie', null, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
+insert into properties (id, host_name, host_photo, host_text) values (9, 'Ichabod', null, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
+insert into properties (id, host_name, host_photo, host_text) values (10, 'Mimi', null, 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into properties (id, host_name, host_photo, host_text) values (11, 'Cary', null, 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.');
+insert into properties (id, host_name, host_photo, host_text) values (12, 'Sherlocke', null, 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.');
+insert into properties (id, host_name, host_photo, host_text) values (13, 'Minta', null, 'In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.');
+insert into properties (id, host_name, host_photo, host_text) values (14, 'Francklin', null, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.');
+insert into properties (id, host_name, host_photo, host_text) values (15, 'Cirstoforo', null, 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into properties (id, host_name, host_photo, host_text) values (16, 'Darrin', null, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
+insert into properties (id, host_name, host_photo, host_text) values (17, 'Yorgos', null, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
+insert into properties (id, host_name, host_photo, host_text) values (18, 'Kean', null, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
+insert into properties (id, host_name, host_photo, host_text) values (19, 'Dunc', null, 'Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.');
+insert into properties (id, host_name, host_photo, host_text) values (20, 'Kendricks', null, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.');
+insert into properties (id, host_name, host_photo, host_text) values (21, 'Chicky', null, 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into properties (id, host_name, host_photo, host_text) values (22, 'Olag', null, 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.');
+insert into properties (id, host_name, host_photo, host_text) values (23, 'Phillida', null, 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.');
+insert into properties (id, host_name, host_photo, host_text) values (24, 'Roberto', null, 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
+insert into properties (id, host_name, host_photo, host_text) values (25, 'Brittany', null, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.');
+insert into properties (id, host_name, host_photo, host_text) values (26, 'Ogdan', null, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.');
+insert into properties (id, host_name, host_photo, host_text) values (27, 'Vally', null, 'In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.');
+insert into properties (id, host_name, host_photo, host_text) values (28, 'Dimitri', null, 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
+
+Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+
+Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.');
+insert into properties (id, host_name, host_photo, host_text) values (29, 'Artie', null, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.');
+insert into properties (id, host_name, host_photo, host_text) values (30, 'Correna', null, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
+insert into properties (id, host_name, host_photo, host_text) values (31, 'Kirstyn', null, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.');
+insert into properties (id, host_name, host_photo, host_text) values (32, 'Jarret', null, 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
+insert into properties (id, host_name, host_photo, host_text) values (33, 'Monica', null, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.');
+insert into properties (id, host_name, host_photo, host_text) values (34, 'Wilden', null, 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
+insert into properties (id, host_name, host_photo, host_text) values (35, 'Olga', null, 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.');
+insert into properties (id, host_name, host_photo, host_text) values (36, 'Nikoletta', null, 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
+insert into properties (id, host_name, host_photo, host_text) values (37, 'Emalia', null, 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.');
+insert into properties (id, host_name, host_photo, host_text) values (38, 'Calypso', null, 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.');
+insert into properties (id, host_name, host_photo, host_text) values (39, 'Vincents', null, 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into properties (id, host_name, host_photo, host_text) values (40, 'Corbie', null, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
+insert into properties (id, host_name, host_photo, host_text) values (41, 'Viviene', null, 'Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.');
+insert into properties (id, host_name, host_photo, host_text) values (42, 'Lauree', null, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
+insert into properties (id, host_name, host_photo, host_text) values (43, 'Genia', null, 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.');
+insert into properties (id, host_name, host_photo, host_text) values (44, 'Lisbeth', null, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.
+
+Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
+insert into properties (id, host_name, host_photo, host_text) values (45, 'Clementina', null, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
+insert into properties (id, host_name, host_photo, host_text) values (46, 'Miguel', null, 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
+insert into properties (id, host_name, host_photo, host_text) values (47, 'Herbert', null, 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into properties (id, host_name, host_photo, host_text) values (48, 'Bradan', null, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
+
+Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+
+Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
+insert into properties (id, host_name, host_photo, host_text) values (49, 'Sal', null, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.');
+insert into properties (id, host_name, host_photo, host_text) values (50, 'Deeanne', null, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.');
+insert into properties (id, host_name, host_photo, host_text) values (51, 'Maryjo', null, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
+
+Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.');
+insert into properties (id, host_name, host_photo, host_text) values (52, 'Daffi', null, 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
+insert into properties (id, host_name, host_photo, host_text) values (53, 'Rocky', null, 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
+insert into properties (id, host_name, host_photo, host_text) values (54, 'Salomo', null, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+
+Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
+
+Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
+insert into properties (id, host_name, host_photo, host_text) values (55, 'Nicolas', null, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+
+Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
+
+Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
+insert into properties (id, host_name, host_photo, host_text) values (56, 'Jim', null, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.');
+insert into properties (id, host_name, host_photo, host_text) values (57, 'Jessamyn', null, 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
+insert into properties (id, host_name, host_photo, host_text) values (58, 'Waiter', null, 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.');
+insert into properties (id, host_name, host_photo, host_text) values (59, 'Iris', null, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.');
+insert into properties (id, host_name, host_photo, host_text) values (60, 'Bettye', null, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
+insert into properties (id, host_name, host_photo, host_text) values (61, 'Jessie', null, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.');
+insert into properties (id, host_name, host_photo, host_text) values (62, 'Nil', null, 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
+insert into properties (id, host_name, host_photo, host_text) values (63, 'Kerry', null, 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.');
+insert into properties (id, host_name, host_photo, host_text) values (64, 'Michail', null, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.');
+insert into properties (id, host_name, host_photo, host_text) values (65, 'Levi', null, 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.');
+insert into properties (id, host_name, host_photo, host_text) values (66, 'Cortney', null, 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.');
+insert into properties (id, host_name, host_photo, host_text) values (67, 'Jude', null, 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.');
+insert into properties (id, host_name, host_photo, host_text) values (68, 'Gaylor', null, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into properties (id, host_name, host_photo, host_text) values (69, 'Alvy', null, 'Phasellus in felis. Donec semper sapien a libero. Nam dui.');
+insert into properties (id, host_name, host_photo, host_text) values (70, 'Zsazsa', null, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.');
+insert into properties (id, host_name, host_photo, host_text) values (71, 'Gino', null, 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.');
+insert into properties (id, host_name, host_photo, host_text) values (72, 'Gregorio', null, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
+
+Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+
+Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
+insert into properties (id, host_name, host_photo, host_text) values (73, 'Hilda', null, 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.');
+insert into properties (id, host_name, host_photo, host_text) values (74, 'Drusie', null, 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
+insert into properties (id, host_name, host_photo, host_text) values (75, 'Erminie', null, 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.');
+insert into properties (id, host_name, host_photo, host_text) values (76, 'Skipp', null, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.');
+insert into properties (id, host_name, host_photo, host_text) values (77, 'Meredith', null, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
+insert into properties (id, host_name, host_photo, host_text) values (78, 'Dareen', null, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.');
+insert into properties (id, host_name, host_photo, host_text) values (79, 'Edithe', null, 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
+insert into properties (id, host_name, host_photo, host_text) values (80, 'Bennie', null, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.');
+insert into properties (id, host_name, host_photo, host_text) values (81, 'Alphard', null, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.');
+insert into properties (id, host_name, host_photo, host_text) values (82, 'Tab', null, 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
+insert into properties (id, host_name, host_photo, host_text) values (83, 'Karole', null, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.');
+insert into properties (id, host_name, host_photo, host_text) values (84, 'Armin', null, 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
+insert into properties (id, host_name, host_photo, host_text) values (85, 'Rea', null, 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.');
+insert into properties (id, host_name, host_photo, host_text) values (86, 'Ignazio', null, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.');
+insert into properties (id, host_name, host_photo, host_text) values (87, 'Zarla', null, 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.');
+insert into properties (id, host_name, host_photo, host_text) values (88, 'Fay', null, 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.');
+insert into properties (id, host_name, host_photo, host_text) values (89, 'Corene', null, 'Sed ante. Vivamus tortor. Duis mattis egestas metus.');
+insert into properties (id, host_name, host_photo, host_text) values (90, 'Levin', null, 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.');
+insert into properties (id, host_name, host_photo, host_text) values (91, 'Danella', null, 'Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
+insert into properties (id, host_name, host_photo, host_text) values (92, 'Charlotta', null, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
+insert into properties (id, host_name, host_photo, host_text) values (93, 'Joella', null, 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.');
+insert into properties (id, host_name, host_photo, host_text) values (94, 'Alf', null, 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
+insert into properties (id, host_name, host_photo, host_text) values (95, 'Veronica', null, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
+insert into properties (id, host_name, host_photo, host_text) values (96, 'Claudianus', null, 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.');
+insert into properties (id, host_name, host_photo, host_text) values (97, 'Vick', null, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.');
+insert into properties (id, host_name, host_photo, host_text) values (98, 'Sonni', null, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
+insert into properties (id, host_name, host_photo, host_text) values (99, 'Heida', null, 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into properties (id, host_name, host_photo, host_text) values (100, 'Burg', null, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
+
+Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+
+Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
+
 
 
 insert into reviews (id, guest_name, review_text, date, photo, hostId, accuracy_rating, communication_rating, cleanliness_rating, location_rating, checkin_rating, value_rating) values (1, 'Kristoffer', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', '2015/01/07', null, 91, 4, 2, 5, 3, 5, 2);

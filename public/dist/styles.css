@@ -3,10 +3,21 @@
   font-size: 14px;
   line-height: 1.43;
   color: #484848;
+  /* width: 33%; */
 }
 
 .report {
-  float: right;
+  position: relative;
+  
+  margin-left: 100px;
+  cursor: pointer !important;
+  background-color: transparent !important;
+  color: buttontext !important;
+  display: block !important;
+  border-width: 0px !important;
+  border-style: initial !important;
+  border-color: initial !important;
+  border-image: initial !important;
 }
 
 .reviewHeader {
@@ -71,6 +82,19 @@
   -ms-user-select: auto !important;
   user-select: auto !important;
   text-align: left !important;
+}
+
+.hostResponse {
+  margin-left: 50px;
+}
+
+.hostDate {
+  margin-top: 10px;
+}
+
+.hostPhoto {
+  float: left;
+  position: relative;
 }
 
 .reviewText {
