@@ -19,7 +19,7 @@ export default class ReviewText extends React.Component {
   render() {
     if (this.state.fullText.length >= 280) {
       return (
-        <div>{this.state.shortText}...<a href="#" onClick={this.handleReadMoreClick.bind(this)}>Read More</a></div>
+        <div>{this.state.shortText}...<button className="readMore" onClick={this.handleReadMoreClick.bind(this)}>Read More</button></div>
       );
     }
     return (
