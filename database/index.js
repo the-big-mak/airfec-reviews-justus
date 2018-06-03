@@ -30,7 +30,7 @@ const getData = (callback) => {
 };
 
 const addPhotos = (photos) => {
-  for (let i = 0; i < photos.length; i + 1) {
+  for (let i = 0; i < 100; i + 1) {
     // update the host photos, only 100 hosts
     if (i <= 100) {
       const hostPhotosQuery = `UPDATE properties SET host_photo='${photos[i].Key}' WHERE id=${i}`;

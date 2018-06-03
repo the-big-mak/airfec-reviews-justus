@@ -5,7 +5,7 @@ USE airFeC_reviews;
 CREATE TABLE IF NOT EXISTS properties (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   host_name VARCHAR(250),
-  host_photo VARCHAR(300)
+  host_photo VARCHAR(500)
 );
 
 CREATE TABLE IF NOT EXISTS reviews (
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS reviews (
   guest_name VARCHAR(250),
   review_text TEXT NOT NULL,
   date VARCHAR(15) NOT NULL,
-  photo VARCHAR(300),
+  photo VARCHAR(500),
   hostId INT NOT NULL,
   accuracy_rating TINYINT NOT NULL,
   communication_rating TINYINT NOT NULL,
