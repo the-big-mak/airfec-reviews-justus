@@ -8,9 +8,10 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       roomId: 5,
-      reviewData: [],
+      allReviewData: [],
       ratings: [],
       searchText: '',
+      currentReviews: [],
     };
   }
 
@@ -58,7 +59,8 @@ export default class App extends React.Component {
     const total = Math.round((2 * (accuracy + communication + cleanliness + location + checkin + value)) / 6) / 2;
     this.sortedByDate(data);
     this.setState({
-      reviewData: data,
+      allReviewData: data,
+      currentReviews: data,
       ratings: [accuracy, communication, cleanliness, location, checkin, value, total],
 
     });
@@ -71,24 +73,35 @@ export default class App extends React.Component {
   }
 
   handleKeyPress(target) {
-    if(target.charCode==13){
-      this.searchReviews(this.state.searchText);    
+    if (target.charCode === 13) {
+      this.filterReviews(this.state.searchText);
     }
   }
 
-  searchReviews(query) {
-    console.log(query);
+  filterReviews(query) {
+    const filteredReviews = this.state.allReviewData.filter((review) => {
+      let reviewText = review.review_text.toLowerCase();
+      let hostText = review.host_text.toLowerCase();
+      let query1 = query.toLowerCase();
+      if (review.id % 10 === 0) {
+        return hostText.includes(query1);
+      }
+      return reviewText.includes(query1);
+    });
+    this.setState({
+      currentReviews: filteredReviews,
+    });
   }
 
   render() {
     return (
       <div>
-        <div><Ratings reviews={this.state.reviewData}
+        <div><Ratings reviews={this.state.currentReviews}
                       ratings={this.state.ratings}
                       handleSearchTextChange={this.handleSearchTextChange.bind(this)}
                       handleKeyPress={this.handleKeyPress.bind(this)}
         /></div>
-        <div><ReviewList reviews={this.state.reviewData} /></div>
+        <div><ReviewList reviews={this.state.currentReviews} /></div>
       </div>
     );
   }
