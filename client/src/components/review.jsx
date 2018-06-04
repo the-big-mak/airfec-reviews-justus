@@ -1,18 +1,10 @@
 import React from 'react';
-import Popup from 'reactjs-popup';
-import ReviewText from './reviewText.jsx';
-import Report from './report.jsx';
-import HostResponse from './hostResponse.jsx';
+import PropTypes from 'prop-types';
+import ReviewText from './reviewText';
+import Report from './report';
+import HostResponse from './hostResponse';
 
 class Review extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  handleReportClick() {
-    
-  }
-
   render() {
     const month = {
       '01': 'January',
@@ -27,30 +19,35 @@ class Review extends React.Component {
       '10': 'October',
       '11': 'November',
       '12': 'December',
-    }
-    const date1 = this.props.review.date.split('/');
-    const formatedDate = `${month[date1[1]]} ${date1[0]}`;
-    let hostResponse = this.props.review.id % 10 ? '' : <HostResponse date1={formatedDate} hostResponse={this.props.review}/>;
+    };
+    const {
+      review,
+    } = this.props;
+
+    const date = review.date.split('/');
+    const formatedDate = `${month[date[1]]} ${date[0]}`;
+    const hostResponse = review.id % 10 ? '' : <HostResponse date={formatedDate} hostResponse={review} />;
+
     return (
       <div className="review">
-        <img className="guestPhoto" src="2RTqR9s.jpg" />
-        {/* <button className="report">a</button> */}
+        <img className="guestPhoto" src="2RTqR9s.jpg" alt="" />
         <div className="report"><Report /></div>
         <div className="reviewHeader">
-          <div className="guestName">{this.props.review.guest_name}</div>
+          <div className="guestName">{review.guest_name}</div>
           <div className="date">{formatedDate}</div>
         </div>
-        <div className="reviewText"><ReviewText reviewText={this.props.review.review_text} /></div>
+        <div className="reviewText"><ReviewText reviewText={review.review_text} /></div>
         <div className="hostResponse">{hostResponse}</div>
         <div className="bottomSpace">
-          <div className="bottomBorder"></div>
+          <div className="bottomBorder" />
         </div>
       </div>
     );
   }
 }
 
-export default Review;
+Review.propTypes = {
+  review: PropTypes.objectOf(PropTypes.node).isRequired,
+};
 
-//2Sr6Max.jpg
-//"https://s3-us-west-1.amazonaws.com/guestpics/1Spy3bu.jpg"
+export default Review;

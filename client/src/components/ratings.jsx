@@ -1,74 +1,62 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 
-export default class Ratings extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
-    return (
-    <div>
-      <div className="totalReviews">
-        <div className="totalReviewsWords">{this.props.reviews.length} Reviews<span><StarRatings
-            rating={this.props.ratings[6]}
-            starDimension="20px"
-            starSpacing="3px"
-            starRatedColor="#008489"
-        /></span></div>
-      </div>
-      <div className="searchContainer">
-        <input className="searchBox" type="text" placeholder="Search reviews"
-                onChange={this.props.handleSearchTextChange}
-                onKeyPress={this.props.handleKeyPress}
-                />
-      </div>
-      <div className="subRatings">
-        <div className="acc-com-cle">
-          <div className="accuacy">Accuracy <span><StarRatings
-            rating={this.props.ratings[0]}
-            starDimension="20px"
-            starSpacing="3px"
-            starRatedColor="#008489"
-        /></span></div>
-          <div className="communication">Communication <span><StarRatings
-            rating={this.props.ratings[1]}
-            starDimension="20px"
-            starSpacing="3px"
-            starRatedColor="#008489"
-        /></span></div>
-          <div className="cleanliness">Cleanliness <span><StarRatings
-            rating={this.props.ratings[2]}
-            starDimension="20px"
-            starSpacing="3px"
-            starRatedColor="#008489"
-        /></span></div>
+const Ratings = ({ ratings }) => (
+  <div>
+    <div className="subRatings">
+      <div className="acc-com-cle">
+        <div className="accuacy">Accuracy <StarRatings
+          rating={ratings[1]}
+          starDimension="20px"
+          starSpacing="3px"
+          starRatedColor="#008489"
+        />
         </div>
-        <div className="loc-che-val">
-          <div className="location">Location <span><StarRatings
-            rating={this.props.ratings[3]}
-            starDimension="20px"
-            starSpacing="3px"
-            starRatedColor="#008489"
-        /></span></div>
-          <div className="checkin">Checkin <span><StarRatings
-            rating={this.props.ratings[4]}
-            starDimension="20px"
-            starSpacing="3px"
-            starRatedColor="#008489"
-        /></span></div>
-          <div className="value">Value <span><StarRatings
-            rating={this.props.ratings[5]}
-            starDimension="20px"
-            starSpacing="3px"
-            starRatedColor="#008489"
-        /></span></div>
+        <div className="communication">Communication <StarRatings
+          rating={ratings[2]}
+          starDimension="20px"
+          starSpacing="3px"
+          starRatedColor="#008489"
+        />
+        </div>
+        <div className="cleanliness">Cleanliness <StarRatings
+          rating={ratings[3]}
+          starDimension="20px"
+          starSpacing="3px"
+          starRatedColor="#008489"
+        />
+        </div>
+      </div>
+      <div className="loc-che-val">
+        <div className="location">Location <StarRatings
+          rating={ratings[4]}
+          starDimension="20px"
+          starSpacing="3px"
+          starRatedColor="#008489"
+        />
+        </div>
+        <div className="checkin">Checkin <StarRatings
+          rating={ratings[5]}
+          starDimension="20px"
+          starSpacing="3px"
+          starRatedColor="#008489"
+        />
+        </div>
+        <div className="value">Value <StarRatings
+          rating={ratings[6]}
+          starDimension="20px"
+          starSpacing="3px"
+          starRatedColor="#008489"
+        />
         </div>
       </div>
     </div>
-    );
-  }
-}
+  </div>
+);
 
+Ratings.propTypes = {
+  ratings: PropTypes.arrayOf(PropTypes.number).isRequired,
+};
+
+export default Ratings;

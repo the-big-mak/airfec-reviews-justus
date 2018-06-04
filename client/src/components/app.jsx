@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import ReviewList from './reviewList.jsx';
-import Ratings from './ratings.jsx';
+import ReviewList from './reviewList';
+import Ratings from './ratings';
+import Search from './search';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,6 +14,8 @@ export default class App extends React.Component {
       searchText: '',
       currentReviews: [],
     };
+    this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   componentDidMount() {
@@ -32,23 +35,23 @@ export default class App extends React.Component {
       .catch(error => console.error('failed to get room data', error));
   }
 
+  getAverageRating(reviewRatings, subclass) {
+    let sum = 0;
+    reviewRatings.forEach((review) => {
+      sum += review[subclass];
+    });
+    const average = sum / reviewRatings.length;
+    return Math.round(average * 2) / 2;
+  }
+
   sortedByDate(reviews) {
     return reviews.sort((a, b) => {
-      let aa = a.date.split('/');
-      let bb = b.date.split('/');
+      const aa = a.date.split('/');
+      const bb = b.date.split('/');
       return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
     });
   }
-  
-  getAverageRating(reviewRatings, subclass) {
-    let sum = 0;
-    reviewRatings.forEach(review => {
-      sum += review[subclass];
-    });
-    sum = sum/reviewRatings.length
-    return Math.round(sum * 2) / 2;
-  }
-  
+
   handleReceivedReviewData(data) {
     const accuracy = this.getAverageRating(data, 'accuracy_rating');
     const communication = this.getAverageRating(data, 'communication_rating');
@@ -80,9 +83,9 @@ export default class App extends React.Component {
 
   filterReviews(query) {
     const filteredReviews = this.state.allReviewData.filter((review) => {
-      let reviewText = review.review_text.toLowerCase();
-      let hostText = review.host_text.toLowerCase();
-      let query1 = query.toLowerCase();
+      const reviewText = review.review_text.toLowerCase();
+      const hostText = review.host_text.toLowerCase();
+      const query1 = query.toLowerCase();
       if (review.id % 10 === 0) {
         return hostText.includes(query1);
       }
@@ -96,11 +99,17 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <div><Ratings reviews={this.state.currentReviews}
-                      ratings={this.state.ratings}
-                      handleSearchTextChange={this.handleSearchTextChange.bind(this)}
-                      handleKeyPress={this.handleKeyPress.bind(this)}
-        /></div>
+        <div><Search
+          handleSearchTextChange={this.handleSearchTextChange}
+          handleKeyPress={this.handleKeyPress}
+          totalRating={this.state.ratings[6]}
+          totalReviews={this.state.allReviewData.length}
+        />
+        </div>
+        <div><Ratings
+          ratings={this.state.ratings}
+        />
+        </div>
         <div><ReviewList reviews={this.state.currentReviews} /></div>
       </div>
     );

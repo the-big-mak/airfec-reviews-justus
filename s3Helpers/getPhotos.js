@@ -1,5 +1,5 @@
 const aws = require('aws-sdk');
-const cred = require('./config.js');
+const cred = require('./config');
 
 aws.config.update({
   accessKeyId: cred.accessKey,

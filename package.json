@@ -25,6 +25,7 @@
     "express": "^4.16.3",
     "mysql": "^2.15.0",
     "node-uuid": "^1.4.8",
+    "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-star-ratings": "^2.2.0",

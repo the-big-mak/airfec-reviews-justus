@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
-const db = require('../database/index.js');
-const helper = require('../s3Helpers/getPhotos.js');
+const db = require('../database/index');
+const helper = require('../s3Helpers/getPhotos');
 
 const app = express();
 const port = 3001;
