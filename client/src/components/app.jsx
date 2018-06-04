@@ -10,6 +10,7 @@ export default class App extends React.Component {
       roomId: 5,
       reviewData: [],
       ratings: [],
+      searchText: '',
     };
   }
 
@@ -36,7 +37,7 @@ export default class App extends React.Component {
       sum += review[subclass];
     })
     sum = sum/reviewRatings.length
-    return Math.round(sum * 2)/2;
+    return Math.round(sum * 2) / 2;
   }
   
   handleReceivedReviewData(data) {
@@ -46,12 +47,29 @@ export default class App extends React.Component {
     const location = this.getAverageRating(data, 'location_rating');
     const checkin = this.getAverageRating(data, 'checkin_rating');
     const value = this.getAverageRating(data, 'value_rating');
+    const total = Math.round((2 * (accuracy + communication + cleanliness + location + checkin + value)) / 6) / 2;
 
     this.setState({
       reviewData: data,
-      ratings: [accuracy, communication, cleanliness, location, checkin, value],
+      ratings: [accuracy, communication, cleanliness, location, checkin, value, total],
 
     });
+  }
+
+  handleSearchTextChange(e) {
+    this.setState({
+      searchText: e.target.value,
+    });
+  }
+
+  handleKeyPress(target) {
+    if(target.charCode==13){
+      this.searchReviews(this.state.searchText);    
+    }
+}
+
+  searchReviews(query) {
+    console.log(query);
   }
 
   render() {
@@ -59,6 +77,8 @@ export default class App extends React.Component {
       <div>
         <div><Ratings reviews={this.state.reviewData}
                       ratings={this.state.ratings}
+                      handleSearchTextChange={this.handleSearchTextChange.bind(this)}
+                      handleKeyPress={this.handleKeyPress.bind(this)}
         /></div>
         {/* <div><ReviewList reviews={this.state.reviewData} /></div> */}
       </div>

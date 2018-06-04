@@ -5,18 +5,31 @@ export default class Ratings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // accuracy: this.setAverageRating()
     };
   }
+
+  // handleSearchTextChange(e) {
+  //   this.setState({
+  //     searchText: e.target.value,
+  //   })
+  // }
 
   render() {
     return (
     <div>
       <div className="totalReviews">
-        <div className="totalReviewsWords">{this.props.reviews.length} Reviews</div>
+        <div className="totalReviewsWords">{this.props.reviews.length} Reviews<span><StarRatings
+            rating={this.props.ratings[6]}
+            starDimension="20px"
+            starSpacing="3px"
+            starRatedColor="#008489"
+        /></span></div>
       </div>
       <div className="searchContainer">
-        <input className="searchBox" type="text" placeholder="Search reviews" />
+        <input className="searchBox" type="text" placeholder="Search reviews"
+                onChange={this.props.handleSearchTextChange}
+                onKeyPress={this.props.handleKeyPress}
+                />
       </div>
       <div className="subRatings">
         <div className="acc-com-cle">
