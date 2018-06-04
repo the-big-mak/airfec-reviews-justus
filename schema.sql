@@ -13,16 +13,16 @@ CREATE TABLE IF NOT EXISTS reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   guest_name VARCHAR(250),
   review_text TEXT NOT NULL,
-  date VARCHAR(15) NOT NULL,
+  review_date VARCHAR(15) NOT NULL,
   photo VARCHAR(500),
-  hostId INT NOT NULL,
+  host_id INT NOT NULL,
   accuracy_rating TINYINT NOT NULL,
   communication_rating TINYINT NOT NULL,
   cleanliness_rating TINYINT NOT NULL,
   location_rating TINYINT NOT NULL,
   checkin_rating TINYINT NOT NULL,
   value_rating TINYINT NOT NULL,
-  FOREIGN KEY fk(hostId) REFERENCES properties(id)
+  FOREIGN KEY fk(host_id) REFERENCES properties(id)
 );
 
 insert into properties (id, host_name, host_photo, host_text) values (1, 'Hyacinth', null, 'In congue. Etiam justo. Etiam pretium iaculis justo.');
