@@ -19,7 +19,7 @@ connection.connect((err) => {
 });
 
 const getData = (callback) => {
-  const queryStr = `SELECT reviews.*, properties.host_name FROM reviews, properties WHERE reviews.hostId = ${5} AND properties.id = ${5}`;
+  const queryStr = `SELECT reviews.*, properties.host_name, properties.host_photo, properties.host_text FROM reviews, properties WHERE reviews.hostId = ${5} AND properties.id = ${5}`;
   connection.query(queryStr, (err, data) => {
     if (err) {
       callback(err, null);
@@ -30,7 +30,7 @@ const getData = (callback) => {
 };
 
 const addPhotos = (photos) => {
-  for (let i = 0; i < photos.length; i + 1) {
+  for (let i = 0; i < 100; i + 1) {
     // update the host photos, only 100 hosts
     if (i <= 100) {
       const hostPhotosQuery = `UPDATE properties SET host_photo='${photos[i].Key}' WHERE id=${i}`;

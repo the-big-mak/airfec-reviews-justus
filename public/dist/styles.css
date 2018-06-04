@@ -1,0 +1,244 @@
+.totalReviews {
+  width: 66.66666666666666% !important;
+  float: left !important;
+  height: 56px !important;
+}
+
+.totalReviewsWords {
+  font-weight: 600 !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 25px !important;
+  line-height: 30px !important;
+  letter-spacing: normal !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  color: #484848 !important;
+}
+
+.searchContainer {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+  width: 33.33333333333333% !important;
+  float: left !important;
+  height: 56px;
+}
+
+.searchBox {
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: #DBDBDB !important;
+  border-radius: 2px !important;
+  background-color: #ffffff !important;
+  margin-bottom: 8px !important;
+  position: relative !important;
+  z-index: 0 !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  letter-spacing: normal !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+.review {
+  font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #484848;
+  /* width: 33%; */
+}
+
+.report {
+  position: relative;
+  margin-left: 100px;
+  cursor: pointer !important;
+  background-color: transparent !important;
+  color: buttontext !important;
+  display: block !important;
+  border-width: 0px !important;
+  border-style: initial !important;
+  border-color: initial !important;
+  border-image: initial !important;
+}
+
+
+.reportThankyou {
+  background-color: rgb(255, 255, 255) !important;
+  width: 504px;
+  height: 180px;
+  padding: 32px !important;
+}
+
+.thankyou {
+  font-weight: 800 !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 25px !important;
+  line-height: 30px !important;
+  letter-spacing: normal !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  color: #484848 !important;
+}
+
+.thankyouText {
+  font-weight: 600 !important;
+  word-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 22px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
+  margin-bottom: 24px !important;
+}
+
+.thankyouClose {
+  cursor: pointer !important;
+    background-color: transparent !important;
+    color: buttontext !important;
+    border: 0px !important;
+    display: block !important;
+}
+
+.reviewHeader {
+  width: 100% !important;
+  vertical-align: top !important;
+  margin: 0 0 30px 60px
+}
+
+.guestName {
+  font-weight: 600;
+  color: #484848;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: normal;
+}
+
+.guestPhoto {
+  float: left;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  /* display: table-cell !important;
+  vertical-align: top !important;
+  background: #D8D8D8 !important;
+  border: 2px solid #ffffff !important;
+  overflow: hidden !important; */
+  position: relative;
+}
+
+.date {
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  letter-spacing: normal !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+  font-weight: normal !important;
+  display: inline !important;
+}
+
+.readMore {
+  color: #008489 !important;
+  font: inherit !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  text-decoration: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background: transparent !important;
+  border: 0px !important;
+  cursor: pointer !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+  text-align: left !important;
+}
+
+.hostResponse {
+  margin-left: 50px;
+}
+
+.hostDate {
+  margin-top: 10px;
+}
+
+.hostPhoto {
+  float: left;
+  position: relative;
+}
+
+.reviewText {
+  margin-top: 16px;
+  color: #484848 !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-size: 16px !important;
+  line-height: 22px !important;
+  letter-spacing: normal !important;
+  font-weight: normal !important;
+}
+
+.bottomSpace {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.bottomBorder {
+  border-bottom: 1px solid #DBDBDB;
+}
+
+.submitReport:disabled {
+  color: rgb(255, 255, 255) !important;
+  cursor: default !important;
+  background: rgba(0, 132, 137, 0.3) !important;
+  border-color: transparent !important;
+}
+
+.submitReport {
+  cursor: pointer !important;
+  display: inline-block !important;
+  position: relative !important;
+  text-align: center !important;
+  transition-property: background, border-color, color !important;
+  transition-duration: 0.2s !important;
+  transition-timing-function: ease-out !important;
+  width: auto !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 21px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  font-weight: 800 !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  min-width: 77.6656px !important;
+  color: rgb(255, 255, 255) !important;
+  margin: 0px !important;
+  text-decoration: none !important;
+  border-radius: 4px !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  background: rgb(0, 132, 137) !important;
+  border-color: transparent !important;
+}
