@@ -28,14 +28,22 @@ export default class App extends React.Component {
         console.log('success got data', response.data);
         callback(response.data);
       })
-      .catch(error => console.error('failed to get room data', error))
+      .catch(error => console.error('failed to get room data', error));
+  }
+
+  sortedByDate(reviews) {
+    return reviews.sort((a, b) => {
+      let aa = a.date.split('/');
+      let bb = b.date.split('/');
+      return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
+    });
   }
   
   getAverageRating(reviewRatings, subclass) {
     let sum = 0;
     reviewRatings.forEach(review => {
       sum += review[subclass];
-    })
+    });
     sum = sum/reviewRatings.length
     return Math.round(sum * 2) / 2;
   }
@@ -48,7 +56,7 @@ export default class App extends React.Component {
     const checkin = this.getAverageRating(data, 'checkin_rating');
     const value = this.getAverageRating(data, 'value_rating');
     const total = Math.round((2 * (accuracy + communication + cleanliness + location + checkin + value)) / 6) / 2;
-
+    this.sortedByDate(data);
     this.setState({
       reviewData: data,
       ratings: [accuracy, communication, cleanliness, location, checkin, value, total],
@@ -66,7 +74,7 @@ export default class App extends React.Component {
     if(target.charCode==13){
       this.searchReviews(this.state.searchText);    
     }
-}
+  }
 
   searchReviews(query) {
     console.log(query);
@@ -80,7 +88,7 @@ export default class App extends React.Component {
                       handleSearchTextChange={this.handleSearchTextChange.bind(this)}
                       handleKeyPress={this.handleKeyPress.bind(this)}
         /></div>
-        {/* <div><ReviewList reviews={this.state.reviewData} /></div> */}
+        <div><ReviewList reviews={this.state.reviewData} /></div>
       </div>
     );
   }

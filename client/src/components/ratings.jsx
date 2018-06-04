@@ -8,12 +8,6 @@ export default class Ratings extends React.Component {
     };
   }
 
-  // handleSearchTextChange(e) {
-  //   this.setState({
-  //     searchText: e.target.value,
-  //   })
-  // }
-
   render() {
     return (
     <div>
