@@ -4,6 +4,7 @@ import ReviewList from './reviewList';
 import Ratings from './ratings';
 import Search from './search';
 import BackToAllReviews from './backToAllReviews';
+import NextPage from './nextPage';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,13 +14,16 @@ export default class App extends React.Component {
       allReviewData: [],
       currentReviews: [],
       ratings: [],
-      searchText: '',
       hasBeenSearched: false,
+      searchText: '',
       searchedWord: '',
+      currentPage: 0,
     };
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleBackToAllReviewsClick = this.handleBackToAllReviewsClick.bind(this);
+    this.handleNextClick = this.handleNextClick.bind(this);
+    this.handlePrevClick = this.handlePrevClick.bind(this);
   }
 
   componentDidMount() {
@@ -111,6 +115,22 @@ export default class App extends React.Component {
     });
   }
 
+  handleNextClick() {
+    if (this.state.currentPage < this.state.allReviewData.length / 2) {
+      this.setState({
+        currentPage: this.state.currentPage + 1,
+      });
+    }
+  }
+
+  handlePrevClick() {
+    if (this.state.currentPage > 0) {
+      this.setState({
+        currentPage: this.state.currentPage - 1,
+      });
+    }
+  }
+
   render() {
     const hasBeenSearched = this.state.hasBeenSearched ?
       (<BackToAllReviews
@@ -135,7 +155,13 @@ export default class App extends React.Component {
         <div>
           {hasBeenSearched}
         </div>
-        <div><ReviewList reviews={this.state.currentReviews} /></div>
+        <div><ReviewList reviews={this.state.currentReviews.slice(2 * this.state.currentPage, (2 * this.state.currentPage) + 2)} /></div>
+        <div><NextPage
+          handleNextClick={this.handleNextClick}
+          handlePrevClick={this.handlePrevClick}
+          currentPage={this.state.currentPage}
+        />
+        </div>
       </div>
     );
   }

@@ -8,10 +8,10 @@ const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, s
   </div>
 );
 
-export default BackToAllReviews;
-
 BackToAllReviews.propTypes = {
   handleBacktoAllReviewsClick: PropTypes.func.isRequired,
   currentReviewsLength: PropTypes.number.isRequired,
   searchedWord: PropTypes.string.isRequired,
 };
+
+export default BackToAllReviews;
