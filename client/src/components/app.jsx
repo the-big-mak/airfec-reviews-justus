@@ -24,6 +24,7 @@ export default class App extends React.Component {
     this.handleBackToAllReviewsClick = this.handleBackToAllReviewsClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handlePrevClick = this.handlePrevClick.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
   componentDidMount() {
@@ -131,6 +132,12 @@ export default class App extends React.Component {
     }
   }
 
+  handlePageClick(e) {
+    this.setState({
+      currentPage: e.target.value - 1,
+    });
+  }
+
   render() {
     const hasBeenSearched = this.state.hasBeenSearched ?
       (<BackToAllReviews
@@ -142,7 +149,7 @@ export default class App extends React.Component {
         ratings={this.state.ratings}
       />);
     const pages = [];
-    for (let i = 1; i <= Math.ceil(this.state.allReviewData.length / 2); i = +1) {
+    for (let i = 1; i <= Math.ceil(this.state.allReviewData.length / 2); i++) {
       pages.push(i);
     }
     return (
@@ -164,6 +171,7 @@ export default class App extends React.Component {
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}
           numberOfPages={pages}
+          handlePageClick={this.handlePageClick}
         />
         </div>
       </div>

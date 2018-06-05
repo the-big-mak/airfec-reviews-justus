@@ -6,7 +6,7 @@ const Pages = props => (
   <div>
     <button onClick={props.handlePrevClick}>Prev</button>
     <div>
-      {props.numberOfPages.map(page => <Page page={page} />)}
+      {props.numberOfPages.map(page => <Page page={page} key={page} handlePageClick={props.handlePageClick} />)}
     </div>
     <button onClick={props.handleNextClick}>Next</button>
   </div>
@@ -15,6 +15,7 @@ const Pages = props => (
 Pages.propTypes = {
   handleNextClick: PropType.func.isRequired,
   handlePrevClick: PropType.func.isRequired,
+  handlePageClick: PropType.func.isRequired,
   numberOfPages: PropType.arrayOf(PropType.number).isRequired,
 };
 
