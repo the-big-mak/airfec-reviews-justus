@@ -4,7 +4,7 @@ import ReviewList from './reviewList';
 import Ratings from './ratings';
 import Search from './search';
 import BackToAllReviews from './backToAllReviews';
-import NextPage from './nextPage';
+import Pages from './pages';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -141,7 +141,10 @@ export default class App extends React.Component {
       (<Ratings
         ratings={this.state.ratings}
       />);
-
+    const pages = [];
+    for (let i = 1; i <= Math.ceil(this.state.allReviewData.length / 2); i = +1) {
+      pages.push(i);
+    }
     return (
       <div>
         <div><Search
@@ -156,10 +159,11 @@ export default class App extends React.Component {
           {hasBeenSearched}
         </div>
         <div><ReviewList reviews={this.state.currentReviews.slice(2 * this.state.currentPage, (2 * this.state.currentPage) + 2)} /></div>
-        <div><NextPage
+        <div><Pages
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}
+          numberOfPages={pages}
         />
         </div>
       </div>

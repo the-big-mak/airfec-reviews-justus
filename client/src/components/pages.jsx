@@ -1,18 +1,21 @@
 import React from 'react';
 import PropType from 'prop-types';
+import Page from './page';
 
-const NextPage = props => (
+const Pages = props => (
   <div>
     <button onClick={props.handlePrevClick}>Prev</button>
-    <button>1</button>
-    <button>2</button>
+    <div>
+      {props.numberOfPages.map(page => <Page page={page} />)}
+    </div>
     <button onClick={props.handleNextClick}>Next</button>
   </div>
 );
 
-NextPage.propTypes = {
+Pages.propTypes = {
   handleNextClick: PropType.func.isRequired,
   handlePrevClick: PropType.func.isRequired,
+  numberOfPages: PropType.arrayOf(PropType.number).isRequired,
 };
 
-export default NextPage;
+export default Pages;
