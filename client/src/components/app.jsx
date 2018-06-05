@@ -149,10 +149,6 @@ export default class App extends React.Component {
       (<Ratings
         ratings={this.state.ratings}
       />);
-    const pages = [];
-    for (let i = 2; i <= Math.ceil(this.state.currentReviews.length / 2) - 1; i++) {
-      pages.push(i);
-    }
     return (
       <div>
         <div><Search
@@ -171,9 +167,8 @@ export default class App extends React.Component {
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}
-          numberOfPages={pages}
           handlePageClick={this.handlePageClick}
-          numberOfReviews={this.state.currentReviews.length / 2}
+          numberOfPages={this.state.currentReviews.length / 2}
         />
         </div>
       </div>
