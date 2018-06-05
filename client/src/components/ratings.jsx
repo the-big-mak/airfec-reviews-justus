@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 
 const Ratings = ({ ratings }) => (
-  <div>
+  <div id="ratings">
     <div className="subRatings">
       <div className="acc-com-cle">
         <div className="accuacy">Accuracy <StarRatings

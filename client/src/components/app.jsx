@@ -97,19 +97,19 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div><Search
+      <div id="app">
+        <div id="search"><Search
           handleSearchTextChange={this.handleSearchTextChange}
           handleKeyPress={this.handleKeyPress}
           totalRating={this.state.ratings[6]}
           totalReviews={this.state.allReviewData.length}
         />
         </div>
-        <div><Ratings
+        <div id="ratings"><Ratings
           ratings={this.state.ratings}
         />
         </div>
-        <div><ReviewList reviews={this.state.currentReviews} /></div>
+        <div id="reviewList"><ReviewList reviews={this.state.currentReviews} /></div>
       </div>
     );
   }
