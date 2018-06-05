@@ -3,6 +3,7 @@ import axios from 'axios';
 import ReviewList from './reviewList';
 import Ratings from './ratings';
 import Search from './search';
+import BackToAllReviews from './backToAllReviews';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -10,12 +11,15 @@ export default class App extends React.Component {
     this.state = {
       roomId: 5,
       allReviewData: [],
+      currentReviews: [],
       ratings: [],
       searchText: '',
-      currentReviews: [],
+      hasBeenSearched: false,
+      searchedWord: '',
     };
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleBackToAllReviewsClick = this.handleBackToAllReviewsClick.bind(this);
   }
 
   componentDidMount() {
@@ -77,6 +81,10 @@ export default class App extends React.Component {
   handleKeyPress(target) {
     if (target.charCode === 13) {
       this.filterReviews(this.state.searchText);
+      this.setState({
+        hasBeenSearched: true,
+        searchedWord: this.state.searchText,
+      });
     }
   }
 
@@ -95,7 +103,25 @@ export default class App extends React.Component {
     });
   }
 
+  handleBackToAllReviewsClick() {
+    this.setState({
+      hasBeenSearched: false,
+      currentReviews: this.state.allReviewData,
+      searchText: '',
+    });
+  }
+
   render() {
+    const hasBeenSearched = this.state.hasBeenSearched ?
+      (<BackToAllReviews
+        handleBacktoAllReviewsClick={this.handleBackToAllReviewsClick}
+        currentReviewsLength={this.state.currentReviews.length}
+        searchedWord={this.state.searchedWord}
+      />) :
+      (<Ratings
+        ratings={this.state.ratings}
+      />);
+
     return (
       <div>
         <div><Search
@@ -103,11 +129,11 @@ export default class App extends React.Component {
           handleKeyPress={this.handleKeyPress}
           totalRating={this.state.ratings[6]}
           totalReviews={this.state.allReviewData.length}
+          searchText={this.state.searchText}
         />
         </div>
-        <div><Ratings
-          ratings={this.state.ratings}
-        />
+        <div>
+          {hasBeenSearched}
         </div>
         <div><ReviewList reviews={this.state.currentReviews} /></div>
       </div>

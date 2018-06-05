@@ -47,6 +47,38 @@
   width: 100% !important;
 }
 
+.mentions {
+  word-wrap: break-word !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  letter-spacing: normal !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: rgb(72, 72, 72) !important;
+  font-weight: normal !important;
+  display: inline !important;
+  margin: 0px !important;
+}
+
+.backToAllReviews {
+  font-size: 14px;
+  color: rgb(0, 132, 137) !important;
+  -webkit-appearance: none !important;
+  cursor: pointer !important;
+  user-select: auto !important;
+  text-align: left !important;
+  font: inherit inherit inherit inherit inherit inherit inherit inherit inherit !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border-width: 0px !important;
+  border-style: initial !important;
+  border-color: initial !important;
+  border-image: initial !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
 .review {
   font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
