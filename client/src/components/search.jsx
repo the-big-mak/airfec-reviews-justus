@@ -16,7 +16,7 @@ const Search = props => (
     <div className="searchContainer">
       <input
         className="searchBox"
-        type="text"
+        type="search"
         value={props.searchText}
         placeholder="Search reviews"
         onChange={props.handleSearchTextChange}
@@ -31,6 +31,7 @@ Search.propTypes = {
   handleKeyPress: PropTypes.func.isRequired,
   totalRating: PropTypes.number,
   totalReviews: PropTypes.number,
+  searchText: PropTypes.string.isRequired,
 };
 
 Search.defaultProps = {

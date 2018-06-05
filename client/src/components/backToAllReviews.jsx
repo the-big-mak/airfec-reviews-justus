@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, searchedWord }) => (
   <div>
-    <div>{currentReviewsLength} guests have mentioned "{searchedWord}"</div>
-    <button onClick={handleBacktoAllReviewsClick}>Back to all reviews</button>
+    <div className="mentions">{currentReviewsLength} guests have mentioned "{searchedWord}"</div>
+    <button className="backToAllReviews" onClick={handleBacktoAllReviewsClick}>Back to all reviews</button>
   </div>
 );
 
