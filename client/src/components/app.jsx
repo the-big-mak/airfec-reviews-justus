@@ -89,6 +89,7 @@ export default class App extends React.Component {
       this.setState({
         hasBeenSearched: true,
         searchedWord: this.state.searchText,
+        currentPage: 0,
       });
     }
   }
@@ -149,7 +150,7 @@ export default class App extends React.Component {
         ratings={this.state.ratings}
       />);
     const pages = [];
-    for (let i = 1; i <= Math.ceil(this.state.allReviewData.length / 2); i++) {
+    for (let i = 2; i <= Math.ceil(this.state.currentReviews.length / 2) - 1; i++) {
       pages.push(i);
     }
     return (
@@ -172,6 +173,7 @@ export default class App extends React.Component {
           currentPage={this.state.currentPage}
           numberOfPages={pages}
           handlePageClick={this.handlePageClick}
+          numberOfReviews={this.state.currentReviews.length / 2}
         />
         </div>
       </div>
