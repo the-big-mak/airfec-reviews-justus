@@ -15,6 +15,7 @@ export default class App extends React.Component {
       ratings: [],
       searchText: '',
       hasBeenSearched: false,
+      searchedWord: '',
     };
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -82,6 +83,7 @@ export default class App extends React.Component {
       this.filterReviews(this.state.searchText);
       this.setState({
         hasBeenSearched: true,
+        searchedWord: this.state.searchText,
       });
     }
   }
@@ -105,6 +107,7 @@ export default class App extends React.Component {
     this.setState({
       hasBeenSearched: false,
       currentReviews: this.state.allReviewData,
+      searchText: '',
     });
   }
 
@@ -112,10 +115,11 @@ export default class App extends React.Component {
     const hasBeenSearched = this.state.hasBeenSearched ?
       (<BackToAllReviews
         handleBacktoAllReviewsClick={this.handleBackToAllReviewsClick}
+        currentReviewsLength={this.state.currentReviews.length}
+        searchedWord={this.state.searchedWord}
       />) :
       (<Ratings
         ratings={this.state.ratings}
-        hasBeenSearched={this.state.hasBeenSearched}
       />);
 
     return (
@@ -125,6 +129,7 @@ export default class App extends React.Component {
           handleKeyPress={this.handleKeyPress}
           totalRating={this.state.ratings[6]}
           totalReviews={this.state.allReviewData.length}
+          searchText={this.state.searchText}
         />
         </div>
         <div>

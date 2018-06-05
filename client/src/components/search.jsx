@@ -17,6 +17,7 @@ const Search = props => (
       <input
         className="searchBox"
         type="text"
+        value={props.searchText}
         placeholder="Search reviews"
         onChange={props.handleSearchTextChange}
         onKeyPress={props.handleKeyPress}
