@@ -102,11 +102,12 @@ class Pages extends React.Component {
     return <button value={Math.ceil(this.props.numberOfReviews)} onClick={this.props.handlePageClick}>{Math.ceil(this.props.numberOfReviews)}</button>;
   }
 
-  renderBeginningDots() {
-    if (this.props.currentPage > 3) {
-      return <div>...</div>;
+  loop(start, end) {
+    const pages = [];
+    for (let i = start; i <= end ; i++) {
+      pages.push(<button value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
     }
-    return null;
+    return pages;
   }
 
   renderEndingDots() {
@@ -115,13 +116,33 @@ class Pages extends React.Component {
     }
     return null;
   }
+  renderBeginningDots() {
+    if (this.props.currentPage > 3) {
+      return <div>...</div>;
+    }
+    return null;
+  }
 
   renderPages(currentPage) {
-    const pages = [];
-    for (let i = 2; i < this.props.numberOfReviews; i++) {
-      pages.push(<button value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
+    const pages = this.props.numberOfReviews;
+    if (currentPage < 2) {
+      return this.loop(2, 3);
+    } else if (currentPage === 2) {
+      return this.loop(2, 4);
+    } else if (currentPage === 3) {
+      return this.loop(2, 5);
+    } else if (currentPage > 3 && currentPage < pages - 4) {
+      return this.loop(currentPage, currentPage + 2);
+    } else if (currentPage < pages - 3) {
+      return this.loop(currentPage, currentPage + 3);
+    } else if (currentPage < pages - 2) {
+      return this.loop(currentPage, currentPage + 2);
+    } else if (currentPage < pages - 1 && pages > 4) {
+      return this.loop(currentPage, currentPage + 1);
+    } else if (pages > 4) {
+      return this.loop(currentPage - 1, currentPage);
     }
-    return pages;
+    return null;
   }
 
   render() {
@@ -130,7 +151,7 @@ class Pages extends React.Component {
         {this.prev()}
         {this.firstPage()}
         {this.renderBeginningDots()}
-        {this.renderPages().map(page => page)}
+        {this.renderPages(this.props.currentPage).map(page => page)}
         {this.renderEndingDots()}
         {this.lastPage()}
         {this.next()}
