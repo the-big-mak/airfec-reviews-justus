@@ -104,8 +104,14 @@ class Pages extends React.Component {
 
   loop(start, end) {
     const pages = [];
-    for (let i = start; i <= end ; i++) {
-      pages.push(<button value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
+    if (end <= this.props.numberOfReviews) {
+      for (let i = start; i <= end; i++) {
+        pages.push(<button value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
+      }
+    } else {
+      for (let i = start; i < this.props.numberOfReviews; i++) {
+        pages.push(<button value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
+      }
     }
     return pages;
   }
