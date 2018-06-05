@@ -3,6 +3,7 @@ import axios from 'axios';
 import ReviewList from './reviewList';
 import Ratings from './ratings';
 import Search from './search';
+import BackToAllReviews from './backToAllReviews';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class App extends React.Component {
       ratings: [],
       searchText: '',
       currentReviews: [],
+      hasBeenSearched: false,
     };
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -77,6 +79,9 @@ export default class App extends React.Component {
   handleKeyPress(target) {
     if (target.charCode === 13) {
       this.filterReviews(this.state.searchText);
+      this.setState({
+        hasBeenSearched: true,
+      });
     }
   }
 
@@ -96,6 +101,10 @@ export default class App extends React.Component {
   }
 
   render() {
+    const hasBeenSearched = this.state.hasBeenSearched ? <BackToAllReviews /> : (<Ratings
+      ratings={this.state.ratings}
+      hasBeenSearched={this.state.hasBeenSearched}
+    />);
     return (
       <div>
         <div><Search
@@ -105,9 +114,8 @@ export default class App extends React.Component {
           totalReviews={this.state.allReviewData.length}
         />
         </div>
-        <div><Ratings
-          ratings={this.state.ratings}
-        />
+        <div>
+          {hasBeenSearched}
         </div>
         <div><ReviewList reviews={this.state.currentReviews} /></div>
       </div>
