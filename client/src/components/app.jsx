@@ -11,13 +11,14 @@ export default class App extends React.Component {
     this.state = {
       roomId: 5,
       allReviewData: [],
+      currentReviews: [],
       ratings: [],
       searchText: '',
-      currentReviews: [],
       hasBeenSearched: false,
     };
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleBackToAllReviewsClick = this.handleBackToAllReviewsClick.bind(this);
   }
 
   componentDidMount() {
@@ -100,11 +101,23 @@ export default class App extends React.Component {
     });
   }
 
+  handleBackToAllReviewsClick() {
+    this.setState({
+      hasBeenSearched: false,
+      currentReviews: this.state.allReviewData,
+    });
+  }
+
   render() {
-    const hasBeenSearched = this.state.hasBeenSearched ? <BackToAllReviews /> : (<Ratings
-      ratings={this.state.ratings}
-      hasBeenSearched={this.state.hasBeenSearched}
-    />);
+    const hasBeenSearched = this.state.hasBeenSearched ?
+      (<BackToAllReviews
+        handleBacktoAllReviewsClick={this.handleBackToAllReviewsClick}
+      />) :
+      (<Ratings
+        ratings={this.state.ratings}
+        hasBeenSearched={this.state.hasBeenSearched}
+      />);
+
     return (
       <div>
         <div><Search
