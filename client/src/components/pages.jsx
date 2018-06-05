@@ -81,7 +81,7 @@ class Pages extends React.Component {
   // }
 
   next() {
-    if (this.props.currentPage !== this.props.numberOfReviews) {
+    if (this.props.currentPage < this.props.numberOfReviews - 1) {
       return <button onClick={this.props.handleNextClick}>Next</button>;
     }
     return null;
@@ -94,17 +94,32 @@ class Pages extends React.Component {
     return null;
   }
 
-  renderDots() {
-    if (this.props.numberOfReviews >= 3) {
+  firstPage() {
+    return <button value={1} onClick={this.props.handlePageClick}>1</button>;
+  }
+
+  lastPage() {
+    return <button value={Math.ceil(this.props.numberOfReviews)} onClick={this.props.handlePageClick}>{Math.ceil(this.props.numberOfReviews)}</button>;
+  }
+
+  renderBeginningDots() {
+    if (this.props.currentPage > 3) {
       return <div>...</div>;
     }
     return null;
   }
 
-  renderPages() {
+  renderEndingDots() {
+    if (this.props.currentPage < this.props.numberOfReviews - 4) {
+      return <div>...</div>;
+    }
+    return null;
+  }
+
+  renderPages(currentPage) {
     const pages = [];
-    for (let i = 1; i <= this.props.numberOfReviews; i++) {
-      pages.push(<button value={i} onClick={this.props.handlePageClick}>{i}</button>);
+    for (let i = 2; i < this.props.numberOfReviews; i++) {
+      pages.push(<button value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
     }
     return pages;
   }
@@ -113,7 +128,11 @@ class Pages extends React.Component {
     return (
       <div>
         {this.prev()}
+        {this.firstPage()}
+        {this.renderBeginningDots()}
         {this.renderPages().map(page => page)}
+        {this.renderEndingDots()}
+        {this.lastPage()}
         {this.next()}
       </div>
     );
