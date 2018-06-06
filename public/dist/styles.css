@@ -1,11 +1,43 @@
+body {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #484848;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.search-container {
+  width: 648px;
+  height: 56px;
+  margin-bottom: 12px;
+}
+
 .totalReviews {
   width: 66.66666666666666% !important;
   float: left !important;
-  height: 56px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+  background-color: white;
+}
+
+.totalReviews1 {
+  display: table !important;
+  position: relative !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.totalReviews2 {
+  display: table-cell !important;
+  vertical-align: bottom;
+  padding-bottom: 4px;
 }
 
 .totalReviewsWords {
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
@@ -17,17 +49,105 @@
   color: #484848 !important;
 }
 
-.searchContainer {
-  padding-left: 8px !important;
-  padding-right: 8px !important;
-  min-height: 1px !important;
-  position: relative !important;
-  width: 33.33333333333333% !important;
-  float: left !important;
-  height: 56px;
+.totalReviewStars {
+  display: inline-block !important;
+  margin-left: 10px !important;
 }
 
-.searchBox {
+.searchContainer {
+  width: 33.33333333333333% !important;
+  float: right !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  position: relative !important;
+  min-height: 1px !important;
+  top: -50px;
+}
+
+.searchContainer1 {
+  height: 56px !important;
+}
+
+.searchContainer2 {
+  display: table !important;
+  position: relative !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.searchContainer3 {
+  display: table-cell !important;
+  vertical-align: bottom !important;
+}
+
+.searchContainer4 {
+  display: block !important;
+  width: 100% !important;
+}
+
+.searchContainer5 {
+  background-color: rgb(255, 255, 255) !important;
+  margin-bottom: 8px !important;
+  position: relative !important;
+  z-index: 0 !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  letter-spacing: normal !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: rgb(72, 72, 72) !important;
+  display: block !important;
+  width: 100% !important;
+  border-radius: 2px !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(0, 132, 137) !important;
+}
+
+.searchImage {
+  float: left;
+}
+
+.searchImage1 {
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  letter-spacing: normal !important;
+  padding-top: 7px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+  padding-left: 8px !important;
+}
+
+.icon{
+  height:1em;
+  width:1em;
+  display:block;
+  fill:currentColor;
+}
+
+.searchContainer6 {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.searchInput {
+  background-color: transparent !important;
+  border: 0px !important;
+  width: 100% !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  letter-spacing: normal !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+  font-weight: 600 !important;
+  padding: 7px !important;
+}
+
+/* .searchBox {
   border-width: 1px !important;
   border-style: solid !important;
   border-color: #DBDBDB !important;
@@ -45,7 +165,7 @@
   color: #484848 !important;
   display: block !important;
   width: 100% !important;
-}
+} */
 
 .mentions {
   word-wrap: break-word !important;
