@@ -150,8 +150,8 @@ export default class App extends React.Component {
         ratings={this.state.ratings}
       />);
     return (
-      <div>
-        <div><Search
+      <div id="app">
+        <div id="search"><Search
           handleSearchTextChange={this.handleSearchTextChange}
           handleKeyPress={this.handleKeyPress}
           totalRating={this.state.ratings[6]}
