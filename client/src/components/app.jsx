@@ -14,7 +14,7 @@ export default class App extends React.Component {
       allReviewData: [],
       currentReviews: [],
       ratings: [],
-      hasBeenSearched: false,
+      hasBeenSearched: true,
       searchText: '',
       searchedWord: '',
       currentPage: 0,
@@ -150,8 +150,8 @@ export default class App extends React.Component {
         ratings={this.state.ratings}
       />);
     return (
-      <div>
-        <div className="search-container"><Search
+      <div className="fullContainer">
+        <div><Search
           handleSearchTextChange={this.handleSearchTextChange}
           handleKeyPress={this.handleKeyPress}
           totalRating={this.state.ratings[6]}
@@ -159,15 +159,10 @@ export default class App extends React.Component {
           searchText={this.state.searchText}
         />
         </div>
-        <div className="rating-reviews-pages">
-          <div className="ratingsContainer">
-            {hasBeenSearched}
-          </div>
-          {/* <div><ReviewList reviews={this.state.currentReviews} /></div> */}
+        <div>
+          {hasBeenSearched}
         </div>
-<<<<<<< HEAD
-=======
-        <div><ReviewList reviews={this.state.currentReviews.slice(2 * this.state.currentPage, (2 * this.state.currentPage) + 2)} /></div>
+        {/* <div><ReviewList reviews={this.state.currentReviews.slice(2 * this.state.currentPage, (2 * this.state.currentPage) + 2)} /></div>
         <div><Pages
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
@@ -175,8 +170,7 @@ export default class App extends React.Component {
           handlePageClick={this.handlePageClick}
           numberOfPages={this.state.currentReviews.length / 2}
         />
-        </div>
->>>>>>> master
+        </div> */}
       </div>
     );
   }

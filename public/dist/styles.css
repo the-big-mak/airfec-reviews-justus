@@ -7,6 +7,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.fullContainer {
+  width: 648px;
+}
+
 .search-container {
   width: 648px;
   height: 56px;
@@ -177,7 +181,7 @@ body {
   padding-right: 8px !important;
   min-height: 1px !important;
   position: relative !important;
-  top: 10px;
+  top: 33px;
 }
 
 .ratingColumnA1 {
@@ -222,7 +226,7 @@ body {
   min-height: 1px !important;
   position: relative !important;
   left: 175px;
-  top: -20px;
+  top: -23px;
 }
 
 .mentions {
@@ -237,6 +241,9 @@ body {
   font-weight: normal !important;
   display: inline !important;
   margin: 0px !important;
+  position: relative;
+  left: -440px;
+  top: 55px;
 }
 
 .backToAllReviews {
@@ -255,6 +262,17 @@ body {
   border-image: initial !important;
   margin: 0px !important;
   padding: 0px !important;
+  position: relative;
+  left: 530px;
+  top: 30px;
+}
+
+.searchBold {
+  font-weight: 700;
+}
+
+.border {
+  margin-top: -5px;
 }
 
 .review {
