@@ -45,6 +45,9 @@ const Search = props => (
         </div>
       </div>
     </div>
+    <div className="boarder">
+      <div className="innerBoarder" />
+    </div>
   </div>
 );
 

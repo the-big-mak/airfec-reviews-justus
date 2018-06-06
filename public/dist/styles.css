@@ -61,7 +61,7 @@ body {
   padding-right: 8px !important;
   position: relative !important;
   min-height: 1px !important;
-  top: -50px;
+  top: -55px;
 }
 
 .searchContainer1 {
@@ -147,7 +147,19 @@ body {
   padding: 7px !important;
 }
 
-.searchBox {
+.boarder {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.innerBoarder {
+  border-bottom: 1px solid #DBDBDB !important;
+  width: 648px;
+  position: relative;
+  top: 55px;
+}
+
+/* .searchBox {
   border-width: 1px !important;
   border-style: solid !important;
   border-color: #DBDBDB !important;
@@ -165,7 +177,7 @@ body {
   color: #484848 !important;
   display: block !important;
   width: 100% !important;
-}
+} */
 
 .mentions {
   word-wrap: break-word !important;
