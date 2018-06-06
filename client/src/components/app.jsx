@@ -4,6 +4,7 @@ import ReviewList from './reviewList';
 import Ratings from './ratings';
 import Search from './search';
 import BackToAllReviews from './backToAllReviews';
+import Pages from './pages';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,13 +14,17 @@ export default class App extends React.Component {
       allReviewData: [],
       currentReviews: [],
       ratings: [],
-      searchText: '',
       hasBeenSearched: false,
+      searchText: '',
       searchedWord: '',
+      currentPage: 0,
     };
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleBackToAllReviewsClick = this.handleBackToAllReviewsClick.bind(this);
+    this.handleNextClick = this.handleNextClick.bind(this);
+    this.handlePrevClick = this.handlePrevClick.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
   componentDidMount() {
@@ -84,6 +89,7 @@ export default class App extends React.Component {
       this.setState({
         hasBeenSearched: true,
         searchedWord: this.state.searchText,
+        currentPage: 0,
       });
     }
   }
@@ -111,6 +117,28 @@ export default class App extends React.Component {
     });
   }
 
+  handleNextClick() {
+    if (this.state.currentPage < this.state.allReviewData.length / 2) {
+      this.setState({
+        currentPage: this.state.currentPage + 1,
+      });
+    }
+  }
+
+  handlePrevClick() {
+    if (this.state.currentPage > 0) {
+      this.setState({
+        currentPage: this.state.currentPage - 1,
+      });
+    }
+  }
+
+  handlePageClick(e) {
+    this.setState({
+      currentPage: e.target.value - 1,
+    });
+  }
+
   render() {
     const hasBeenSearched = this.state.hasBeenSearched ?
       (<BackToAllReviews
@@ -121,7 +149,6 @@ export default class App extends React.Component {
       (<Ratings
         ratings={this.state.ratings}
       />);
-
     return (
       <div>
         <div className="search-container"><Search
@@ -138,6 +165,18 @@ export default class App extends React.Component {
           </div>
           {/* <div><ReviewList reviews={this.state.currentReviews} /></div> */}
         </div>
+<<<<<<< HEAD
+=======
+        <div><ReviewList reviews={this.state.currentReviews.slice(2 * this.state.currentPage, (2 * this.state.currentPage) + 2)} /></div>
+        <div><Pages
+          handleNextClick={this.handleNextClick}
+          handlePrevClick={this.handlePrevClick}
+          currentPage={this.state.currentPage}
+          handlePageClick={this.handlePageClick}
+          numberOfPages={this.state.currentReviews.length / 2}
+        />
+        </div>
+>>>>>>> master
       </div>
     );
   }
