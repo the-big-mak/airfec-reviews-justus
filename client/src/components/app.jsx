@@ -132,10 +132,12 @@ export default class App extends React.Component {
           searchText={this.state.searchText}
         />
         </div>
-        <div>
-          {hasBeenSearched}
+        <div className="rating-reviews-pages">
+          <div className="ratingsContainer">
+            {hasBeenSearched}
+          </div>
+          {/* <div><ReviewList reviews={this.state.currentReviews} /></div> */}
         </div>
-        <div><ReviewList reviews={this.state.currentReviews} /></div>
       </div>
     );
   }

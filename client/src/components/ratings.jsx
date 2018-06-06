@@ -3,52 +3,76 @@ import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 
 const Ratings = ({ ratings }) => (
-  <div id="ratings">
+  <div className="ratings">
     <div className="subRatings">
       <div className="acc-com-cle">
-        <div className="accuacy">Accuracy <StarRatings
-          rating={ratings[1]}
-          starDimension="20px"
-          starSpacing="3px"
-          starRatedColor="#008489"
-        />
+        <div className="ratingColumnA1">
+          <div className="ratingColumnA2">
+            <div className="words">Accuracy <span className="star"><StarRatings
+              rating={ratings[1]}
+              starDimension="20px"
+              starSpacing="3px"
+              starRatedColor="#008489"
+            /></span>
+            </div>
+          </div>
         </div>
-        <div className="communication">Communication <StarRatings
-          rating={ratings[2]}
-          starDimension="20px"
-          starSpacing="3px"
-          starRatedColor="#008489"
-        />
+        <div className="ratingColumnA1">
+          <div className="ratingColumnA2">
+            <div className="words">Communication <span className="star"><StarRatings
+              rating={ratings[2]}
+              starDimension="20px"
+              starSpacing="3px"
+              starRatedColor="#008489"
+            /></span>
+            </div>
+          </div>
         </div>
-        <div className="cleanliness">Cleanliness <StarRatings
-          rating={ratings[3]}
-          starDimension="20px"
-          starSpacing="3px"
-          starRatedColor="#008489"
-        />
+        <div className="ratingColumnA1">
+          <div className="ratingColumnA2">
+            <div className="words">Cleanliness <span className="star"><StarRatings
+              rating={ratings[3]}
+              starDimension="20px"
+              starSpacing="3px"
+              starRatedColor="#008489"
+            /></span>
+            </div>
+          </div>
         </div>
       </div>
       <div className="loc-che-val">
-        <div className="location">Location <StarRatings
-          rating={ratings[4]}
-          starDimension="20px"
-          starSpacing="3px"
-          starRatedColor="#008489"
-        />
+        <div className="ratingColumnA1">
+          <div className="ratingColumnA2">
+            <div className="words">Location <span className="star"><StarRatings
+              rating={ratings[4]}
+              starDimension="20px"
+              starSpacing="3px"
+              starRatedColor="#008489"
+            /></span>
+            </div>
+          </div>
         </div>
-        <div className="checkin">Checkin <StarRatings
-          rating={ratings[5]}
-          starDimension="20px"
-          starSpacing="3px"
-          starRatedColor="#008489"
-        />
+        <div className="ratingColumnA1">
+          <div className="ratingColumnA2">
+            <div className="words">Checkin <span className="star"><StarRatings
+              rating={ratings[5]}
+              starDimension="20px"
+              starSpacing="3px"
+              starRatedColor="#008489"
+            /></span>
+            </div>
+          </div>
         </div>
-        <div className="value">Value <StarRatings
-          rating={ratings[6]}
-          starDimension="20px"
-          starSpacing="3px"
-          starRatedColor="#008489"
-        />
+        <div className="ratingColumnA1">
+          <div className="ratingColumnA2">
+            <div className="words">Value <span className="star"><StarRatings
+              rating={ratings[6]}
+              starDimension="20px"
+              starSpacing="3px"
+              starRatedColor="#008489"
+            /></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
