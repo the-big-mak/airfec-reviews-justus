@@ -21,7 +21,7 @@ const Review = ({ review }) => {
   };
   const date = review.date.split('/');
   const formatedDate = `${month[date[1]]} ${date[0]}`;
-  const hostResponse = review.id % 10 ? '' : <HostResponse date={formatedDate} hostResponse={review} />;
+  const hostResponse = review.id % 10 === 0 ? '' : <HostResponse date={formatedDate} hostResponse={review} />;
 
   return (
     <div className="review">

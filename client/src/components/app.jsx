@@ -163,7 +163,7 @@ export default class App extends React.Component {
           {hasBeenSearched}
         </div>
         <div><ReviewList reviews={this.state.currentReviews.slice(7 * this.state.currentPage, (7 * this.state.currentPage) + 7)} /></div>
-        <div><Pages
+        <div className="pagesContainer"><Pages
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}

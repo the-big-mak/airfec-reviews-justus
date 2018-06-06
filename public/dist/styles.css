@@ -355,7 +355,7 @@ body {
 .reviewHeader {
   width: 100% !important;
   vertical-align: top !important;
-  margin: 0 0 30px 60px;
+  margin: 0 0 15px 60px;
   position: relative;
   left: 10px;
   top: -8px;
@@ -447,7 +447,7 @@ body {
 
 .hostTextAndDate {
   position: relative;
-  top: -15px;
+  top: 0px;
   left: 30px;
   width: 570px;
 }
@@ -506,4 +506,63 @@ body {
   border-style: solid !important;
   background: rgb(0, 132, 137) !important;
   border-color: transparent !important;
+}
+
+.pagesContainer {
+  display: inline-block;
+}
+
+.pages {
+  height: 20px;
+}
+
+.pageButton {
+  color: #008489 !important;
+  background-color: #edefed;
+  cursor: default;
+  float: left;
+  padding: 10px 10px;
+  margin-left: 10px;
+  text-decoration: none;
+  border: 1px solid #c4c4c4;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.dotsContainer {
+  background-color: #edefed;
+  cursor: default;
+  float: left;
+  padding: 10px 10px;
+  margin-left: 10px;
+  text-decoration: none;
+  border: 1px solid #c4c4c4;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.dots {
+  border: 0px;
+  color: black;
+  position: relative;
+  top: -5px;
+  margin-left: 3px;
+  margin-right: -5px;
+  font-size: 12px
+}
+
+.nextButton {
+  color: #008489 !important;
+  enable-background: new 0 0 41.999 41.999;
+  height: 7px;
+  width: 7px;
+  display: block;
+  fill: currentColor;
+  padding-bottom: 6px;
+  position: relative;
+  top: 4px;
 }
