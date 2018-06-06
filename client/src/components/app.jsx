@@ -7,6 +7,14 @@ import BackToAllReviews from './backToAllReviews';
 import Pages from './pages';
 
 export default class App extends React.Component {
+  static sortedByDate(reviews) {
+    return reviews.sort((a, b) => {
+      const aa = a.date.split('/');
+      const bb = b.date.split('/');
+      return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
+    });
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +51,7 @@ export default class App extends React.Component {
       .catch(error => console.error('failed to get room data', error));
   }
 
-  getAverageRating(reviewRatings, subclass) {
+  static getAverageRating(reviewRatings, subclass) {
     let sum = 0;
     reviewRatings.forEach((review) => {
       sum += review[subclass];
@@ -52,23 +60,16 @@ export default class App extends React.Component {
     return Math.round(average * 2) / 2;
   }
 
-  sortedByDate(reviews) {
-    return reviews.sort((a, b) => {
-      const aa = a.date.split('/');
-      const bb = b.date.split('/');
-      return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
-    });
-  }
 
   handleReceivedReviewData(data) {
-    const accuracy = this.getAverageRating(data, 'accuracy_rating');
-    const communication = this.getAverageRating(data, 'communication_rating');
-    const cleanliness = this.getAverageRating(data, 'cleanliness_rating');
-    const location = this.getAverageRating(data, 'location_rating');
-    const checkin = this.getAverageRating(data, 'checkin_rating');
-    const value = this.getAverageRating(data, 'value_rating');
+    const accuracy = App.getAverageRating(data, 'accuracy_rating');
+    const communication = App.getAverageRating(data, 'communication_rating');
+    const cleanliness = App.getAverageRating(data, 'cleanliness_rating');
+    const location = App.getAverageRating(data, 'location_rating');
+    const checkin = App.getAverageRating(data, 'checkin_rating');
+    const value = App.getAverageRating(data, 'value_rating');
     const total = Math.round((2 * (accuracy + communication + cleanliness + location + checkin + value)) / 6) / 2;
-    this.sortedByDate(data);
+    App.sortedByDate(data);
     this.setState({
       allReviewData: data,
       currentReviews: data,

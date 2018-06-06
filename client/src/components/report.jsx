@@ -2,43 +2,41 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import ReportThankyou from './reportThankyou';
 
-const Report = () => (
-  <Popup trigger={<button className="report"><svg className="flag" x="0px" y="0px"
-  viewBox="0 0 60 60">
-<path d="M51.371,3.146c-0.459-0.185-11.359-4.452-19.84,0.045C24.811,6.758,13.015,4.082,10,3.308V1c0-0.553-0.447-1-1-1
- S8,0.447,8,1v3c0,0.014,0.007,0.026,0.008,0.04C8.008,4.052,8,4.062,8,4.074V33v1.074V59c0,0.553,0.447,1,1,1s1-0.447,1-1V35.375
- c2.273,0.567,7.227,1.632,12.368,1.632c3.557,0,7.2-0.511,10.101-2.049c7.652-4.061,18.056,0.004,18.16,0.045
- c0.309,0.124,0.657,0.086,0.932-0.102C51.835,34.716,52,34.406,52,34.074v-30C52,3.665,51.751,3.298,51.371,3.146z M50,32.665
- c-3.26-1.038-11.646-3.096-18.469,0.525C24.812,36.756,13.02,34.082,10,33.308V33V5.375c3.853,0.961,15.381,3.343,22.469-0.417
- C39.035,1.475,47.627,3.973,50,4.777V32.665z"></path></svg></button>} position="right center">
-
-    {close => (
-      <div className="reportContainer">
-        <div className="reportBackground">
-          <div className="reportPadding">
-            <div className="reportMain">
-              <a className="close" onClick={close}>
-              <svg width="64" viewBox="0 0 64 64" className="close" enable-background="new 0 0 64 64">
-  <g>
-    <path fill="#1D1D1B" d="M28.941,31.786L0.613,60.114c-0.787,0.787-0.787,2.062,0,2.849c0.393,0.394,0.909,0.59,1.424,0.59   c0.516,0,1.031-0.196,1.424-0.59l28.541-28.541l28.541,28.541c0.394,0.394,0.909,0.59,1.424,0.59c0.515,0,1.031-0.196,1.424-0.59   c0.787-0.787,0.787-2.062,0-2.849L35.064,31.786L63.41,3.438c0.787-0.787,0.787-2.062,0-2.849c-0.787-0.786-2.062-0.786-2.848,0   L32.003,29.15L3.441,0.59c-0.787-0.786-2.061-0.786-2.848,0c-0.787,0.787-0.787,2.062,0,2.849L28.941,31.786z"/>
-  </g>
-</svg>
-              </a>
-              <div>Do you want to anonymously report this review?</div>
-              <div>If so, please choose one of the following reasons.<button className="readMore">Learn more</button></div>
-              <input type="radio" name="review_flags" value="Inappropriate content" /><span>Inappropriate content</span>
-              <div>This review contains violent, graphic, promotional, or otherwise offensive content.</div>
-              <input type="radio" name="review_flags" value="Dishonest or hateful content" /><span>Dishonest or hateful content</span>
-              <div>This review is purposefully malicious and assaulting.</div>
-              <input type="radio" name="review_flags" value="Fake content" /><span>Fake content</span>
-              <div>This review contains false information or may be fake.</div>
-              <div><ReportThankyou /></div>
+const Report = ({ handleClose, handleSubmitClick, showThankyou }) => {
+  return (
+        <div className="reportContainer">
+          <div className="reportBackground">
+            <div className="reportPadding">
+              <div className="reportMain">
+                <a className="close" onClick={handleClose}>
+                <svg width="64" viewBox="0 0 64 64" className="close" enableBackground="new 0 0 64 64">
+    <g>
+      <path fill="#1D1D1B" d="M28.941,31.786L0.613,60.114c-0.787,0.787-0.787,2.062,0,2.849c0.393,0.394,0.909,0.59,1.424,0.59   c0.516,0,1.031-0.196,1.424-0.59l28.541-28.541l28.541,28.541c0.394,0.394,0.909,0.59,1.424,0.59c0.515,0,1.031-0.196,1.424-0.59   c0.787-0.787,0.787-2.062,0-2.849L35.064,31.786L63.41,3.438c0.787-0.787,0.787-2.062,0-2.849c-0.787-0.786-2.062-0.786-2.848,0   L32.003,29.15L3.441,0.59c-0.787-0.786-2.061-0.786-2.848,0c-0.787,0.787-0.787,2.062,0,2.849L28.941,31.786z"/>
+    </g>
+  </svg>
+                </a>
+                <div className="reportHeader">
+                  <div className="reportTitle">Do you want to anonymously report this review?</div>
+                </div>
+                <div className="chooseFollowing">If so, please choose one of the following reasons.<button className="readMore">Learn more</button></div>
+                <div className="reportContent">
+                  <div className="inappropriate">
+                    <input id="inappropriateButton"className="radioButton" type="radio" name="review_flags" value="Inappropriate content" /><span className="inappropriateText"><span className="inappropriateTitle">Inappropriate content</span>
+                      <div className="inappropriateContent">This review contains violent, graphic, promotional, or otherwise offensive content.</div></span>
+                  </div>
+                  <input className="radioButton" type="radio" name="review_flags" value="Dishonest or hateful content" /><span className="inappropriateText"><span className="inappropriateTitle">Dishonest or hateful content</span>
+                    <div className="inappropriateContent">This review is purposefully malicious and assaulting.</div></span>
+                  <input className="radioButton" type="radio" name="review_flags" value="Fake content" /><span className="inappropriateText"><span className="inappropriateTitle">Fake content</span>
+                    <div className="inappropriateContent">This review contains false information or may be fake.</div></span>
+                </div>
+                <button onClick={handleSubmitClick} className="submitReport">Submit</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
-  </Popup>
-);
+
+  )
+}
+
 
 export default Report;

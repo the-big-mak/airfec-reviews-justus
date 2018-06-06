@@ -357,6 +357,129 @@ body {
   fill: rgb(118, 118, 118);
 }
 
+.reportHeader {
+  padding-bottom: 24px;
+}
+
+.reportTitle {
+  font-weight: 700 !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 25px !important;
+  line-height: 30px !important;
+  letter-spacing: normal !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  color: #484848 !important;
+  padding-bottom: 24px;
+}
+
+.chooseFollowing {
+  font-weight: 500 !important;
+   margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 16px !important;
+  line-height: 22px !important;
+  letter-spacing: undefined !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+}
+
+.reportContent {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.inappropriate {
+  cursor: pointer !important;
+  display: table !important;
+  background: transparent !important;
+  border-width: 0px !important;
+  border-style: initial !important;
+  border-color: initial !important;
+  border-image: initial !important;
+  padding-left: 0px !important;
+}
+
+.inappropriateText {
+  display: table-cell !important;
+  vertical-align: top !important;
+  white-space: normal !important;
+  padding-left: 12px !important;
+}
+
+.inappropriateTitle {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 22px !important;
+  color: rgb(72, 72, 72) !important;
+  font-weight: normal !important;
+  cursor: pointer !important;
+  white-space: normal !important;
+  vertical-align: top !important;
+  display: inline-block !important;
+}
+
+.inappropriateContent {
+  font-weight: normal !important;
+  cursor: pointer !important;
+  white-space: normal !important;
+  vertical-align: top !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  letter-spacing: normal !important;
+  padding-top: 4px !important;
+  padding-bottom: 0px !important;
+  color: rgb(72, 72, 72) !important;
+  display: block !important;
+}
+
+#inappropriateButton {
+  display: inline-block !important;
+  height: 18px !important;
+  margin-top: 2px !important;
+  vertical-align: top !important;
+  width: 18px !important;
+  background: rgb(255, 255, 255) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(219, 219, 219) !important;
+  border-image: initial !important;
+  border-radius: 50% !important;
+}
+
+#inappropriateButton:active {
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(0, 132, 137) !important;
+  border-image: initial !important;
+  height: 6px;
+  width: 6px;
+  display: block;
+  fill: rgb(0, 132, 137);
+}
+
+.tyContainer {
+  position: fixed !important;
+  z-index: 2000 !important;
+  top: 0px !important;
+  right: 0px !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  overflow-y: auto !important;
+}
+
+.tyContainer {
+  display: table !important;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
 .reportThankyou {
   background-color: rgb(255, 255, 255) !important;
   width: 504px;

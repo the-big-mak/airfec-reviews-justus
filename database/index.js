@@ -10,13 +10,13 @@ const config = {
 
 const connection = mysql.createConnection(config);
 
-connection.connect((err) => {
-  if (err) {
-    console.log('failed to make connection to airFeC_reviews', err);
-  } else {
-    console.log('connected to mysql database');
-  }
-});
+// connection.connect((err) => {
+//   if (err) {
+//     console.log('failed to make connection to airFeC_reviews', err);
+//   } else {
+//     console.log('connected to mysql database');
+//   }
+// });
 
 const getData = (callback) => {
   const queryStr = `SELECT reviews.*, properties.host_name, properties.host_photo, properties.host_text FROM reviews, properties WHERE reviews.hostId = ${5} AND properties.id = ${5} OR reviews.hostId = ${6} AND properties.id = ${6}`;
