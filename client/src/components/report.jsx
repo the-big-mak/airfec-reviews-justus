@@ -3,7 +3,7 @@ import Popup from 'reactjs-popup';
 import ReportThankyou from './reportThankyou';
 
 const Report = () => (
-  <Popup trigger={<button><svg className="flag" x="0px" y="0px"
+  <Popup trigger={<button className="report"><svg className="flag" x="0px" y="0px"
   viewBox="0 0 60 60">
 <path d="M51.371,3.146c-0.459-0.185-11.359-4.452-19.84,0.045C24.811,6.758,13.015,4.082,10,3.308V1c0-0.553-0.447-1-1-1
  S8,0.447,8,1v3c0,0.014,0.007,0.026,0.008,0.04C8.008,4.052,8,4.062,8,4.074V33v1.074V59c0,0.553,0.447,1,1,1s1-0.447,1-1V35.375

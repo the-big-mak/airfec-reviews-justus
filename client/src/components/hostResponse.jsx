@@ -6,10 +6,12 @@ const HostResponse = ({ date, hostResponse }) => (
   <div>
     <img className="guestPhoto hostPhoto" src="1Spy3bu.jpg" alt="" />
     <div className="reviewHeader">
-      <div className="guestName">Response from {hostResponse.host_name}:</div>
+      <div className="guestName hostName">Response from {hostResponse.host_name}:</div>
     </div>
-    <div className="reviewText"><ReviewText reviewText={hostResponse.host_text} /></div>
-    <div className="hostDate">{date}</div>
+    <div className="hostTextAndDate">
+      <div className="reviewText"><ReviewText reviewText={hostResponse.host_text} /></div>
+      <div className="hostDate">{date}</div>
+    </div>
   </div>
 );
 

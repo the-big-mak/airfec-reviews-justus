@@ -10,8 +10,8 @@ const Ratings = ({ ratings }) => (
           <div className="ratingColumnA2">
             <div className="words">Accuracy <span className="star"><StarRatings
               rating={ratings[1]}
-              starDimension="20px"
-              starSpacing="3px"
+              starDimension="18px"
+              starSpacing="2px"
               starRatedColor="#008489"
             /></span>
             </div>
@@ -21,8 +21,8 @@ const Ratings = ({ ratings }) => (
           <div className="ratingColumnA2">
             <div className="words">Communication <span className="star"><StarRatings
               rating={ratings[2]}
-              starDimension="20px"
-              starSpacing="3px"
+              starDimension="18px"
+              starSpacing="2px"
               starRatedColor="#008489"
             /></span>
             </div>
@@ -33,7 +33,7 @@ const Ratings = ({ ratings }) => (
             <div className="words">Cleanliness <span className="star"><StarRatings
               rating={ratings[3]}
               starDimension="20px"
-              starSpacing="3px"
+              starSpacing="2px"
               starRatedColor="#008489"
             /></span>
             </div>
@@ -46,7 +46,7 @@ const Ratings = ({ ratings }) => (
             <div className="words">Location <span className="star"><StarRatings
               rating={ratings[4]}
               starDimension="20px"
-              starSpacing="3px"
+              starSpacing="2px"
               starRatedColor="#008489"
             /></span>
             </div>
@@ -57,7 +57,7 @@ const Ratings = ({ ratings }) => (
             <div className="words">Checkin <span className="star"><StarRatings
               rating={ratings[5]}
               starDimension="20px"
-              starSpacing="3px"
+              starSpacing="2px"
               starRatedColor="#008489"
             /></span>
             </div>
@@ -68,7 +68,7 @@ const Ratings = ({ ratings }) => (
             <div className="words">Value <span className="star"><StarRatings
               rating={ratings[6]}
               starDimension="20px"
-              starSpacing="3px"
+              starSpacing="2px"
               starRatedColor="#008489"
             /></span>
             </div>

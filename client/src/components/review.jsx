@@ -26,7 +26,7 @@ const Review = ({ review }) => {
   return (
     <div className="review">
       <img className="guestPhoto" src="2RTqR9s.jpg" alt="" />
-      <div className="report"><Report /></div>
+      <div><Report /></div>
       <div className="reviewHeader">
         <div className="guestName">{review.guest_name}</div>
         <div className="date">{formatedDate}</div>

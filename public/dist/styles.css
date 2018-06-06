@@ -5,6 +5,7 @@ body {
   color: #484848;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
+  margin: 75px;
 }
 
 .fullContainer {
@@ -293,19 +294,20 @@ body {
 
 .flag {
   enable-background: new 0 0 60 60;
-  height:1em;
-  width:1em;
-  display:block;
-  fill:currentColor;
+  height: 1.2em;
+  width : 1.2em;
+  display: block;
+  fill: currentColor;
 }
 
 .report {
-  float: right;
+  position: relative;
   cursor: pointer !important;
-  background-color: transparent !important;
+  background: transparent !important;
   color: buttontext !important;
   border: 0px !important;
   display: block !important;
+  left: 580px;
 }
 
 
@@ -353,7 +355,10 @@ body {
 .reviewHeader {
   width: 100% !important;
   vertical-align: top !important;
-  margin: 0 0 30px 60px
+  margin: 0 0 30px 60px;
+  position: relative;
+  left: 10px;
+  top: -8px;
 }
 
 .guestName {
@@ -369,8 +374,8 @@ body {
 
 .guestPhoto {
   float: left;
-  width: 48px;
-  height: 48px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   /* display: table-cell !important;
   vertical-align: top !important;
@@ -378,6 +383,8 @@ body {
   border: 2px solid #ffffff !important;
   overflow: hidden !important; */
   position: relative;
+  left: 7px;
+  top: 10px;
 }
 
 .date {
@@ -418,13 +425,31 @@ body {
   margin-left: 50px;
 }
 
+.hostName {
+  position: relative;
+  left: -40px;
+  top: 25px;
+}
+
 .hostDate {
   margin-top: 10px;
+  color: #767676 !important;
 }
 
 .hostPhoto {
   float: left;
   position: relative;
+  left: -25px;
+  top: 20px;
+  width: 37px;
+  height: 37px;
+}
+
+.hostTextAndDate {
+  position: relative;
+  top: -15px;
+  left: 30px;
+  width: 570px;
 }
 
 .reviewText {
