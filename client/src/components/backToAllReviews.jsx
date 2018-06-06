@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, searchedWord }) => (
-  <div>
+  <div className="backToReviewsContainer">
     <div className="mentions">{currentReviewsLength} guests have mentioned <span className="searchBold">{searchedWord}</span></div>
     <button className="backToAllReviews" onClick={handleBacktoAllReviewsClick}>Back to all reviews</button>
     <div className="border">
