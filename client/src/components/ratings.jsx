@@ -32,7 +32,7 @@ const Ratings = ({ ratings }) => (
           <div className="ratingColumnA2">
             <div className="words">Cleanliness <span className="star"><StarRatings
               rating={ratings[3]}
-              starDimension="20px"
+              starDimension="18px"
               starSpacing="2px"
               starRatedColor="#008489"
             /></span>
@@ -45,7 +45,7 @@ const Ratings = ({ ratings }) => (
           <div className="ratingColumnA2">
             <div className="words">Location <span className="star"><StarRatings
               rating={ratings[4]}
-              starDimension="20px"
+              starDimension="18px"
               starSpacing="2px"
               starRatedColor="#008489"
             /></span>
@@ -56,7 +56,7 @@ const Ratings = ({ ratings }) => (
           <div className="ratingColumnA2">
             <div className="words">Checkin <span className="star"><StarRatings
               rating={ratings[5]}
-              starDimension="20px"
+              starDimension="18px"
               starSpacing="2px"
               starRatedColor="#008489"
             /></span>
@@ -67,7 +67,7 @@ const Ratings = ({ ratings }) => (
           <div className="ratingColumnA2">
             <div className="words">Value <span className="star"><StarRatings
               rating={ratings[6]}
-              starDimension="20px"
+              starDimension="18px"
               starSpacing="2px"
               starRatedColor="#008489"
             /></span>

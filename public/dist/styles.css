@@ -300,6 +300,7 @@ body {
   fill: currentColor;
 }
 
+
 .report {
   position: relative;
   cursor: pointer !important;
@@ -310,6 +311,51 @@ body {
   left: 580px;
 }
 
+.reportContainer {
+  position: fixed !important;
+  z-index: 2000 !important;
+  top: 0px !important;
+  right: 0px !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  overflow-y: auto !important;
+}
+
+.reportBackground {
+  display: table !important;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.reportPadding {
+  display: table-cell !important;
+  vertical-align: middle !important;
+  padding: 64px !important;
+}
+
+.reportMain {
+  background-color: rgb(255, 255, 255) !important;
+  box-sizing: border-box !important;
+  padding: 32px;
+  width: 568px;
+  height: 480px;
+  position: relative;
+  left: 50px;
+}
+
+.close {
+  margin-bottom: 24px;
+  cursor: pointer !important;
+  background-color: transparent !important;
+  color: buttontext !important;
+  border: 0px !important;
+  display: block !important;
+  height: 16px;
+  width: 16px;
+  display: block;
+  fill: rgb(118, 118, 118);
+}
 
 .reportThankyou {
   background-color: rgb(255, 255, 255) !important;
