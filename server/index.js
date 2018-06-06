@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, '../public/dist/')));
 app.get('/reviews', (req, res) => {
   db.getData((err, data) => {
     if (err) {
-      res.status(400).send('failed to get data from db');
+      res.status(400).send(err);
     } else {
       res.status(200).send(data);
     }
@@ -21,7 +21,7 @@ app.get('/reviews', (req, res) => {
 app.get('/photos', (req, res) => {
   helper.getPhotos((err, photos) => {
     if (err) {
-      res.status(400).send('failed to get photos');
+      res.status(400).send(err);
     } else {
       db.addPhotos(photos);
       res.status(200).send('successfully added photos');
