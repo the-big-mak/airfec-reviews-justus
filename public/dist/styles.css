@@ -147,7 +147,7 @@ body {
   padding: 7px !important;
 }
 
-/* .searchBox {
+.searchBox {
   border-width: 1px !important;
   border-style: solid !important;
   border-color: #DBDBDB !important;
@@ -165,7 +165,7 @@ body {
   color: #484848 !important;
   display: block !important;
   width: 100% !important;
-} */
+}
 
 .mentions {
   word-wrap: break-word !important;
