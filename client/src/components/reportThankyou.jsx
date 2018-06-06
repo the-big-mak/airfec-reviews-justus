@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ReportThankyou = ({ handleClose }) => (
-  <div className="tyContainer">
+const ReportThankyou = ({ handleClose, setWrapperRef, handleOutsideClick }) => (
+  <div onClick={handleOutsideClick} className="tyContainer">
     <div className="tyContainer1">
       <div className="tyPadding">
-        <div className="reportThankyou">
+        <div ref={setWrapperRef} className="reportThankyou">
           <div className="tyPadding1">
             <div className="tyCloseContainer">
               <button className="thankyouClose" onClick={handleClose}>

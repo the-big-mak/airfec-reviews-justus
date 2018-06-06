@@ -15,12 +15,19 @@ class Review extends React.Component {
     this.handleFlagClick = this.handleFlagClick.bind(this);
     this.handleSubmitClick = this.handleSubmitClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+  }
+  componentWillMount() {
+    document.addEventListener('mousedown', this.handleOutsideClick, false);
   }
 
-  handleFlagClick() {
-    this.setState({
-      showReport: true,
-    });
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleOutsideClick, false);
+  }
+
+  setWrapperRef(node) {
+    this.wrapperRef = node;
   }
 
   handleSubmitClick() {
@@ -35,6 +42,19 @@ class Review extends React.Component {
       showThankyou: false,
       showReport: false,
     });
+  }
+
+  handleFlagClick() {
+    this.setState({
+      showReport: true,
+    });
+  }
+
+  handleOutsideClick(e) {
+    if (this.wrapperRef.contains(e.target)) {
+      return;
+    }
+    this.handleClose();
   }
 
   render() {
@@ -56,8 +76,8 @@ class Review extends React.Component {
     const formatedDate = `${month[date[1]]} ${date[0]}`;
     const hostResponse = this.props.review.id % 10 === 0 ? '' : <HostResponse date={formatedDate} hostResponse={this.props.review} />;
   
-    const showReport = this.state.showReport ? <Report showThankyou={this.state.showThankyou} handleClose={this.handleClose} handleSubmitClick={this.handleSubmitClick} /> : null;
-    const showThankyouPopup = this.state.showThankyou ? <ReportThankyou handleClose={this.handleClose} /> : null;
+    const showReport = this.state.showReport ? <Report setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} handleSubmitClick={this.handleSubmitClick} /> : null;
+    const showThankyouPopup = this.state.showThankyou ? <ReportThankyou setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} /> : null;
     return (
       <div className="review">
         <img className="guestPhoto" src="2RTqR9s.jpg" alt="" />
