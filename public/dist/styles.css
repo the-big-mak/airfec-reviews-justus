@@ -473,44 +473,66 @@ body {
   overflow-y: auto !important;
 }
 
-.tyContainer {
+.tyContainer1 {
   display: table !important;
   height: 100% !important;
   width: 100% !important;
   background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
+.tyPadding {
+  display: table-cell !important;
+  vertical-align: middle !important;
+  padding: 64px !important;
+}
+
 .reportThankyou {
   background-color: rgb(255, 255, 255) !important;
-  width: 504px;
-  height: 180px;
+  max-width: 568px !important;
+  height: 244px;
+  width: 100% !important;
+  position: relative !important;
+  margin: auto !important;
+}
+
+.tyPadding1 {
+  background-color: rgb(255, 255, 255) !important;
+  box-sizing: border-box !important;
   padding: 32px !important;
 }
 
+.thankyouClose {
+  cursor: pointer !important;
+  background-color: transparent !important;
+  color: buttontext !important;
+  border: 0px !important;
+  display: block !important;
+}
+
 .thankyou {
-  font-weight: 800 !important;
+  font-weight: 600 !important;
   margin: 0px !important;
   word-wrap: break-word !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
   font-size: 25px !important;
   line-height: 30px !important;
   letter-spacing: normal !important;
-  padding-top: 2px !important;
-  padding-bottom: 2px !important;
+  padding-top: -5px !important;
+  padding-bottom: 20px !important;
   color: #484848 !important;
 }
 
 .thankyouText {
   font-weight: 600 !important;
+  margin: 0px !important;
   word-wrap: break-word !important;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  font-size: 16px !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 15px !important;
   line-height: 22px !important;
+  letter-spacing: undefined !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
-  color: rgb(72, 72, 72) !important;
-  margin: 0px !important;
-  margin-bottom: 24px !important;
+  color: #484848 !important;
 }
 
 .thankyouClose {
