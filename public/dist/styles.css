@@ -512,7 +512,7 @@ body {
   border-color: transparent !important;
   top: 15px;
 } */
-
+/* 
 .tyContainer {
   position: fixed !important;
   z-index: 2000 !important;
@@ -591,7 +591,7 @@ body {
     color: buttontext !important;
     border: 0px !important;
     display: block !important;
-}
+} */
 /* 
 .reviewHeader {
   width: 100% !important;
@@ -713,14 +713,14 @@ body {
 .bottomBorder {
   border-bottom: 1px solid #DBDBDB;
 } */
-
+/* 
 .submitReport:disabled {
   color: rgb(255, 255, 255) !important;
   cursor: default !important;
   background: rgba(0, 132, 137, 0.3) !important;
   border-color: transparent !important;
-}
-
+} */
+/* 
 .pagesContainer {
   display: inline-block;
 }
@@ -782,4 +782,4 @@ body {
   padding-bottom: 6px;
   position: relative;
   top: 4px;
-}
+} */

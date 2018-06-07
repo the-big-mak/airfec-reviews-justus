@@ -19,3 +19,15 @@
   fill: rgb(118, 118, 118);
   outline: none;
 }
+
+.nextButton {
+  color: #008489 !important;
+  enable-background: new 0 0 41.999 41.999;
+  height: 7px;
+  width: 7px;
+  display: block;
+  fill: currentColor;
+  padding-bottom: 6px;
+  position: relative;
+  top: 4px;
+}

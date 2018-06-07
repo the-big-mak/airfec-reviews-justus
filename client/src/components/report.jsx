@@ -18,9 +18,7 @@ const Report = ({
           <button className={styles.close} onClick={handleClose}>
             {svg.close}
           </button>
-          <div className={styles.reportHeader}>
-            <div className={styles.reportTitle}>Do you want to anonymously report this review?</div>
-          </div>
+          <div className={styles.reportTitle}>Do you want to anonymously report this review?</div>
           <div className={styles.chooseFollowing}>If so, please choose one of the following reasons.
             <button className={styles.readMore}>  Learn more</button>
           </div>

@@ -38,6 +38,7 @@ class Review extends React.Component {
     this.setState({
       showThankyou: true,
       showReport: false,
+      buttonDisabled: true,
     });
   }
 
@@ -45,6 +46,7 @@ class Review extends React.Component {
     this.setState({
       showThankyou: false,
       showReport: false,
+      buttonDisabled: true,
     });
   }
 
@@ -62,7 +64,6 @@ class Review extends React.Component {
   }
 
   handleLabelClick() {
-    console.log('clicked')
     this.setState({
       buttonDisabled: false,
     });

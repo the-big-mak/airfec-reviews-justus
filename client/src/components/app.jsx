@@ -132,7 +132,7 @@ export default class App extends React.Component {
   }
 
   handleNextClick() {
-    if (this.state.currentPage < this.state.allReviewData.length / 7) {
+    if (this.state.currentPage < this.state.allReviewData.length / 3) {
       this.setState({
         currentPage: this.state.currentPage + 1,
       });
@@ -181,13 +181,13 @@ export default class App extends React.Component {
         <div>
           {hasBeenSearched}
         </div>
-        <div><ReviewList reviews={this.state.currentReviews.slice(7 * this.state.currentPage, (7 * this.state.currentPage) + 7)} /></div>
+        <div><ReviewList reviews={this.state.currentReviews.slice(3 * this.state.currentPage, (3 * this.state.currentPage) + 3)} /></div>
         <div className="pagesContainer"><Pages
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}
           handlePageClick={this.handlePageClick}
-          numberOfPages={this.state.currentReviews.length / 7}
+          numberOfPages={this.state.currentReviews.length / 3}
         />
         </div>
       </div>
