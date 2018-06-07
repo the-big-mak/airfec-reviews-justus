@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Rating from './rating';
+import styles from './styles/ratingsList.css';
 
 const RatingsList = ({ ratings }) => {
   const accuracyCommunicationCleanliness = [
@@ -15,14 +16,12 @@ const RatingsList = ({ ratings }) => {
   ];
   return (
     <div>
-      <div className="ratings">
-        <div className="subRatings">
-          <div className="acc-com-cle">
-            {accuracyCommunicationCleanliness.map(rating => <Rating rating={rating} key={rating} />)}
-          </div>
-          <div className="loc-che-val">
-            {locationCheckinValue.map(rating => <Rating rating={rating} key={rating} />)}
-          </div>
+      <div className={styles.ratings}>
+        <div className={styles.accComCle}>
+          {accuracyCommunicationCleanliness.map(rating => <Rating rating={rating} key={rating} />)}
+        </div>
+        <div className={styles.locCheVal}>
+          {locationCheckinValue.map(rating => <Rating rating={rating} key={rating} />)}
         </div>
       </div>
     </div>

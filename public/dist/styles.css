@@ -164,7 +164,7 @@ body {
   top: 55px;
 }
 
-.ratings-reviews-pages {
+/* .ratings-reviews-pages {
   width: 648px;
   height: 1098px;
 }
@@ -184,8 +184,8 @@ body {
   min-height: 1px !important;
   position: relative !important;
   top: 33px;
-}
-
+} */
+/* 
 .ratingColumnA1 {
   margin-bottom: 8px;
 }
@@ -229,7 +229,7 @@ body {
   position: relative !important;
   left: 175px;
   top: -23px;
-}
+} */
 
 .mentions {
   word-wrap: break-word !important;

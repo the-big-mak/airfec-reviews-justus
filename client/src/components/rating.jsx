@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
+import styles from './styles/rating.css';
 
 const Rating = ({ rating }) => (
-  <div className="ratingColumnA1">
-    <div className="ratingColumnA2">
-      <div className="words">{rating[1]}
-        <span className="star"> <StarRatings
+  <div className={styles.ratingColumnA1}>
+    <div className={styles.ratingColumnA2}>
+      <div className={styles.words}>{rating[1]}
+        <span className={styles.star}> <StarRatings
           rating={rating[0]}
           starDimension="18px"
           starSpacing="2px"
