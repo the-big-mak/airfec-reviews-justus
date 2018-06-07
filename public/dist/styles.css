@@ -393,7 +393,7 @@ body {
   margin-bottom: 16px;
 }
 
-.inappropriate {
+/* .inappropriate {
   cursor: pointer !important;
   display: table !important;
   background: transparent !important;
@@ -402,13 +402,20 @@ body {
   border-color: initial !important;
   border-image: initial !important;
   padding-left: 0px !important;
-}
-
+} */
+/* 
 .inappropriateText {
   display: table-cell !important;
   vertical-align: top !important;
   white-space: normal !important;
   padding-left: 12px !important;
+  margin-bottom: 10px;
+  position: relative;
+  left: 20px;
+} */
+
+.inappropriate {
+  margin-bottom: 10px;
 }
 
 .inappropriateTitle {
@@ -421,6 +428,7 @@ body {
   white-space: normal !important;
   vertical-align: top !important;
   display: inline-block !important;
+  padding-left: 12px;
 }
 
 .inappropriateContent {
@@ -429,19 +437,15 @@ body {
   white-space: normal !important;
   vertical-align: top !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  font-size: 14px !important;
+  font-size: 13.5px !important;
   line-height: 18px !important;
   letter-spacing: normal !important;
   padding-top: 4px !important;
   padding-bottom: 0px !important;
   color: rgb(72, 72, 72) !important;
   display: block !important;
-}
-
-.dishonest-fake {
   position: relative;
-  left: 15px;
-  top: -15px;
+  left: 35px;
 }
 
 .radioButton {
@@ -467,6 +471,35 @@ body {
   width: 6px;
   display: block;
   fill: rgb(0, 132, 137);
+}
+
+.submitReport {
+  cursor: pointer !important;
+  display: inline-block !important;
+  position: relative !important;
+  text-align: center !important;
+  transition-property: background, border-color, color !important;
+  transition-duration: 0.2s !important;
+  transition-timing-function: ease-out !important;
+  width: auto !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 21px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  font-weight: 800 !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  min-width: 77.6656px !important;
+  color: rgb(255, 255, 255) !important;
+  margin: 0px !important;
+  text-decoration: none !important;
+  border-radius: 4px !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  background: rgb(0, 132, 137) !important;
+  border-color: transparent !important;
+  top: 15px;
 }
 
 .tyContainer {
@@ -674,34 +707,6 @@ body {
   color: rgb(255, 255, 255) !important;
   cursor: default !important;
   background: rgba(0, 132, 137, 0.3) !important;
-  border-color: transparent !important;
-}
-
-.submitReport {
-  cursor: pointer !important;
-  display: inline-block !important;
-  position: relative !important;
-  text-align: center !important;
-  transition-property: background, border-color, color !important;
-  transition-duration: 0.2s !important;
-  transition-timing-function: ease-out !important;
-  width: auto !important;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  font-size: 16px !important;
-  line-height: 21px !important;
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
-  font-weight: 800 !important;
-  padding-left: 24px !important;
-  padding-right: 24px !important;
-  min-width: 77.6656px !important;
-  color: rgb(255, 255, 255) !important;
-  margin: 0px !important;
-  text-decoration: none !important;
-  border-radius: 4px !important;
-  border-width: 2px !important;
-  border-style: solid !important;
-  background: rgb(0, 132, 137) !important;
   border-color: transparent !important;
 }
 

@@ -15,25 +15,29 @@ const Report = ({
           <div className="reportHeader">
             <div className="reportTitle">Do you want to anonymously report this review?</div>
           </div>
-          <div className="chooseFollowing">If so, please choose one of the following reasons.<button className="readMore">Learn more</button></div>
+          <div className="chooseFollowing">If so, please choose one of the following reasons. <button className="readMore"> Learn more</button></div>
           <div className="reportContent">
             <div className="inappropriate">
-              <label htmlFor="inappropriate" className="inappropriateTitle">
+              <label htmlFor="inappropriate" className="label">
                 <input id="inappropriate" className="radioButton" type="radio" name="review_flags" value="Inappropriate content" />
-                Inappropriate content
+                <div className="inappropriateTitle">Inappropriate content</div>
                 <div className="inappropriateContent">This review contains violent, graphic, promotional, or otherwise offensive content.</div>
               </label>
             </div>
-            <label htmlFor="dishonest" className="inappropriateTitle">
-              <input id="dishonest" className="radioButton" type="radio" name="review_flags" value="Dishonest or hateful content" />
-              Dishonest or hateful content
-              <div className="inappropriateContent">This review is purposefully malicious and assaulting.</div>
-            </label>
-            <label htmlFor="fake" className="inappropriateTitle">
-              <input id="fake" className="radioButton" type="radio" name="review_flags" value="Fake content" />
-              Fake content
-              <div className="inappropriateContent">This review contains false information or may be fake.</div>
-            </label>
+            <div className="inappropriate">
+              <label htmlFor="dishonest" className="label">
+                <input id="dishonest" className="radioButton" type="radio" name="review_flags" value="Dishonest or hateful content" />
+                <div className="inappropriateTitle">Dishonest or hateful content</div>
+                <div className="inappropriateContent">This review is purposefully malicious and assaulting.</div>
+              </label>
+            </div>
+            <div className="inappropriate">
+              <label htmlFor="fake" className="label">
+                <input id="fake" className="radioButton" type="radio" name="review_flags" value="Fake content" />
+                <div className="inappropriateTitle">Fake content</div>
+                <div className="inappropriateContent">This review contains false information or may be fake.</div>
+              </label>
+            </div>
           </div>
           <button onClick={handleSubmitClick} className="submitReport">Submit</button>
         </div>
