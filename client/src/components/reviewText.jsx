@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles/reviewText.css';
 
 export default class ReviewText extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class ReviewText extends React.Component {
   render() {
     if (this.state.fullText.length >= 280) {
       return (
-        <div>{this.state.shortText}...<button className="readMore" onClick={this.handleReadMoreClick}>Read More</button></div>
+        <div>{this.state.shortText}...<button className={styles.readMore} onClick={this.handleReadMoreClick}>Read More</button></div>
       );
     }
     return (

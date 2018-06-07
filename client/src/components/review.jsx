@@ -5,6 +5,7 @@ import Report from './report';
 import HostResponse from './hostResponse';
 import ReportThankyou from './reportThankyou';
 import svg from './svg';
+import styles from './styles/review.css';
 
 class Review extends React.Component {
   constructor(props) {
@@ -80,19 +81,19 @@ class Review extends React.Component {
     const showReport = this.state.showReport ? <Report setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} handleSubmitClick={this.handleSubmitClick} /> : null;
     const showThankyouPopup = this.state.showThankyou ? <ReportThankyou setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} /> : null;
     return (
-      <div className="review">
-        <img className="guestPhoto" src="2RTqR9s.jpg" alt="" />
-        <button onClick={this.handleFlagClick} className="report">{svg.flag}</button>
+      <div className={styles.review}>
+        <img className={styles.guestPhoto} src="2RTqR9s.jpg" alt="" />
+        <button onClick={this.handleFlagClick} className={styles.report}>{svg.flag}</button>
         <div>{showReport}</div>
         <div>{showThankyouPopup}</div>
-        <div className="reviewHeader">
-          <div className="guestName">{this.props.review.guest_name}</div>
-          <div className="date">{formatedDate}</div>
+        <div className={styles.reviewHeader}>
+          <div className={styles.guestName}>{this.props.review.guest_name}</div>
+          <div className={styles.date}>{formatedDate}</div>
         </div>
-        <div className="reviewText"><ReviewText reviewText={this.props.review.review_text} /></div>
-        <div className="hostResponse">{hostResponse}</div>
-        <div className="bottomSpace">
-          <div className="bottomBorder" />
+        <div className={styles.reviewText}><ReviewText reviewText={this.props.review.review_text} /></div>
+        <div className={styles.hostResponse}>{hostResponse}</div>
+        <div className={styles.bottomSpace}>
+          <div className={styles.bottomBorder} />
         </div>
       </div>
     );

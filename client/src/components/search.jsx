@@ -38,7 +38,7 @@ const Search = ({
         {svg.search}
       </div>
     </div>
-    <div className={styles.border}>
+    <div className={styles.borders}>
       <div className={styles.innerBorder} />
     </div>
   </div>

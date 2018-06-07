@@ -11,7 +11,7 @@ body {
 .fullContainer {
   width: 648px;
 }
-.boarder {
+/* .boarder {
   margin-top: 16px;
   margin-bottom: 16px;
 }
@@ -21,7 +21,7 @@ body {
   width: 648px;
   position: relative;
   top: 55px;
-} 
+}  */
 /* 
 .search-container {
   width: 648px;
@@ -241,7 +241,7 @@ body {
   left: 175px;
   top: -23px;
 } */
-
+/* 
 .mentions {
   word-wrap: break-word !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
@@ -282,26 +282,26 @@ body {
   position: relative;
   left: 530px;
   top: 30px;
-}
+} */
 
-.searchBold {
+/* .searchBold {
   font-weight: 700;
-}
-
+} */
+/* 
 .border {
   margin-top: -5px;
-}
-
+} */
+/* 
 .reviewList {
   position: relative;
-}
+} */
 
-.review {
+/* .review {
   font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.43;
   color: #484848;
-}
+} */
 
 .flag {
   enable-background: new 0 0 60 60;
@@ -311,7 +311,7 @@ body {
   fill: currentColor;
 }
 
-
+/* 
 .report {
   position: relative;
   cursor: pointer !important;
@@ -320,7 +320,7 @@ body {
   border: 0px !important;
   display: block !important;
   left: 580px;
-}
+} */
 
 .reportContainer {
   position: fixed !important;
@@ -592,7 +592,7 @@ body {
     border: 0px !important;
     display: block !important;
 }
-
+/* 
 .reviewHeader {
   width: 100% !important;
   vertical-align: top !important;
@@ -623,10 +623,10 @@ body {
   background: #D8D8D8 !important;
   border: 2px solid #ffffff !important;
   overflow: hidden !important; */
-  position: relative;
+  /* position: relative;
   left: 7px;
-  top: 10px;
-}
+  top: 10px; */
+/* }
 
 .date {
   margin: 0px !important;
@@ -640,7 +640,7 @@ body {
   color: #484848 !important;
   font-weight: normal !important;
   display: inline !important;
-}
+}  */
 
 .readMore {
   color: #008489 !important;
@@ -661,7 +661,7 @@ body {
   user-select: auto !important;
   text-align: left !important;
 }
-
+/* 
 .hostResponse {
   margin-left: 50px;
 }
@@ -712,7 +712,7 @@ body {
 
 .bottomBorder {
   border-bottom: 1px solid #DBDBDB;
-}
+} */
 
 .submitReport:disabled {
   color: rgb(255, 255, 255) !important;
