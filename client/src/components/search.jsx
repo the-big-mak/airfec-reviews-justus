@@ -1,27 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
+import svg from './svg';
+import styles from './styles/search.css';
 
-const Search = props => (
+const Search = ({
+  handleSearchTextChange,
+  handleKeyPress,
+  totalRating,
+  totalReviews,
+  searchText,
+}) => (
   <div>
-    <div className="totalReviews">
-      <div className="totalReviewsWords">{props.totalReviews} Reviews <StarRatings
-        rating={props.totalRating}
-        starDimension="20px"
-        starSpacing="3px"
-        starRatedColor="#008489"
-      />
+    <div className={styles.totalReviews}>
+      <div className={styles.totalReviewsWords}>{totalReviews} Reviews
+        <span className={styles.totalReviewStars}><StarRatings
+          rating={totalRating}
+          starDimension="20px"
+          starSpacing="3px"
+          starRatedColor="#008489"
+        />
+        </span>
       </div>
     </div>
-    <div className="searchContainer">
-      <input
-        className="searchBox"
-        type="search"
-        value={props.searchText}
-        placeholder="Search reviews"
-        onChange={props.handleSearchTextChange}
-        onKeyPress={props.handleKeyPress}
-      />
+    <div className={styles.searchContainer}>
+      <div className={styles.searchContainer1}>
+        <div className={styles.searchContainer2}>
+          <input
+            className={styles.searchInput}
+            type="search"
+            value={searchText}
+            placeholder="Search reviews"
+            onChange={handleSearchTextChange}
+            onKeyPress={handleKeyPress}
+          />
+        </div>
+        {svg.search}
+      </div>
+    </div>
+    <div className={styles.borders}>
+      <div className={styles.innerBorder} />
     </div>
   </div>
 );

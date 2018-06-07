@@ -1,0 +1,23 @@
+
+.ratingContainer {
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: -10px;
+  position: relative;
+  width: 50%;
+}
+
+.words {
+  color: #484848;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.star {
+  padding-left: 8px;
+  padding-right: 8px;
+  position: relative;
+  left: 175px;
+  top: -23px;
+}

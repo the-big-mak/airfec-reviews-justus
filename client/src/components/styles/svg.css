@@ -1,0 +1,9 @@
+.icon {
+  height: 1em;
+  width: 1em;
+  fill: currentColor;
+  position: relative;
+  float: left;
+  top: -25px;
+  left: 5px;
+}

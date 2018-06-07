@@ -1,12 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 import ReviewList from './reviewList';
-import Ratings from './ratings';
+import RatingsList from './ratingsList';
 import Search from './search';
 import BackToAllReviews from './backToAllReviews';
 import Pages from './pages';
 
 export default class App extends React.Component {
+  static sortedByDate(reviews) {
+    return reviews.sort((a, b) => {
+      const aa = a.date.split('/');
+      const bb = b.date.split('/');
+      return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
+    });
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -25,6 +33,7 @@ export default class App extends React.Component {
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handlePrevClick = this.handlePrevClick.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
+    this.getTotalRating = this.getTotalRating.bind(this);
   }
 
   componentDidMount() {
@@ -43,7 +52,7 @@ export default class App extends React.Component {
       .catch(error => console.error('failed to get room data', error));
   }
 
-  getAverageRating(reviewRatings, subclass) {
+  static getAverageRating(reviewRatings, subclass) {
     let sum = 0;
     reviewRatings.forEach((review) => {
       sum += review[subclass];
@@ -52,28 +61,29 @@ export default class App extends React.Component {
     return Math.round(average * 2) / 2;
   }
 
-  sortedByDate(reviews) {
-    return reviews.sort((a, b) => {
-      const aa = a.date.split('/');
-      const bb = b.date.split('/');
-      return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
+  getTotalRating() {
+    let sum = 0;
+    this.state.ratings.forEach((rating) => {
+      sum += rating;
     });
+    return Math.round((2 * sum) / 6) / 2;
   }
 
   handleReceivedReviewData(data) {
-    const accuracy = this.getAverageRating(data, 'accuracy_rating');
-    const communication = this.getAverageRating(data, 'communication_rating');
-    const cleanliness = this.getAverageRating(data, 'cleanliness_rating');
-    const location = this.getAverageRating(data, 'location_rating');
-    const checkin = this.getAverageRating(data, 'checkin_rating');
-    const value = this.getAverageRating(data, 'value_rating');
-    const total = Math.round((2 * (accuracy + communication + cleanliness + location + checkin + value)) / 6) / 2;
-    this.sortedByDate(data);
+    const ratings = [
+      'accuracy_rating',
+      'communication_rating',
+      'cleanliness_rating',
+      'location_rating',
+      'checkin_rating',
+      'value_rating',
+    ];
+
+    App.sortedByDate(data);
     this.setState({
       allReviewData: data,
       currentReviews: data,
-      ratings: [accuracy, communication, cleanliness, location, checkin, value, total],
-
+      ratings: ratings.map(rating => App.getAverageRating(data, rating)),
     });
   }
 
@@ -118,10 +128,11 @@ export default class App extends React.Component {
   }
 
   handleNextClick() {
-    if (this.state.currentPage < this.state.allReviewData.length / 2) {
+    if (this.state.currentPage < this.state.allReviewData.length / 7) {
       this.setState({
         currentPage: this.state.currentPage + 1,
       });
+      document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
     }
   }
 
@@ -130,13 +141,16 @@ export default class App extends React.Component {
       this.setState({
         currentPage: this.state.currentPage - 1,
       });
+      document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
     }
   }
+
 
   handlePageClick(e) {
     this.setState({
       currentPage: e.target.value - 1,
     });
+    document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
   }
 
   render() {
@@ -146,15 +160,16 @@ export default class App extends React.Component {
         currentReviewsLength={this.state.currentReviews.length}
         searchedWord={this.state.searchedWord}
       />) :
-      (<Ratings
+      (<RatingsList
         ratings={this.state.ratings}
       />);
     return (
-      <div id="app">
-        <div id="search"><Search
+      <div className="fullContainer">
+        <div id="top" />
+        <div><Search
           handleSearchTextChange={this.handleSearchTextChange}
           handleKeyPress={this.handleKeyPress}
-          totalRating={this.state.ratings[6]}
+          totalRating={this.getTotalRating()}
           totalReviews={this.state.allReviewData.length}
           searchText={this.state.searchText}
         />
@@ -162,13 +177,13 @@ export default class App extends React.Component {
         <div>
           {hasBeenSearched}
         </div>
-        <div><ReviewList reviews={this.state.currentReviews.slice(2 * this.state.currentPage, (2 * this.state.currentPage) + 2)} /></div>
-        <div><Pages
+        <div><ReviewList reviews={this.state.currentReviews.slice(7 * this.state.currentPage, (7 * this.state.currentPage) + 7)} /></div>
+        <div className="pagesContainer"><Pages
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}
           handlePageClick={this.handlePageClick}
-          numberOfPages={this.state.currentReviews.length / 2}
+          numberOfPages={this.state.currentReviews.length / 7}
         />
         </div>
       </div>

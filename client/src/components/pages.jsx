@@ -1,17 +1,18 @@
 import React from 'react';
 import PropType from 'prop-types';
+import svg from './svg';
 
 class Pages extends React.Component {
   next() {
     if (this.props.currentPage < this.props.numberOfPages - 1) {
-      return <button onClick={this.props.handleNextClick}>Next</button>;
+      return <button className="pageButton" onClick={this.props.handleNextClick}>{svg.next}</button>;
     }
     return null;
   }
 
   prev() {
     if (this.props.currentPage !== 0) {
-      return <button onClick={this.props.handlePrevClick}>Prev</button>;
+      return <button className="pageButton" onClick={this.props.handlePrevClick}>{svg.prev}</button>;
     }
     return null;
   }
@@ -20,32 +21,34 @@ class Pages extends React.Component {
     const pages = [];
     if (end <= this.props.numberOfPages) {
       for (let i = start; i <= end; i++) {
-        pages.push(<button value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
+        pages.push(<button className="pageButton" value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
       }
     } else {
       for (let i = start; i < this.props.numberOfPages; i++) {
-        pages.push(<button value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
+        pages.push(<button className="pageButton" value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
       }
     }
     return pages;
   }
 
   renderEndingDots() {
-    if (this.props.currentPage < this.props.numberOfPages - 4) {
-      return <div>...</div>;
+    if (this.props.currentPage < this.props.numberOfPages - 4 && this.props.numberOfPages >= 5) {
+      return <div className="dots dotsContainer">...</div>;
     }
     return null;
   }
   renderBeginningDots() {
-    if (this.props.currentPage > 3) {
-      return <div>...</div>;
+    if (this.props.currentPage > 3 && this.props.numberOfPages >= 5) {
+      return <div className="dots dotsContainer">...</div>;
     }
     return null;
   }
 
   renderPages(currentPage) {
-    const pages = this.props.numberOfPages;
-    if (currentPage < 2) {
+    const pages = Math.floor(this.props.numberOfPages);
+    if (this.props.numberOfPages < 5) {
+      return this.loop(2, 4);
+    } else if (currentPage < 2) {
       return this.loop(2, 3);
     } else if (currentPage === 2) {
       return this.loop(2, 4);
@@ -66,15 +69,15 @@ class Pages extends React.Component {
   }
 
   render() {
-    if (this.props.numberOfPages) {
+    if (Math.floor(this.props.numberOfPages)) {
       return (
-        <div>
+        <div className="pages">
           {this.prev()}
-          {<button value={1} onClick={this.props.handlePageClick}>1</button>}
+          {<button className="pageButton" value={1} onClick={this.props.handlePageClick}>1</button>}
           {this.renderBeginningDots()}
           {this.renderPages(this.props.currentPage).map(page => page)}
           {this.renderEndingDots()}
-          {<button value={Math.ceil(this.props.numberOfPages)} onClick={this.props.handlePageClick}>{Math.ceil(this.props.numberOfPages)}</button>}
+          {<button className="pageButton" value={Math.ceil(this.props.numberOfPages)} onClick={this.props.handlePageClick}>{Math.ceil(this.props.numberOfPages)}</button>}
           {this.next()}
         </div>
       );
