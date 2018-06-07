@@ -1,4 +1,4 @@
-.icon {
+.searchIcon {
   height: 1em;
   width: 1em;
   fill: currentColor;
@@ -6,4 +6,16 @@
   float: left;
   top: -25px;
   left: 5px;
+}
+
+.close {
+  margin-bottom: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  color: buttontext;
+  border: 0px;
+  height: 16px;
+  width: 16px;
+  fill: rgb(118, 118, 118);
+  outline: none;
 }

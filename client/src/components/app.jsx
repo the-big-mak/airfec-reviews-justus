@@ -15,6 +15,10 @@ export default class App extends React.Component {
     });
   }
 
+  static scrollToTop() {
+    document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -132,7 +136,7 @@ export default class App extends React.Component {
       this.setState({
         currentPage: this.state.currentPage + 1,
       });
-      document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+      App.scrollToTop();
     }
   }
 
@@ -141,7 +145,7 @@ export default class App extends React.Component {
       this.setState({
         currentPage: this.state.currentPage - 1,
       });
-      document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+      App.scrollToTop();
     }
   }
 
@@ -150,7 +154,7 @@ export default class App extends React.Component {
     this.setState({
       currentPage: e.target.value - 1,
     });
-    document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+    App.scrollToTop();
   }
 
   render() {

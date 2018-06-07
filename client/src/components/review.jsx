@@ -13,12 +13,14 @@ class Review extends React.Component {
     this.state = {
       showReport: false,
       showThankyou: false,
+      buttonDisabled: true,
     };
     this.handleFlagClick = this.handleFlagClick.bind(this);
     this.handleSubmitClick = this.handleSubmitClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleLabelClick = this.handleLabelClick.bind(this);
   }
   componentWillMount() {
     document.addEventListener('mousedown', this.handleOutsideClick);
@@ -59,6 +61,13 @@ class Review extends React.Component {
     this.handleClose();
   }
 
+  handleLabelClick() {
+    console.log('clicked')
+    this.setState({
+      buttonDisabled: false,
+    });
+  }
+
   render() {
     const month = {
       '01': 'January',
@@ -78,7 +87,7 @@ class Review extends React.Component {
     const formatedDate = `${month[date[1]]} ${date[0]}`;
     const hostResponse = this.props.review.id % 10 === 0 ? '' : <HostResponse date={formatedDate} hostResponse={this.props.review} />;
   
-    const showReport = this.state.showReport ? <Report setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} handleSubmitClick={this.handleSubmitClick} /> : null;
+    const showReport = this.state.showReport ? <Report buttonState={this.state.buttonDisabled} handleLabelClick={this.handleLabelClick} setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} handleSubmitClick={this.handleSubmitClick} /> : null;
     const showThankyouPopup = this.state.showThankyou ? <ReportThankyou setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} /> : null;
     return (
       <div className={styles.review}>

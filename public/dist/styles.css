@@ -321,7 +321,7 @@ body {
   display: block !important;
   left: 580px;
 } */
-
+/* 
 .reportContainer {
   position: fixed !important;
   z-index: 2000 !important;
@@ -402,7 +402,7 @@ body {
 .reportContent {
   margin-top: 16px;
   margin-bottom: 16px;
-}
+} */
 
 /* .inappropriate {
   cursor: pointer !important;
@@ -424,7 +424,7 @@ body {
   position: relative;
   left: 20px;
 } */
-
+/* 
 .inappropriate {
   margin-bottom: 10px;
 }
@@ -511,7 +511,7 @@ body {
   background: rgb(0, 132, 137) !important;
   border-color: transparent !important;
   top: 15px;
-}
+} */
 
 .tyContainer {
   position: fixed !important;
@@ -642,7 +642,7 @@ body {
   display: inline !important;
 }  */
 
-.readMore {
+/* .readMore {
   color: #008489 !important;
   font: inherit !important;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
@@ -660,7 +660,7 @@ body {
   -ms-user-select: auto !important;
   user-select: auto !important;
   text-align: left !important;
-}
+} */
 /* 
 .hostResponse {
   margin-left: 50px;
