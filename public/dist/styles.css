@@ -438,7 +438,13 @@ body {
   display: block !important;
 }
 
-#inappropriateButton {
+.dishonest-fake {
+  position: relative;
+  left: 15px;
+  top: -15px;
+}
+
+.radioButton {
   display: inline-block !important;
   height: 18px !important;
   margin-top: 2px !important;

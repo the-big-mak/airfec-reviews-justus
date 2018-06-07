@@ -69,9 +69,9 @@ class Review extends React.Component {
       '07': 'July',
       '08': 'August',
       '09': 'September',
-      '10': 'October',
-      '11': 'November',
-      '12': 'December',
+      10: 'October',
+      11: 'November',
+      12: 'December',
     };
     const date = this.props.review.date.split('/');
     const formatedDate = `${month[date[1]]} ${date[0]}`;
