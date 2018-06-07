@@ -1,12 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import ReviewList from './reviewList';
-import Ratings from './ratings';
+import RatingsList from './ratingsList';
 import Search from './search';
 import BackToAllReviews from './backToAllReviews';
 import Pages from './pages';
-
-let timeOut = 0;
 
 export default class App extends React.Component {
   static sortedByDate(reviews) {
@@ -15,26 +13,6 @@ export default class App extends React.Component {
       const bb = b.date.split('/');
       return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
     });
-  }
-
-
-  // static scrollToTop() {
-  //   let y = window.scrollY;
-  //   y -= 1000;
-  //   window.scrollTo(0, y);
-  //   if (y > 0) {
-  //     t = setTimeout(App.scrollToTop(), 1000);
-  //   } else {
-  //     clearTimeout(t);
-  //   }
-  // }
-
-  static scrollToTop() {
-    if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
-      window.scrollBy(0,-50);
-      setTimeout(App.scrollToTop(), 10);
-    }
-    else clearTimeout(timeOut);
   }
 
   constructor(props) {
@@ -55,6 +33,7 @@ export default class App extends React.Component {
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handlePrevClick = this.handlePrevClick.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
+    this.getTotalRating = this.getTotalRating.bind(this);
   }
 
   componentDidMount() {
@@ -82,21 +61,29 @@ export default class App extends React.Component {
     return Math.round(average * 2) / 2;
   }
 
+  getTotalRating() {
+    let sum = 0;
+    this.state.ratings.forEach((rating) => {
+      sum += rating;
+    });
+    return Math.round((2 * sum) / 6) / 2;
+  }
 
   handleReceivedReviewData(data) {
-    const accuracy = App.getAverageRating(data, 'accuracy_rating');
-    const communication = App.getAverageRating(data, 'communication_rating');
-    const cleanliness = App.getAverageRating(data, 'cleanliness_rating');
-    const location = App.getAverageRating(data, 'location_rating');
-    const checkin = App.getAverageRating(data, 'checkin_rating');
-    const value = App.getAverageRating(data, 'value_rating');
-    const total = Math.round((2 * (accuracy + communication + cleanliness + location + checkin + value)) / 6) / 2;
+    const ratings = [
+      'accuracy_rating',
+      'communication_rating',
+      'cleanliness_rating',
+      'location_rating',
+      'checkin_rating',
+      'value_rating',
+    ];
+
     App.sortedByDate(data);
     this.setState({
       allReviewData: data,
       currentReviews: data,
-      ratings: [accuracy, communication, cleanliness, location, checkin, value, total],
-
+      ratings: ratings.map(rating => App.getAverageRating(data, rating)),
     });
   }
 
@@ -173,7 +160,7 @@ export default class App extends React.Component {
         currentReviewsLength={this.state.currentReviews.length}
         searchedWord={this.state.searchedWord}
       />) :
-      (<Ratings
+      (<RatingsList
         ratings={this.state.ratings}
       />);
     return (
@@ -182,7 +169,7 @@ export default class App extends React.Component {
         <div><Search
           handleSearchTextChange={this.handleSearchTextChange}
           handleKeyPress={this.handleKeyPress}
-          totalRating={this.state.ratings[6]}
+          totalRating={this.getTotalRating()}
           totalReviews={this.state.allReviewData.length}
           searchText={this.state.searchText}
         />
