@@ -11,13 +11,24 @@ body {
 .fullContainer {
   width: 648px;
 }
+.boarder {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
 
+.innerBoarder {
+  border-bottom: 1px solid #DBDBDB !important;
+  width: 648px;
+  position: relative;
+  top: 55px;
+} 
+/* 
 .search-container {
   width: 648px;
   height: 56px;
   margin-bottom: 12px;
-}
-
+} */
+/* 
 .totalReviews {
   width: 66.66666666666666% !important;
   float: left !important;
@@ -57,8 +68,8 @@ body {
 .totalReviewStars {
   display: inline-block !important;
   margin-left: 10px !important;
-}
-
+} */
+/* 
 .searchContainer {
   width: 33.33333333333333% !important;
   float: right !important;
@@ -162,7 +173,7 @@ body {
   width: 648px;
   position: relative;
   top: 55px;
-}
+} 
 
 /* .ratings-reviews-pages {
   width: 648px;

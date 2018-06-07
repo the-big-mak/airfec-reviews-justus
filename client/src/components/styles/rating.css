@@ -1,8 +1,8 @@
 
-.ratingColumnA2 {
+.ratingContainer {
   padding-left: 8px;
   padding-right: 8px;
-  margin-bottom: -2px;
+  margin-bottom: -10px;
   position: relative;
   width: 50%;
 }

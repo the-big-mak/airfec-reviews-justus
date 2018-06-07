@@ -1,7 +1,8 @@
 import React from 'react';
+import styles from './styles/svg.css';
 
 module.exports = {
-  search: <svg className="icon" viewBox="0 0 24 24" role="presentation" fillRule="evenodd" aria-hidden="true" focusable="false"><path d="m10.4 18.2c-4.2-.6-7.2-4.5-6.6-8.8.6-4.2 4.5-7.2 8.8-6.6 4.2.6 7.2 4.5 6.6 8.8-.6 4.2-4.6 7.2-8.8 6.6m12.6 3.8-5-5c1.4-1.4 2.3-3.1 2.6-5.2.7-5.1-2.8-9.7-7.8-10.5-5-.7-9.7 2.8-10.5 7.9-.7 5.1 2.8 9.7 7.8 10.5 2.5.4 4.9-.3 6.7-1.7v.1l5 5c .3.3.8.3 1.1 0s .4-.8.1-1.1"></path></svg>,
+  search: <svg className={styles.icon} viewBox="0 0 24 24" role="presentation" fillRule="evenodd" aria-hidden="true" focusable="false"><path d="m10.4 18.2c-4.2-.6-7.2-4.5-6.6-8.8.6-4.2 4.5-7.2 8.8-6.6 4.2.6 7.2 4.5 6.6 8.8-.6 4.2-4.6 7.2-8.8 6.6m12.6 3.8-5-5c1.4-1.4 2.3-3.1 2.6-5.2.7-5.1-2.8-9.7-7.8-10.5-5-.7-9.7 2.8-10.5 7.9-.7 5.1 2.8 9.7 7.8 10.5 2.5.4 4.9-.3 6.7-1.7v.1l5 5c .3.3.8.3 1.1 0s .4-.8.1-1.1"></path></svg>,
   flag: <svg className="flag" x="0px" y="0px"
   viewBox="0 0 60 60">
 <path d="M51.371,3.146c-0.459-0.185-11.359-4.452-19.84,0.045C24.811,6.758,13.015,4.082,10,3.308V1c0-0.553-0.447-1-1-1
