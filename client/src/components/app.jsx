@@ -6,6 +6,8 @@ import Search from './search';
 import BackToAllReviews from './backToAllReviews';
 import Pages from './pages';
 
+let timeOut = 0;
+
 export default class App extends React.Component {
   static sortedByDate(reviews) {
     return reviews.sort((a, b) => {
@@ -13,6 +15,26 @@ export default class App extends React.Component {
       const bb = b.date.split('/');
       return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
     });
+  }
+
+
+  // static scrollToTop() {
+  //   let y = window.scrollY;
+  //   y -= 1000;
+  //   window.scrollTo(0, y);
+  //   if (y > 0) {
+  //     t = setTimeout(App.scrollToTop(), 1000);
+  //   } else {
+  //     clearTimeout(t);
+  //   }
+  // }
+
+  static scrollToTop() {
+    if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+      window.scrollBy(0,-50);
+      setTimeout(App.scrollToTop(), 10);
+    }
+    else clearTimeout(timeOut);
   }
 
   constructor(props) {
@@ -119,10 +141,11 @@ export default class App extends React.Component {
   }
 
   handleNextClick() {
-    if (this.state.currentPage < this.state.allReviewData.length / 2) {
+    if (this.state.currentPage < this.state.allReviewData.length / 7) {
       this.setState({
         currentPage: this.state.currentPage + 1,
       });
+      document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
     }
   }
 
@@ -131,13 +154,16 @@ export default class App extends React.Component {
       this.setState({
         currentPage: this.state.currentPage - 1,
       });
+      document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
     }
   }
+
 
   handlePageClick(e) {
     this.setState({
       currentPage: e.target.value - 1,
     });
+    document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
   }
 
   render() {
@@ -152,6 +178,7 @@ export default class App extends React.Component {
       />);
     return (
       <div className="fullContainer">
+        <div id="top" />
         <div><Search
           handleSearchTextChange={this.handleSearchTextChange}
           handleKeyPress={this.handleKeyPress}
@@ -163,13 +190,13 @@ export default class App extends React.Component {
         <div>
           {hasBeenSearched}
         </div>
-        <div><ReviewList reviews={this.state.currentReviews.slice(2 * this.state.currentPage, (2 * this.state.currentPage) + 2)} /></div>
+        <div><ReviewList reviews={this.state.currentReviews.slice(7 * this.state.currentPage, (7 * this.state.currentPage) + 7)} /></div>
         <div className="pagesContainer"><Pages
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}
           handlePageClick={this.handlePageClick}
-          numberOfPages={this.state.currentReviews.length / 2}
+          numberOfPages={this.state.currentReviews.length / 7}
         />
         </div>
       </div>
