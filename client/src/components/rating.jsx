@@ -5,16 +5,15 @@ import styles from './styles/rating.css';
 const Rating = ({ rating, displayStarRatings }) => (
   <div className={styles.ratingContainer}>
     <div className={styles.words}>{rating[1]}
-      <div className={styles.star}>{displayStarRatings(rating[0]).map(star => star)}</div>
+      <div className={styles.star} key={rating}>
+        {displayStarRatings(rating[0]).map(star => star)}
+      </div>
     </div>
   </div>
 );
 
 Rating.propTypes = {
-  rating: PropTypes.arrayOf([
-    PropTypes.number,
-    PropTypes.string,
-  ]).isRequired,
+  rating: PropTypes.node.isRequired,
   displayStarRatings: PropTypes.func.isRequired,
 };
 

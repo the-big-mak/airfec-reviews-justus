@@ -12,34 +12,37 @@ const Search = ({
   displayStarRatings,
   handleSearchClose,
 }) => {
-  const showClose = searchText !== '' ? svg.searchClose : null;
+  const showClose = searchText !== '' ?
+    svg.searchClose :
+    null;
+
   return (
-  <div>
-    <div className={styles.totalReviews}>
-      <div className={styles.totalReviewsWords}>{totalReviews} Reviews
-        <div className={styles.star}>{displayStarRatings(totalRating).map(star => star)}</div>
-      </div>
-    </div>
-    <div className={styles.searchContainer}>
-      <div className={styles.searchContainer1}>
-        <div className={styles.searchContainer2}>
-          <input
-            className={styles.searchInput}
-            type="text"
-            value={searchText}
-            placeholder="Search reviews"
-            onChange={handleSearchTextChange}
-            onKeyPress={handleKeyPress}
-          />
+    <div>
+      <div className={styles.totalReviews}>
+        <div className={styles.totalReviewsWords}>{totalReviews} Reviews
+          <div className={styles.star} key={Math.random()}>{displayStarRatings(totalRating).map(star => star)}</div>
         </div>
-        <div className={styles.close} onClick={handleSearchClose}>{showClose}</div>
-        {svg.search}
+      </div>
+      <div className={styles.searchContainer}>
+        <div className={styles.searchContainer1}>
+          <div className={styles.searchContainer2}>
+            <input
+              className={styles.searchInput}
+              type="text"
+              value={searchText}
+              placeholder="Search reviews"
+              onChange={handleSearchTextChange}
+              onKeyPress={handleKeyPress}
+            />
+          </div>
+          <div className={styles.close} onClick={handleSearchClose} role="button">{showClose}</div>
+          {svg.search}
+        </div>
+      </div>
+      <div className={styles.borders}>
+        <div className={styles.innerBorder} />
       </div>
     </div>
-    <div className={styles.borders}>
-      <div className={styles.innerBorder} />
-    </div>
-  </div>
   );
 };
 
@@ -50,6 +53,7 @@ Search.propTypes = {
   totalReviews: PropTypes.number,
   searchText: PropTypes.string.isRequired,
   displayStarRatings: PropTypes.func.isRequired,
+  handleSearchClose: PropTypes.func.isRequired,
 };
 
 Search.defaultProps = {

@@ -6,6 +6,7 @@ import Search from './search';
 import BackToAllReviews from './backToAllReviews';
 import Pages from './pages';
 import svg from './svg';
+import styles from './styles/backToAllReviews.css';
 
 export default class App extends React.Component {
   static sortedByDate(reviews) {
@@ -162,7 +163,7 @@ export default class App extends React.Component {
           if (!i) {
             return [current];
           }
-          return prev.concat(<b key={word + current}>{ word }</b>, current);
+          return prev.concat(<span className={styles.searchBold} key={word + current}>{ word }</span>, current);
         }, [])
       }
     </span>);
