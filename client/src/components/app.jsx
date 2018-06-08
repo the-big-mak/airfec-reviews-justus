@@ -132,29 +132,32 @@ export default class App extends React.Component {
   }
 
   handleNextClick() {
+    App.scrollToTop();
     if (this.state.currentPage < this.state.allReviewData.length / 3) {
       this.setState({
         currentPage: this.state.currentPage + 1,
       });
-      App.scrollToTop();
     }
   }
 
   handlePrevClick() {
+    App.scrollToTop();
     if (this.state.currentPage > 0) {
       this.setState({
         currentPage: this.state.currentPage - 1,
       });
-      App.scrollToTop();
     }
   }
 
+  handlePage(page) {
+    this.setState({
+      currentPage: page,
+    });
+  }
 
   handlePageClick(e) {
-    this.setState({
-      currentPage: e.target.value - 1,
-    });
     App.scrollToTop();
+    setTimeout(this.handlePage.bind(this, (e.target.value - 1)), 500);
   }
 
   render() {
@@ -188,6 +191,7 @@ export default class App extends React.Component {
           currentPage={this.state.currentPage}
           handlePageClick={this.handlePageClick}
           numberOfPages={this.state.currentReviews.length / 3}
+          scrollToTop={App.scrollToTop}
         />
         </div>
       </div>

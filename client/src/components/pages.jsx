@@ -4,6 +4,20 @@ import svg from './svg';
 import styles from './styles/pages.css';
 
 class Pages extends React.Component {
+  firstPage() {
+    if (this.props.currentPage === 0) {
+      return <button disabled className={styles.pageButton} value={1} onClick={this.props.handlePageClick}>1</button>;
+    }
+    return <button className={styles.pageButton} value={1} onClick={this.props.handlePageClick}>1</button>;
+  }
+
+  lastPage() {
+    if (this.props.currentPage === Math.ceil(this.props.numberOfPages) - 1) {
+      return <button disabled className={styles.pageButton} value={Math.ceil(this.props.numberOfPages)} onClick={this.props.handlePageClick}>{Math.ceil(this.props.numberOfPages)}</button>;
+    }
+    return <button className={styles.pageButton} value={Math.ceil(this.props.numberOfPages)} onClick={this.props.handlePageClick}>{Math.ceil(this.props.numberOfPages)}</button>;
+  }
+
   next() {
     if (this.props.currentPage < this.props.numberOfPages - 1) {
       return <button className={styles.pageButton} onClick={this.props.handleNextClick}>{svg.next}</button>;
@@ -22,11 +36,19 @@ class Pages extends React.Component {
     const pages = [];
     if (end <= this.props.numberOfPages) {
       for (let i = start; i <= end; i++) {
-        pages.push(<button className={styles.pageButton} value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
+        let isDisabled = false;
+        if (this.props.currentPage + 1 === i) {
+          isDisabled = true;
+        }
+        pages.push(<button className={styles.pageButton} value={i} key={i} onClick={this.props.handlePageClick} disabled={isDisabled}>{i}</button>);
       }
     } else {
       for (let i = start; i < this.props.numberOfPages; i++) {
-        pages.push(<button className={styles.pageButton} value={i} key={i} onClick={this.props.handlePageClick}>{i}</button>);
+        let isDisabled = false;
+        if (this.props.currentPage + 1 === i) {
+          isDisabled = true;
+        }
+        pages.push(<button className={styles.pageButton} value={i} key={i} onClick={this.props.handlePageClick} disabled={isDisabled}>{i}</button>);
       }
     }
     return pages;
@@ -75,11 +97,11 @@ class Pages extends React.Component {
         <div className={styles.pagesContainer}>
           <div className={styles.pages}>
             {this.prev()}
-            {<button className={styles.pageButton} value={1} onClick={this.props.handlePageClick}>1</button>}
+            {this.firstPage()}
             {this.renderBeginningDots()}
             {this.renderPages(this.props.currentPage).map(page => page)}
             {this.renderEndingDots()}
-            {<button className={styles.pageButton} value={Math.ceil(this.props.numberOfPages)} onClick={this.props.handlePageClick}>{Math.ceil(this.props.numberOfPages)}</button>}
+            {this.lastPage()}
             {this.next()}
           </div>
         </div>
