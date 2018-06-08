@@ -56,7 +56,6 @@ export default class App extends React.Component {
     this.handlePageClick = this.handlePageClick.bind(this);
     this.getTotalRating = this.getTotalRating.bind(this);
     this.handleSearchClose = this.handleSearchClose.bind(this);
-    this.boldSearchedWord = this.boldSearchedWord.bind(this);
   }
 
   componentDidMount() {
@@ -119,13 +118,10 @@ export default class App extends React.Component {
   handleKeyPress(target) {
     if (target.charCode === 13) {
       this.filterReviews(this.state.searchText);
-      this.boldSearchedWord((review) => {
-        this.setState({
-          hasBeenSearched: true,
-          searchedWord: this.state.searchText,
-          currentPage: 0,
-          currentReviews: review,
-        });
+      this.setState({
+        hasBeenSearched: true,
+        searchedWord: this.state.searchText,
+        currentPage: 0,
       });
     }
   }
@@ -137,7 +133,9 @@ export default class App extends React.Component {
   }
 
   filterReviews(query) {
-    const filteredReviews = this.state.allReviewData.filter((review) => {
+    const copyData = JSON.stringify(this.state.allReviewData);
+    const copied = JSON.parse(copyData);
+    const filteredReviews = copied.filter((review) => {
       const reviewText = review.review_text.toLowerCase();
       const hostText = review.host_text.toLowerCase();
       const query1 = query.toLowerCase();
@@ -146,21 +144,29 @@ export default class App extends React.Component {
       }
       return reviewText.includes(query1);
     });
+    const filteredAndBolded = [];
+    filteredReviews.forEach((review) => {
+      const bolded = App.findAndBoldWord(review.review_text, this.state.searchText);
+      review.review_text = bolded;
+      filteredAndBolded.push(review);
+    });
     this.setState({
-      currentReviews: filteredReviews,
+      currentReviews: filteredAndBolded,
     });
   }
 
-  boldSearchedWord(callback) {
-    const word = this.state.searchText;
-    const replaced = [];
-    this.state.allReviewData.forEach((review) => {
-      let newText = review.review_text.replace(word, 'fuck this');
-      review.review_text = newText;
-      replaced.push(review);
-    });
-    callback(replaced);
-  }
+  static findAndBoldWord(text, word) {
+    return (<span>
+      { text.split(word)
+        .reduce((prev, current, i) => {
+          if (!i) {
+            return [current];
+          }
+          return prev.concat(<b key={word + current}>{ word }</b>, current);
+        }, [])
+      }
+    </span>);
+  };
 
   handleBackToAllReviewsClick() {
     this.setState({

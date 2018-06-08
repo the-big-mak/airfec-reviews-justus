@@ -8,8 +8,8 @@ const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, s
   // const escape = s  + searchedWord + e;
   return (
   <div className={styles.backToReviewsContainer}>
-    <div className={styles.mentions}>{currentReviewsLength} guests have mentioned
-      <span className={styles.searchBold}> {[String.fromCharCode(34), searchedWord, s]}</span>
+    <div className={styles.mentions}>{currentReviewsLength} guests have mentioned 
+      <span className={styles.searchBold} dangerouslySetInnerHTML={{ __html: searchedWord }} />
     </div>
     <button
       className={styles.backToAllReviews}
