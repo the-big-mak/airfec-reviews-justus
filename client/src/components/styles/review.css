@@ -3,6 +3,7 @@
   font-size: 14px;
   line-height: 1.43;
   color: #484848;
+  margin-top: -10px;
 }
 
 
@@ -72,4 +73,10 @@
 
 .bottomBorder {
   border-bottom: 1px solid #DBDBDB;
+}
+
+.superUser {
+  position: relative;
+  left: -5px;
+  top: 32px;
 }

@@ -24,6 +24,15 @@
   margin-left: 10px;
 }
 
+.star {
+  font-size: 18px;
+  line-height: 24px;
+  position: relative;
+  float: right;
+  left: -165px;
+  top: 7px;
+}
+
 .searchContainer {
   width: 33.33333333333333%;
   float: right;

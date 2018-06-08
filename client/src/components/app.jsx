@@ -5,6 +5,7 @@ import RatingsList from './ratingsList';
 import Search from './search';
 import BackToAllReviews from './backToAllReviews';
 import Pages from './pages';
+import svg from './svg';
 
 export default class App extends React.Component {
   static sortedByDate(reviews) {
@@ -17,6 +18,22 @@ export default class App extends React.Component {
 
   static scrollToTop() {
     document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  static displayStarRatings(rating) {
+    let starRating = rating;
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      if (starRating >= 1) {
+        stars.push(svg.star);
+      } else if (starRating < 1 && starRating > 0) {
+        stars.push(svg.halfStar);
+      } else {
+        stars.push(svg.emptyStar);
+      }
+      starRating -= 1;
+    }
+    return stars;
   }
 
   constructor(props) {
@@ -169,6 +186,7 @@ export default class App extends React.Component {
       />) :
       (<RatingsList
         ratings={this.state.ratings}
+        displayStarRatings={App.displayStarRatings}
       />);
     return (
       <div className="fullContainer">
@@ -179,6 +197,7 @@ export default class App extends React.Component {
           totalRating={this.getTotalRating()}
           totalReviews={this.state.allReviewData.length}
           searchText={this.state.searchText}
+          displayStarRatings={App.displayStarRatings}
         />
         </div>
         <div>

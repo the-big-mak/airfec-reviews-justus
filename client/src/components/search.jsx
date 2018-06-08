@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StarRatings from 'react-star-ratings';
 import svg from './svg';
 import styles from './styles/search.css';
 
@@ -10,17 +9,12 @@ const Search = ({
   totalRating,
   totalReviews,
   searchText,
+  displayStarRatings,
 }) => (
   <div>
     <div className={styles.totalReviews}>
       <div className={styles.totalReviewsWords}>{totalReviews} Reviews
-        <span className={styles.totalReviewStars}><StarRatings
-          rating={totalRating}
-          starDimension="20px"
-          starSpacing="3px"
-          starRatedColor="#008489"
-        />
-        </span>
+        <div className={styles.star}>{displayStarRatings(totalRating).map(star => star)}</div>
       </div>
     </div>
     <div className={styles.searchContainer}>
@@ -50,6 +44,7 @@ Search.propTypes = {
   totalRating: PropTypes.number,
   totalReviews: PropTypes.number,
   searchText: PropTypes.string.isRequired,
+  displayStarRatings: PropTypes.func.isRequired,
 };
 
 Search.defaultProps = {

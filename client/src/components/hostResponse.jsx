@@ -4,7 +4,7 @@ import ReviewText from './reviewText';
 import styles from './styles/hostResponse.css';
 
 const HostResponse = ({ date, hostResponse }) => (
-  <div>
+  <div className={styles.container}>
     <img className={styles.hostPhoto} src="1Spy3bu.jpg" alt="" />
     <div className={styles.reviewHeader}>
       <div className={styles.hostName}>Response from {hostResponse.host_name}:</div>

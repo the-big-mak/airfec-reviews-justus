@@ -31,3 +31,35 @@
   position: relative;
   top: 4px;
 }
+
+.superUser {
+  height: 24px;
+  width: 24px;
+  fill: currentcolor;
+}
+
+.star {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  fill: currentColor;
+  color: #008489;
+  margin-left: 5px;
+}
+
+.emptyStar {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  fill: currentColor;
+  color: #008489;
+  fill-opacity: .3;
+  margin-left: 5px;
+}
+.halfStar {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  fill: url(#half);
+  margin-left: 5px;
+}

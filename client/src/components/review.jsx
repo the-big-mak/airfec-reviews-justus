@@ -86,13 +86,14 @@ class Review extends React.Component {
     };
     const date = this.props.review.date.split('/');
     const formatedDate = `${month[date[1]]} ${date[0]}`;
-    const hostResponse = this.props.review.id % 10 === 0 ? '' : <HostResponse date={formatedDate} hostResponse={this.props.review} />;
-  
+    const hostResponse = this.props.review.id % 10 === 0 ? null : <HostResponse date={formatedDate} hostResponse={this.props.review} />;
+    const superUser = this.props.review.id % 5 === 0 ? svg.superUser : null;
     const showReport = this.state.showReport ? <Report buttonState={this.state.buttonDisabled} handleLabelClick={this.handleLabelClick} setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} handleSubmitClick={this.handleSubmitClick} /> : null;
     const showThankyouPopup = this.state.showThankyou ? <ReportThankyou setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} /> : null;
     return (
       <div className={styles.review}>
         <img className={styles.guestPhoto} src="2RTqR9s.jpg" alt="" />
+        <div className={styles.superUser}>{superUser}</div>
         <button onClick={this.handleFlagClick} className={styles.report}>{svg.flag}</button>
         <div>{showReport}</div>
         <div>{showThankyouPopup}</div>

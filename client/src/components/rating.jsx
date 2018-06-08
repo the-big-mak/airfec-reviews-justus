@@ -1,27 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StarRatings from 'react-star-ratings';
 import styles from './styles/rating.css';
 
-const Rating = ({ rating }) => (
+const Rating = ({ rating, displayStarRatings }) => (
   <div className={styles.ratingContainer}>
     <div className={styles.words}>{rating[1]}
-      <span className={styles.star}> <StarRatings
-        rating={rating[0]}
-        starDimension="18px"
-        starSpacing="2px"
-        starRatedColor="#008489"
-      />
-      </span>
+      <div className={styles.star}>{displayStarRatings(rating[0]).map(star => star)}</div>
     </div>
   </div>
 );
 
-// Rating.propTypes = {
-//   rating: PropTypes.oneOfType([
-//     PropTypes.number,
-//     PropTypes.string,
-//   ]).isRequired,
-// };
+Rating.propTypes = {
+  rating: PropTypes.arrayOf([
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
+  displayStarRatings: PropTypes.func.isRequired,
+};
 
 export default Rating;
