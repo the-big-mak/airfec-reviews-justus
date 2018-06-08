@@ -70,6 +70,11 @@ class Review extends React.Component {
   }
 
   render() {
+    const {
+      review,
+      searchedWord,
+    } = this.props;
+
     const month = {
       '01': 'January',
       '02': 'February',
@@ -84,12 +89,39 @@ class Review extends React.Component {
       11: 'November',
       12: 'December',
     };
-    const date = this.props.review.date.split('/');
+    const date = review.date.split('/');
     const formatedDate = `${month[date[1]]} ${date[0]}`;
-    const hostResponse = this.props.review.id % 10 === 0 ? null : <HostResponse date={formatedDate} hostResponse={this.props.review} />;
-    const superUser = this.props.review.id % 5 === 0 ? svg.superUser : null;
-    const showReport = this.state.showReport ? <Report buttonState={this.state.buttonDisabled} handleLabelClick={this.handleLabelClick} setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} handleSubmitClick={this.handleSubmitClick} /> : null;
-    const showThankyouPopup = this.state.showThankyou ? <ReportThankyou setWrapperRef={this.setWrapperRef} handleOutsideClick={this.handleOutsideClick} handleClose={this.handleClose} /> : null;
+
+    const hostResponse = review.id % 10 === 0 ?
+      (<HostResponse
+        date={formatedDate}
+        hostResponse={review}
+      />)
+      : null;
+
+    const superUser = review.id % 5 === 0 ?
+      svg.superUser :
+      null;
+
+    const showReport = this.state.showReport ?
+      (<Report
+        buttonState={this.state.buttonDisabled}
+        handleLabelClick={this.handleLabelClick}
+        setWrapperRef={this.setWrapperRef}
+        handleOutsideClick={this.handleOutsideClick}
+        handleClose={this.handleClose}
+        handleSubmitClick={this.handleSubmitClick}
+      />) :
+      null;
+
+    const showThankyouPopup = this.state.showThankyou ?
+      (<ReportThankyou
+        setWrapperRef={this.setWrapperRef}
+        handleOutsideClick={this.handleOutsideClick}
+        handleClose={this.handleClose}
+      />) :
+      null;
+
     return (
       <div className={styles.review}>
         <img className={styles.guestPhoto} src="2RTqR9s.jpg" alt="" />
@@ -98,10 +130,14 @@ class Review extends React.Component {
         <div>{showReport}</div>
         <div>{showThankyouPopup}</div>
         <div className={styles.reviewHeader}>
-          <div className={styles.guestName}>{this.props.review.guest_name}</div>
+          <div className={styles.guestName}>{review.guest_name}</div>
           <div className={styles.date}>{formatedDate}</div>
         </div>
-        <div className={styles.reviewText}><ReviewText reviewText={this.props.review.review_text} /></div>
+        <div className={styles.reviewText}><ReviewText
+          reviewText={review.review_text}
+          searchedWord={searchedWord}
+        />
+        </div>
         <div className={styles.hostResponse}>{hostResponse}</div>
         <div className={styles.bottomSpace}>
           <div className={styles.bottomBorder} />
@@ -113,6 +149,7 @@ class Review extends React.Component {
 
 Review.propTypes = {
   review: PropTypes.objectOf(PropTypes.node).isRequired,
+  searchedWord: PropTypes.string.isRequired,
 };
 
 export default Review;

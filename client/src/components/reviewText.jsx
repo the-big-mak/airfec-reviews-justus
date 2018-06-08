@@ -18,7 +18,7 @@ export default class ReviewText extends React.Component {
       fullText: '',
     });
   }
-
+  
   render() {
     if (this.state.fullText.length >= 280) {
       return (

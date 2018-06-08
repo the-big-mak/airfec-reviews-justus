@@ -56,6 +56,7 @@ export default class App extends React.Component {
     this.handlePageClick = this.handlePageClick.bind(this);
     this.getTotalRating = this.getTotalRating.bind(this);
     this.handleSearchClose = this.handleSearchClose.bind(this);
+    this.boldSearchedWord = this.boldSearchedWord.bind(this);
   }
 
   componentDidMount() {
@@ -118,10 +119,13 @@ export default class App extends React.Component {
   handleKeyPress(target) {
     if (target.charCode === 13) {
       this.filterReviews(this.state.searchText);
-      this.setState({
-        hasBeenSearched: true,
-        searchedWord: this.state.searchText,
-        currentPage: 0,
+      this.boldSearchedWord((review) => {
+        this.setState({
+          hasBeenSearched: true,
+          searchedWord: this.state.searchText,
+          currentPage: 0,
+          currentReviews: review,
+        });
       });
     }
   }
@@ -145,6 +149,17 @@ export default class App extends React.Component {
     this.setState({
       currentReviews: filteredReviews,
     });
+  }
+
+  boldSearchedWord(callback) {
+    const word = this.state.searchText;
+    const replaced = [];
+    this.state.allReviewData.forEach((review) => {
+      let newText = review.review_text.replace(word, 'fuck this');
+      review.review_text = newText;
+      replaced.push(review);
+    });
+    callback(replaced);
   }
 
   handleBackToAllReviewsClick() {
@@ -211,7 +226,11 @@ export default class App extends React.Component {
         <div>
           {hasBeenSearched}
         </div>
-        <div><ReviewList reviews={this.state.currentReviews.slice(3 * this.state.currentPage, (3 * this.state.currentPage) + 3)} /></div>
+        <div><ReviewList
+          reviews={this.state.currentReviews.slice(3 * this.state.currentPage, (3 * this.state.currentPage) + 3)}
+          searchedWord={this.state.searchedWord}
+        />
+        </div>
         <div className="pagesContainer"><Pages
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
