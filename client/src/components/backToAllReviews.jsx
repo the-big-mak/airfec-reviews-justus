@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles/backToAllReviews.css';
 
-const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, searchedWord }) => (
+const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, searchedWord }) => {
+  const s = '\u201c';
+  const e = '\u201d';
+  const escape = s  + searchedWord + e;
+  return (
   <div className={styles.backToReviewsContainer}>
     <div className={styles.mentions}>{currentReviewsLength} guests have mentioned
       <span className={styles.searchBold}> {searchedWord}</span>
@@ -17,7 +21,8 @@ const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, s
       <div className={styles.innerBoarder} />
     </div>
   </div>
-);
+  );
+};
 
 BackToAllReviews.propTypes = {
   handleBacktoAllReviewsClick: PropTypes.func.isRequired,

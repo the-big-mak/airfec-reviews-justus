@@ -47,6 +47,7 @@
   background-color: rgb(255, 255, 255);
   margin-bottom: 8px;
   width: 203px;
+  height: 34px;
   border-width: 1px;
   border-style: solid;
   border-color: rgb(219, 219, 219);
@@ -91,4 +92,12 @@
   width: 648px;
   position: relative;
   top: 55px;
+}
+
+.close {
+  position: relative;
+  left: 180px;
+  top: -20px;
+  height: 15px;
+  width: 15px;
 }

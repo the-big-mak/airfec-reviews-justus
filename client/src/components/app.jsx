@@ -55,6 +55,7 @@ export default class App extends React.Component {
     this.handlePrevClick = this.handlePrevClick.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
     this.getTotalRating = this.getTotalRating.bind(this);
+    this.handleSearchClose = this.handleSearchClose.bind(this);
   }
 
   componentDidMount() {
@@ -123,6 +124,12 @@ export default class App extends React.Component {
         currentPage: 0,
       });
     }
+  }
+
+  handleSearchClose() {
+    this.setState({
+      searchText: '',
+    });
   }
 
   filterReviews(query) {
@@ -198,6 +205,7 @@ export default class App extends React.Component {
           totalReviews={this.state.allReviewData.length}
           searchText={this.state.searchText}
           displayStarRatings={App.displayStarRatings}
+          handleSearchClose={this.handleSearchClose}
         />
         </div>
         <div>

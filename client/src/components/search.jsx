@@ -10,7 +10,10 @@ const Search = ({
   totalReviews,
   searchText,
   displayStarRatings,
-}) => (
+  handleSearchClose,
+}) => {
+  const showClose = searchText !== '' ? svg.searchClose : null;
+  return (
   <div>
     <div className={styles.totalReviews}>
       <div className={styles.totalReviewsWords}>{totalReviews} Reviews
@@ -22,13 +25,14 @@ const Search = ({
         <div className={styles.searchContainer2}>
           <input
             className={styles.searchInput}
-            type="search"
+            type="text"
             value={searchText}
             placeholder="Search reviews"
             onChange={handleSearchTextChange}
             onKeyPress={handleKeyPress}
           />
         </div>
+        <div className={styles.close} onClick={handleSearchClose}>{showClose}</div>
         {svg.search}
       </div>
     </div>
@@ -36,7 +40,8 @@ const Search = ({
       <div className={styles.innerBorder} />
     </div>
   </div>
-);
+  );
+};
 
 Search.propTypes = {
   handleSearchTextChange: PropTypes.func.isRequired,

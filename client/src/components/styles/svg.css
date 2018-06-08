@@ -4,7 +4,7 @@
   fill: currentColor;
   position: relative;
   float: left;
-  top: -25px;
+  top: -40px;
   left: 5px;
 }
 
@@ -17,6 +17,18 @@
   height: 16px;
   width: 16px;
   fill: rgb(118, 118, 118);
+  outline: none;
+}
+
+.searchClose {
+  margin-bottom: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  color: buttontext;
+  border: 0px;
+  height: 12px;
+  width: 12px;
+  fill: rgb(150, 147, 147);
   outline: none;
 }
 
