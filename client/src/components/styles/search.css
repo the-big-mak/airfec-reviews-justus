@@ -34,7 +34,7 @@
 }
 
 .searchContainer {
-  width: 33.33333333333333%;
+  width: 203px;
   float: right;
   padding-left: 8px;
   padding-right: 8px;
@@ -48,24 +48,18 @@
   margin-bottom: 8px;
   width: 203px;
   height: 34px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(219, 219, 219);
   border-radius: 2px;
 }
-
-.searchContainer1:focus {
-  border-color: rgb(0, 132, 137);
-}
-
 .searchContainer2 {
   overflow: hidden;
   position: relative;
 }
 
 .searchInput {
-  border: 0px;
-  width: 203px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(219, 219, 219);
+  width: 169px;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 14px;
   line-height: 18px;
