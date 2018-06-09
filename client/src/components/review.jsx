@@ -75,7 +75,6 @@ class Review extends React.Component {
       showReport: false,
       buttonDisabled: true,
     });
-    document.body.style.overflow = 'hidden';
   }
 
   handleClose() {
@@ -96,6 +95,7 @@ class Review extends React.Component {
 
   handleOutsideClick(e) {
     if (this.wrapperRef && this.wrapperRef.contains(e.target)) {
+      document.body.style.overflow = 'hidden';
       return;
     }
     this.handleClose();
@@ -105,7 +105,6 @@ class Review extends React.Component {
     this.setState({
       buttonDisabled: false,
     });
-    document.body.style.overflow = 'hidden';
   }
 
   handleReadMoreClick() {

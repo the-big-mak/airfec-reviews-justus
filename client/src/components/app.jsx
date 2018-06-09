@@ -6,7 +6,6 @@ import Search from './search';
 import BackToAllReviews from './backToAllReviews';
 import Pages from './pages';
 import svg from './svg';
-import FullStar from './stars/fullStar';
 import styles from './styles/app.css';
 
 export default class App extends React.Component {
@@ -16,10 +15,6 @@ export default class App extends React.Component {
       const bb = b.date.split('/');
       return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
     });
-  }
-
-  static scrollToTop() {
-    document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
   }
 
   static displayStarRatings(rating) {
@@ -186,7 +181,6 @@ export default class App extends React.Component {
   }
 
   handleNextClick() {
-    App.scrollToTop();
     if (this.state.currentPage < this.state.allReviewData.length / 3) {
       this.setState({
         currentPage: this.state.currentPage + 1,
@@ -195,7 +189,6 @@ export default class App extends React.Component {
   }
 
   handlePrevClick() {
-    App.scrollToTop();
     if (this.state.currentPage > 0) {
       this.setState({
         currentPage: this.state.currentPage - 1,
@@ -205,18 +198,9 @@ export default class App extends React.Component {
 
 
   handlePageClick(e) {
-    const pageNumber = e.target.value;
-    const intersectionObserver = new IntersectionObserver((entries) => {
-      const [entry] = entries;
-      if (entry.isIntersecting) {
-        this.setState({
-          currentPage: pageNumber - 1,
-        });
-        intersectionObserver.unobserve(document.getElementById('top'));
-      }
+    this.setState({
+      currentPage: e.target.value - 1,
     });
-    intersectionObserver.observe(document.getElementById('top'));
-    App.scrollToTop();
   }
 
   render() {
@@ -256,6 +240,7 @@ export default class App extends React.Component {
           currentPage={this.state.currentPage}
           handlePageClick={this.handlePageClick}
           numberOfPages={this.state.currentReviews.length / 3}
+          scrollToTop={App.scrollToTop}
         />
         </div>
       </div>

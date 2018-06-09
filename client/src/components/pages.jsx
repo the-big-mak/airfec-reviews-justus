@@ -4,6 +4,24 @@ import svg from './svg';
 import styles from './styles/pages.css';
 
 class Pages extends React.Component {
+  static scrollToId(id) {
+    const intersectionObserver = new IntersectionObserver((entry) => {
+      if (!entry.isIntersecting) {
+        id.scrollIntoView({ behavior: 'smooth' });
+      }
+      intersectionObserver.unobserve(id);
+    });
+    id.scrollIntoView({ behavior: 'smooth' });
+    intersectionObserver.observe(id);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentPage !== this.props.currentPage) {
+      Pages.scrollToId(document.getElementById('top'));
+    }
+  }
+
+
   firstPage() {
     let onFirstPage = false;
     if (this.props.currentPage === 0) {
