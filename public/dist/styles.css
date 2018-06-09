@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 1.43;
@@ -10,7 +10,7 @@ body {
 
 .fullContainer {
   width: 648px;
-}
+} */
 /* .boarder {
   margin-top: 16px;
   margin-bottom: 16px;
@@ -303,13 +303,13 @@ body {
   color: #484848;
 } */
 
-.flag {
+/* .flag {
   enable-background: new 0 0 60 60;
   height: 1.2em;
   width : 1.2em;
   display: block;
   fill: currentColor;
-}
+} */
 
 /* 
 .report {

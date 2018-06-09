@@ -8,6 +8,14 @@
   left: 5px;
 }
 
+.flag {
+  enable-background: new 0 0 60 60;
+  height: 1.2em;
+  width : 1.2em;
+  display: block;
+  fill: currentColor;
+}
+
 .close {
   margin-bottom: 24px;
   cursor: pointer;

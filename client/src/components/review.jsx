@@ -75,6 +75,7 @@ class Review extends React.Component {
       showReport: false,
       buttonDisabled: true,
     });
+    document.body.style.overflow = 'hidden';
   }
 
   handleClose() {
@@ -83,12 +84,14 @@ class Review extends React.Component {
       showReport: false,
       buttonDisabled: true,
     });
+    document.body.style.overflow = 'auto';
   }
 
   handleFlagClick() {
     this.setState({
       showReport: true,
     });
+    document.body.style.overflow = 'hidden';
   }
 
   handleOutsideClick(e) {

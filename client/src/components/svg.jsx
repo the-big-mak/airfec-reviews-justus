@@ -15,7 +15,7 @@ module.exports = {
   </svg>,
   flag:
   <svg
-    className="flag"
+    className={styles.flag}
     x="0px"
     y="0px"
     viewBox="0 0 60 60"

@@ -6,7 +6,7 @@ import Search from './search';
 import BackToAllReviews from './backToAllReviews';
 import Pages from './pages';
 import svg from './svg';
-import styles from './styles/backToAllReviews.css';
+import styles from './styles/app.css';
 
 export default class App extends React.Component {
   static sortedByDate(reviews) {
@@ -221,7 +221,7 @@ export default class App extends React.Component {
         displayStarRatings={App.displayStarRatings}
       />);
     return (
-      <div className="fullContainer">
+      <div className={styles.fullContainer}>
         <div id="top" />
         <div><Search
           handleSearchTextChange={this.handleSearchTextChange}
@@ -240,13 +240,12 @@ export default class App extends React.Component {
           reviews={this.state.currentReviews.slice(3 * this.state.currentPage, (3 * this.state.currentPage) + 3)}
         />
         </div>
-        <div className="pagesContainer"><Pages
+        <div><Pages
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}
           handlePageClick={this.handlePageClick}
           numberOfPages={this.state.currentReviews.length / 3}
-          scrollToTop={App.scrollToTop}
         />
         </div>
       </div>
