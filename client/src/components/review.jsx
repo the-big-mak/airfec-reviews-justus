@@ -125,20 +125,35 @@ class Review extends React.Component {
     return (
       <div className={styles.review}>
         <img className={styles.guestPhoto} src="2RTqR9s.jpg" alt="" />
-        <div className={styles.superUser}>{superUser}</div>
-        <button onClick={this.handleFlagClick} className={styles.report}>{svg.flag}</button>
-        <div>{showReport}</div>
-        <div>{showThankyouPopup}</div>
+        <div className={styles.superUser}>
+          {superUser}
+        </div>
+        <button onClick={this.handleFlagClick} className={styles.report}>
+          {svg.flag}
+        </button>
+        <div>
+          {showReport}
+        </div>
+        <div>
+          {showThankyouPopup}
+        </div>
         <div className={styles.reviewHeader}>
-          <div className={styles.guestName}>{review.guest_name}</div>
-          <div className={styles.date}>{formatedDate}</div>
+          <div className={styles.guestName}>
+            {review.guest_name}
+          </div>
+          <div className={styles.date}>
+            {formatedDate}
+          </div>
         </div>
-        <div className={styles.reviewText}><ReviewText
-          reviewText={review.review_text}
-          searchedWord={searchedWord}
-        />
+        <div className={styles.reviewText}>
+          <ReviewText
+            reviewText={review.review_text}
+            searchedWord={searchedWord}
+          />
         </div>
-        <div className={styles.hostResponse}>{hostResponse}</div>
+        <div className={styles.hostResponse}>
+          {hostResponse}
+        </div>
         <div className={styles.bottomSpace}>
           <div className={styles.bottomBorder} />
         </div>

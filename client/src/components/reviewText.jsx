@@ -6,8 +6,7 @@ export default class ReviewText extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //shortText: this.props.reviewText.substring(0, 280),
-      fullText: this.props.reviewText,
+      shortText: true,
     };
     this.handleReadMoreClick = this.handleReadMoreClick.bind(this);
   }
@@ -15,27 +14,51 @@ export default class ReviewText extends React.Component {
   handleReadMoreClick(e) {
     e.preventDefault();
     this.setState({
-      fullText: '',
+      shortText: false,
     });
   }
 
-  static convertArray(text) {
-    const words = []
-    text.forEach((word) => {
-      words.concat(word);
-    });
-    return words;
+  shortenText() {
+    if (typeof this.props.reviewText !== 'string') {
+      const strings = [];
+      let counter = 0;
+      let isTooLong = false;
+      this.props.reviewText.props.children.forEach((text) => {
+        if (typeof text === 'string') {
+          let tempString = '';
+          for (let i = 0; i < text.length; i++) {
+            tempString += text[i];
+            counter += 1;
+            if (counter > 280) {
+              strings.push(tempString);
+              isTooLong = true;
+              return;
+            }
+          }
+          strings.push(tempString);
+        } else {
+          strings.push(text);
+        }
+      });
+      if (isTooLong) {
+        return strings;
+      }
+      return false;
+    }
+    if (this.props.reviewText.length > 280) {
+      return this.state.fullText.substring(0, 280);
+    }
+    return false;
   }
 
   render() {
-    const text = Array.isArray(this.state.fullText) ? ReviewText.convertArray(this.state.fullText) : this.state.fullText;
-    // if (text.length >= 280) {
-    //   return (
-    //     <div>{this.state.shortText}...<button className={styles.readMore} onClick={this.handleReadMoreClick}>Read More</button></div>
-    //   );
-    // }
+    if (this.shortenText() && this.state.shortText) {
+      return (
+        <div>{this.shortenText()}...<button className={styles.readMore} onClick={this.handleReadMoreClick}>Read More</button></div>
+      );
+    }
     return (
-      <div>{text}</div>
+      <div>{this.props.reviewText}</div>
     );
   }
 }

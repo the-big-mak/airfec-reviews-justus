@@ -54,7 +54,7 @@ export default class App extends React.Component {
     this.handleBackToAllReviewsClick = this.handleBackToAllReviewsClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handlePrevClick = this.handlePrevClick.bind(this);
-    this.handlePageClick = this.handlePageClick.bind(this);
+    // this.handlePageClick = this.handlePageClick.bind(this);
     this.getTotalRating = this.getTotalRating.bind(this);
     this.handleSearchClose = this.handleSearchClose.bind(this);
   }
@@ -195,16 +195,16 @@ export default class App extends React.Component {
     }
   }
 
-  handlePage(page) {
-    this.setState({
-      currentPage: page,
-    });
-  }
+  // handlePage(page) {
+  //   this.setState({
+  //     currentPage: page,
+  //   });
+  // }
 
-  handlePageClick(e) {
-    App.scrollToTop();
-    setTimeout(this.handlePage.bind(this, (e.target.value - 1)), 500);
-  }
+  // handlePageClick(e) {
+  //   App.scrollToTop();
+  //   setTimeout(this.handlePage.bind(this, (e.target.value - 1)), 500);
+  // }
 
   render() {
     const hasBeenSearched = this.state.hasBeenSearched ?
