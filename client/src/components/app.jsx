@@ -111,7 +111,6 @@ export default class App extends React.Component {
       'checkin_rating',
       'value_rating',
     ];
-
     App.sortedByDate(data);
     this.setState({
       allReviewData: data,
@@ -144,30 +143,24 @@ export default class App extends React.Component {
   }
 
   filterReviews(query) {
-    const copyData = JSON.stringify(this.state.allReviewData);
-    const copied = JSON.parse(copyData);
-    const filteredReviews = copied.filter((review) => {
-      const reviewText = review.review_text.toLowerCase();
-      const hostText = review.host_text.toLowerCase();
-      const query1 = query.toLowerCase();
+    const copyData = JSON.parse(JSON.stringify(this.state.allReviewData));
+    const query1 = query.toLowerCase();
+    const filteredReviews = copyData.filter((review) => {
+      const preparedReview = review;
+      preparedReview.review_text = review.review_text.toLowerCase();
+      preparedReview.host_text = review.host_text.toLowerCase();
       if (review.id % 10 === 0) {
-        return hostText.includes(query1);
+        return preparedReview.host_text.includes(query1);
       }
-      return reviewText.includes(query1);
-    });
-    const filteredAndBolded = [];
-    filteredReviews.forEach((review) => {
-      const reviewText = review.review_text.toLowerCase();
-      const hostText = review.host_text.toLowerCase();
-      const query1 = this.state.searchText.toLowerCase();
-      const reviewTextBolded = App.findAndBoldWord(reviewText, query1);
-      const hostTextBolded = App.findAndBoldWord(hostText, query1);
-      review.review_text = reviewTextBolded;
-      review.host_text = hostTextBolded;
-      filteredAndBolded.push(review);
+      return preparedReview.review_text.includes(query1);
+    }).map((review) => {
+      const preparedReview = review;
+      preparedReview.review_text = App.findAndBoldWord(review.review_text, query1);
+      preparedReview.host_text = App.findAndBoldWord(review.host_text, query1);
+      return review;
     });
     this.setState({
-      currentReviews: filteredAndBolded,
+      currentReviews: filteredReviews,
     });
   }
 
@@ -240,7 +233,6 @@ export default class App extends React.Component {
           currentPage={this.state.currentPage}
           handlePageClick={this.handlePageClick}
           numberOfPages={this.state.currentReviews.length / 3}
-          scrollToTop={App.scrollToTop}
         />
         </div>
       </div>
