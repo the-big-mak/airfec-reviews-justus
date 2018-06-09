@@ -16,7 +16,7 @@ class Review extends React.Component {
       reviewText.props.children.forEach((text) => {
         if (typeof text === 'string') {
           let tempString = '';
-          for (let i = 0; i < text.length; i++) {
+          for (let i = 0; i < text.length; i += 1) {
             tempString += text[i];
             counter += 1;
             if (counter > 280) {
@@ -105,6 +105,7 @@ class Review extends React.Component {
     this.setState({
       buttonDisabled: false,
     });
+    document.body.style.overflow = 'hidden';
   }
 
   handleReadMoreClick() {

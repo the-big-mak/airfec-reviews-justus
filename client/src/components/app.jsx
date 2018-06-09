@@ -24,7 +24,7 @@ export default class App extends React.Component {
   static displayStarRatings(rating) {
     let starRating = rating;
     const stars = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i += 1) {
       if (starRating >= 1) {
         stars.push(svg.star);
       } else if (starRating < 1 && starRating > 0) {
@@ -49,7 +49,7 @@ export default class App extends React.Component {
           }, [])
         }
       </span>);
-  };
+  }
 
   constructor(props) {
     super(props);
@@ -196,19 +196,22 @@ export default class App extends React.Component {
     }
   }
 
-  // handlePage(page) {
-  //   this.setState({
-  //     currentPage: page,
-  //   });
-  // }
 
   handlePageClick(e) {
-    App.scrollToTop();
-    this.setState({
-      currentPage: e.target.value - 1,
+    const pageNumber = e.target.value;
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        this.setState({
+          currentPage: pageNumber - 1,
+        });
+        intersectionObserver.unobserve(document.getElementById('top'));
+      }
     });
+    intersectionObserver.observe(document.getElementById('top'));
+    App.scrollToTop();
   }
-
+  
   render() {
     const hasBeenSearched = this.state.hasBeenSearched ?
       (<BackToAllReviews
