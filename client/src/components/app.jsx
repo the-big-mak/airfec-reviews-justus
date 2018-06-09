@@ -235,7 +235,6 @@ export default class App extends React.Component {
         </div>
         <div><ReviewList
           reviews={this.state.currentReviews.slice(3 * this.state.currentPage, (3 * this.state.currentPage) + 3)}
-          searchedWord={this.state.searchedWord}
         />
         </div>
         <div className="pagesContainer"><Pages

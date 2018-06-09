@@ -114,7 +114,7 @@ class Pages extends React.Component {
 Pages.propTypes = {
   handleNextClick: PropType.func.isRequired,
   handlePrevClick: PropType.func.isRequired,
-  handlePageClick: PropType.func.isRequired,
+  // handlePageClick: PropType.func.isRequired,
   currentPage: PropType.number.isRequired,
   numberOfPages: PropType.number.isRequired,
 };

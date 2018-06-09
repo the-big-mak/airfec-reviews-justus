@@ -8,12 +8,46 @@ import svg from './svg';
 import styles from './styles/review.css';
 
 class Review extends React.Component {
+  static shortenText(reviewText) {
+    if (typeof reviewText !== 'string') {
+      const strings = [];
+      let counter = 0;
+      let isTooLong = false;
+      reviewText.props.children.forEach((text) => {
+        if (typeof text === 'string') {
+          let tempString = '';
+          for (let i = 0; i < text.length; i++) {
+            tempString += text[i];
+            counter += 1;
+            if (counter > 280) {
+              strings.push(tempString);
+              isTooLong = true;
+              return;
+            }
+          }
+          strings.push(tempString);
+        } else {
+          strings.push(text);
+        }
+      });
+      if (isTooLong) {
+        return strings;
+      }
+      return false;
+    }
+    if (reviewText.length > 280) {
+      return reviewText.substring(0, 280);
+    }
+    return false;
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       showReport: false,
       showThankyou: false,
       buttonDisabled: true,
+      shortText: true,
     };
     this.handleFlagClick = this.handleFlagClick.bind(this);
     this.handleSubmitClick = this.handleSubmitClick.bind(this);
@@ -21,6 +55,7 @@ class Review extends React.Component {
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleLabelClick = this.handleLabelClick.bind(this);
+    this.handleReadMoreClick = this.handleReadMoreClick.bind(this);
   }
   componentWillMount() {
     document.addEventListener('mousedown', this.handleOutsideClick);
@@ -69,10 +104,15 @@ class Review extends React.Component {
     });
   }
 
+  handleReadMoreClick() {
+    this.setState({
+      shortText: false,
+    });
+  }
+
   render() {
     const {
       review,
-      searchedWord,
     } = this.props;
 
     const month = {
@@ -96,6 +136,9 @@ class Review extends React.Component {
       (<HostResponse
         date={formatedDate}
         hostResponse={review}
+        shortenText={Review.shortenText}
+        shortText={this.state.shortText}
+        handleReadMoreClick={this.handleReadMoreClick}
       />)
       : null;
 
@@ -148,7 +191,9 @@ class Review extends React.Component {
         <div className={styles.reviewText}>
           <ReviewText
             reviewText={review.review_text}
-            searchedWord={searchedWord}
+            shortenText={Review.shortenText}
+            shortText={this.state.shortText}
+            handleReadMoreClick={this.handleReadMoreClick}
           />
         </div>
         <div className={styles.hostResponse}>
@@ -164,7 +209,6 @@ class Review extends React.Component {
 
 Review.propTypes = {
   review: PropTypes.objectOf(PropTypes.node).isRequired,
-  searchedWord: PropTypes.string.isRequired,
 };
 
 export default Review;
