@@ -3,7 +3,7 @@
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 18px;
-  color: rgb(72, 72, 72) !important;
+  color: rgb(72, 72, 72);
   position: relative;
   left: -440px;
   top: 55px;
@@ -31,13 +31,21 @@
 
 .searchBold {
   font-weight: 700;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgb(72, 72, 72);
+  position: relative;
+  left: 175px;
+  top: 35px;
+
 }
 
 .borders {
   margin-top: -5px;
 }
 
-.innerBoarder {
+.innerBorder {
   border-bottom: 1px solid #DBDBDB;
   width: 648px;
   position: relative;

@@ -4,11 +4,11 @@ import styles from './styles/backToAllReviews.css';
 
 const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, searchedWord }) => (
   <div className={styles.backToReviewsContainer}>
+    <div>
     <div className={styles.mentions}>
       {currentReviewsLength} guests have mentioned
-      <span className={styles.searchBold}>
-        {searchedWord}
-      </span>
+    </div>
+    <div className={styles.searchBold} dangerouslySetInnerHTML={{ __html: `"${searchedWord}"` }} />
     </div>
     <button
       className={styles.backToAllReviews}
@@ -17,7 +17,7 @@ const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, s
       Back to all reviews
     </button>
     <div className={styles.borders}>
-      <div className={styles.innerBoarder} />
+      <div className={styles.innerBorder} />
     </div>
   </div>
 );

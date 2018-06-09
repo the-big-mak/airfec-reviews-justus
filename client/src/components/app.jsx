@@ -6,6 +6,7 @@ import Search from './search';
 import BackToAllReviews from './backToAllReviews';
 import Pages from './pages';
 import svg from './svg';
+import FullStar from './stars/fullStar';
 import styles from './styles/app.css';
 
 export default class App extends React.Component {
