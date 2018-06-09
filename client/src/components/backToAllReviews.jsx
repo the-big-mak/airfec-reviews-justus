@@ -4,8 +4,11 @@ import styles from './styles/backToAllReviews.css';
 
 const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, searchedWord }) => (
   <div className={styles.backToReviewsContainer}>
-    <div className={styles.mentions}>{currentReviewsLength} guests have mentioned
-      <span className={styles.searchBold}> {searchedWord}</span>
+    <div className={styles.mentions}>
+      {currentReviewsLength} guests have mentioned
+      <span className={styles.searchBold}>
+        {searchedWord}
+      </span>
     </div>
     <button
       className={styles.backToAllReviews}

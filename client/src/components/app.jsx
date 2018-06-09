@@ -37,6 +37,20 @@ export default class App extends React.Component {
     return stars;
   }
 
+  static findAndBoldWord(text, word) {
+    return (
+      <span>
+        { text.split(word)
+          .reduce((prev, current, i) => {
+            if (!i) {
+              return [current];
+            }
+            return prev.concat(<span className={styles.searchBold} key={word + current}>{ word }</span>, current);
+          }, [])
+        }
+      </span>);
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +68,7 @@ export default class App extends React.Component {
     this.handleBackToAllReviewsClick = this.handleBackToAllReviewsClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handlePrevClick = this.handlePrevClick.bind(this);
-    // this.handlePageClick = this.handlePageClick.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
     this.getTotalRating = this.getTotalRating.bind(this);
     this.handleSearchClose = this.handleSearchClose.bind(this);
   }
@@ -156,19 +170,6 @@ export default class App extends React.Component {
     });
   }
 
-  static findAndBoldWord(text, word) {
-    return (<span>
-      { text.split(word)
-        .reduce((prev, current, i) => {
-          if (!i) {
-            return [current];
-          }
-          return prev.concat(<span className={styles.searchBold} key={word + current}>{ word }</span>, current);
-        }, [])
-      }
-    </span>);
-  };
-
   handleBackToAllReviewsClick() {
     this.setState({
       hasBeenSearched: false,
@@ -201,10 +202,12 @@ export default class App extends React.Component {
   //   });
   // }
 
-  // handlePageClick(e) {
-  //   App.scrollToTop();
-  //   setTimeout(this.handlePage.bind(this, (e.target.value - 1)), 500);
-  // }
+  handlePageClick(e) {
+    App.scrollToTop();
+    this.setState({
+      currentPage: e.target.value - 1,
+    });
+  }
 
   render() {
     const hasBeenSearched = this.state.hasBeenSearched ?

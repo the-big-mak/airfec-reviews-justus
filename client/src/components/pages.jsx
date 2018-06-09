@@ -5,29 +5,59 @@ import styles from './styles/pages.css';
 
 class Pages extends React.Component {
   firstPage() {
+    let onFirstPage = false;
     if (this.props.currentPage === 0) {
-      return <button disabled className={styles.pageButton} value={1} onClick={this.props.handlePageClick}>1</button>;
+      onFirstPage = true;
     }
-    return <button className={styles.pageButton} value={1} onClick={this.props.handlePageClick}>1</button>;
+    return (
+      <button
+        disabled={onFirstPage}
+        className={styles.pageButton}
+        value={1}
+        onClick={this.props.handlePageClick}
+      >
+        1
+      </button>);
   }
 
   lastPage() {
+    let onLastPage = false;
     if (this.props.currentPage === Math.ceil(this.props.numberOfPages) - 1) {
-      return <button disabled className={styles.pageButton} value={Math.ceil(this.props.numberOfPages)} onClick={this.props.handlePageClick}>{Math.ceil(this.props.numberOfPages)}</button>;
+      onLastPage = true;
     }
-    return <button className={styles.pageButton} value={Math.ceil(this.props.numberOfPages)} onClick={this.props.handlePageClick}>{Math.ceil(this.props.numberOfPages)}</button>;
+    return (
+      <button
+        disabled={onLastPage}
+        className={styles.pageButton}
+        value={Math.ceil(this.props.numberOfPages)}
+        onClick={this.props.handlePageClick}
+      >
+        {Math.ceil(this.props.numberOfPages)}
+      </button>);
   }
 
   next() {
     if (this.props.currentPage < this.props.numberOfPages - 1) {
-      return <button className={styles.pageButton} onClick={this.props.handleNextClick}>{svg.next}</button>;
+      return (
+        <button
+          className={styles.pageButton}
+          onClick={this.props.handleNextClick}
+        >
+          {svg.next}
+        </button>);
     }
     return null;
   }
 
   prev() {
     if (this.props.currentPage !== 0) {
-      return <button className={styles.pageButton} onClick={this.props.handlePrevClick}>{svg.prev}</button>;
+      return (
+        <button
+          className={styles.pageButton}
+          onClick={this.props.handlePrevClick}
+        >
+          {svg.prev}
+        </button>);
     }
     return null;
   }
@@ -114,7 +144,7 @@ class Pages extends React.Component {
 Pages.propTypes = {
   handleNextClick: PropType.func.isRequired,
   handlePrevClick: PropType.func.isRequired,
-  // handlePageClick: PropType.func.isRequired,
+  handlePageClick: PropType.func.isRequired,
   currentPage: PropType.number.isRequired,
   numberOfPages: PropType.number.isRequired,
 };

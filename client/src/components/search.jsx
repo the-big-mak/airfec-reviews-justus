@@ -12,15 +12,18 @@ const Search = ({
   displayStarRatings,
   handleSearchClose,
 }) => {
-  const showClose = searchText !== '' ?
-    svg.searchClose :
-    null;
+  const showClose = searchText !== ''
+    ? svg.searchClose
+    : null;
 
   return (
     <div>
       <div className={styles.totalReviews}>
-        <div className={styles.totalReviewsWords}>{totalReviews} Reviews
-          <div className={styles.star} key={Math.random()}>{displayStarRatings(totalRating).map(star => star)}</div>
+        <div className={styles.totalReviewsWords}>
+          {totalReviews} Reviews
+          <div className={styles.star}>
+            {displayStarRatings(totalRating).map(star => star)}
+          </div>
         </div>
       </div>
       <div className={styles.searchContainer}>
@@ -35,7 +38,9 @@ const Search = ({
               onKeyPress={handleKeyPress}
             />
           </div>
-          <div className={styles.close} onClick={handleSearchClose} role="button">{showClose}</div>
+          <div className={styles.close} onClick={handleSearchClose} role="button">
+            {showClose}
+          </div>
           {svg.search}
         </div>
       </div>

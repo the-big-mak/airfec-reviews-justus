@@ -13,7 +13,9 @@ const HostResponse = ({
   <div className={styles.container}>
     <img className={styles.hostPhoto} src="1Spy3bu.jpg" alt="" />
     <div className={styles.reviewHeader}>
-      <div className={styles.hostName}>Response from {hostResponse.host_name}:</div>
+      <div className={styles.hostName}>
+        Response from {hostResponse.host_name}:
+      </div>
     </div>
     <div className={styles.hostTextAndDate}>
       <div className={styles.reviewText}>
@@ -24,7 +26,9 @@ const HostResponse = ({
           handleReadMoreClick={handleReadMoreClick}
         />
       </div>
-      <div className={styles.hostDate}>{date}</div>
+      <div className={styles.hostDate}>
+        {date}
+      </div>
     </div>
   </div>
 );

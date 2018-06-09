@@ -132,8 +132,8 @@ class Review extends React.Component {
     const date = review.date.split('/');
     const formatedDate = `${month[date[1]]} ${date[0]}`;
 
-    const hostResponse = review.id % 10 === 0 ?
-      (<HostResponse
+    const hostResponse = review.id % 10 === 0
+      ? (<HostResponse
         date={formatedDate}
         hostResponse={review}
         shortenText={Review.shortenText}
@@ -142,28 +142,28 @@ class Review extends React.Component {
       />)
       : null;
 
-    const superUser = review.id % 5 === 0 ?
-      svg.superUser :
-      null;
+    const superUser = review.id % 5 === 0
+      ? svg.superUser
+      : null;
 
-    const showReport = this.state.showReport ?
-      (<Report
+    const showReport = this.state.showReport
+      ? (<Report
         buttonState={this.state.buttonDisabled}
         handleLabelClick={this.handleLabelClick}
         setWrapperRef={this.setWrapperRef}
         handleOutsideClick={this.handleOutsideClick}
         handleClose={this.handleClose}
         handleSubmitClick={this.handleSubmitClick}
-      />) :
-      null;
+      />)
+      : null;
 
-    const showThankyouPopup = this.state.showThankyou ?
-      (<ReportThankyou
+    const showThankyouPopup = this.state.showThankyou
+      ? (<ReportThankyou
         setWrapperRef={this.setWrapperRef}
         handleOutsideClick={this.handleOutsideClick}
         handleClose={this.handleClose}
-      />) :
-      null;
+      />)
+      : null;
 
     return (
       <div className={styles.review}>
