@@ -161,14 +161,20 @@ export default class App extends React.Component {
     });
     const filteredAndBolded = [];
     filteredReviews.forEach((review) => {
-      const bolded = App.findAndBoldWord(review.review_text, this.state.searchText);
-      review.review_text = bolded;
+      const reviewText = review.review_text.toLowerCase();
+      const hostText = review.host_text.toLowerCase();
+      const query1 = this.state.searchText.toLowerCase();
+      const reviewTextBolded = App.findAndBoldWord(reviewText, query1);
+      const hostTextBolded = App.findAndBoldWord(hostText, query1);
+      review.review_text = reviewTextBolded;
+      review.host_text = hostTextBolded;
       filteredAndBolded.push(review);
     });
     this.setState({
       currentReviews: filteredAndBolded,
     });
   }
+
 
   handleBackToAllReviewsClick() {
     this.setState({
@@ -211,7 +217,7 @@ export default class App extends React.Component {
     intersectionObserver.observe(document.getElementById('top'));
     App.scrollToTop();
   }
-  
+
   render() {
     const hasBeenSearched = this.state.hasBeenSearched ?
       (<BackToAllReviews
