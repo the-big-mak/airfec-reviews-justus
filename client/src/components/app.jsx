@@ -11,8 +11,8 @@ import styles from './styles/app.css';
 export default class App extends React.Component {
   static sortedByDate(reviews) {
     return reviews.sort((a, b) => {
-      const aa = a.date.split('/');
-      const bb = b.date.split('/');
+      const aa = a.review_date.split('/');
+      const bb = b.review_date.split('/');
       return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
     });
   }
@@ -86,20 +86,14 @@ export default class App extends React.Component {
   }
 
   static getAverageRating(reviewRatings, subclass) {
-    let sum = 0;
-    reviewRatings.forEach((review) => {
-      sum += review[subclass];
-    });
+    const sum = reviewRatings.reduce(((total, review) => total + review[subclass]), 0);
     const average = sum / reviewRatings.length;
     return Math.round(average * 2) / 2;
   }
 
   getTotalRating() {
-    let sum = 0;
-    this.state.ratings.forEach((rating) => {
-      sum += rating;
-    });
-    return Math.round((2 * sum) / 6) / 2;
+    const sum = this.state.ratings.reduce(((total, rating) => total + rating), 0);
+    return Math.round((2 * sum) / this.state.ratings.length) / 2;
   }
 
   handleReceivedReviewData(data) {
@@ -174,7 +168,7 @@ export default class App extends React.Component {
   }
 
   handleNextClick() {
-    if (this.state.currentPage < this.state.allReviewData.length / 3) {
+    if (this.state.currentPage < this.state.allReviewData.length / 7) {
       this.setState({
         currentPage: this.state.currentPage + 1,
       });
@@ -224,7 +218,7 @@ export default class App extends React.Component {
           {hasBeenSearched}
         </div>
         <div><ReviewList
-          reviews={this.state.currentReviews.slice(3 * this.state.currentPage, (3 * this.state.currentPage) + 3)}
+          reviews={this.state.currentReviews.slice(7 * this.state.currentPage, (7 * this.state.currentPage) + 7)}
         />
         </div>
         <div><Pages
@@ -232,7 +226,7 @@ export default class App extends React.Component {
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}
           handlePageClick={this.handlePageClick}
-          numberOfPages={this.state.currentReviews.length / 3}
+          numberOfPages={this.state.currentReviews.length / 7}
         />
         </div>
       </div>

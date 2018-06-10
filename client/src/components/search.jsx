@@ -17,7 +17,7 @@ const Search = ({
     : null;
 
   return (
-    <div>
+    <div className={styles.searchAndTotalContainer}>
       <div className={styles.totalReviews}>
         <div className={styles.totalReviewsWords}>
           {totalReviews} Reviews

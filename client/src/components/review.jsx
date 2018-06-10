@@ -73,7 +73,6 @@ class Review extends React.Component {
     this.setState({
       showThankyou: true,
       showReport: false,
-      buttonDisabled: true,
     });
   }
 
@@ -132,47 +131,49 @@ class Review extends React.Component {
       11: 'November',
       12: 'December',
     };
-    const date = review.date.split('/');
+    const date = review.review_date.split('/');
     const formatedDate = `${month[date[1]]} ${date[0]}`;
 
-    const hostResponse = review.id % 10 === 0
-      ? (<HostResponse
+    const hostResponse = review.id % 10 === 0 ?
+      (<HostResponse
         date={formatedDate}
         hostResponse={review}
         shortenText={Review.shortenText}
         shortText={this.state.shortText}
         handleReadMoreClick={this.handleReadMoreClick}
-      />)
-      : null;
+      />) :
+      null;
 
-    const superUser = review.id % 5 === 0
-      ? svg.superUser
-      : null;
+    const superUser = review.id % 5 === 0 ?
+      svg.superUser :
+      null;
 
-    const showReport = this.state.showReport
-      ? (<Report
+    const showReport = this.state.showReport ?
+      (<Report
         buttonState={this.state.buttonDisabled}
         handleLabelClick={this.handleLabelClick}
         setWrapperRef={this.setWrapperRef}
         handleOutsideClick={this.handleOutsideClick}
         handleClose={this.handleClose}
         handleSubmitClick={this.handleSubmitClick}
-      />)
-      : null;
+      />) :
+      null;
 
-    const showThankyouPopup = this.state.showThankyou
-      ? (<ReportThankyou
+    const showThankyouPopup = this.state.showThankyou ?
+      (<ReportThankyou
         setWrapperRef={this.setWrapperRef}
         handleOutsideClick={this.handleOutsideClick}
         handleClose={this.handleClose}
-      />)
-      : null;
+      />) :
+      null;
 
     return (
       <div className={styles.review}>
-        <img className={styles.guestPhoto} src="2RTqR9s.jpg" alt="" />
-        <div className={styles.superUser}>
-          {superUser}
+        <div className={styles.photoAndSuperUser}>
+          <img className={styles.guestPhoto} src="2RTqR9s.jpg" alt="" />
+          <div className={styles.superUser}>
+            {superUser}
+          </div>
         </div>
         <button onClick={this.handleFlagClick} className={styles.report}>
           {svg.flag}

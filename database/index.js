@@ -19,7 +19,7 @@ connection.connect((err) => {
 });
 
 const getData = (callback) => {
-  const queryStr = `SELECT reviews.*, properties.host_name, properties.host_photo, properties.host_text FROM reviews, properties WHERE reviews.hostId = ${5} AND properties.id = ${5} OR reviews.hostId = ${6} AND properties.id = ${6}`;
+  const queryStr = `SELECT reviews.*, properties.host_name, properties.host_photo, properties.host_text FROM reviews, properties WHERE reviews.host_id = ${5} AND properties.id = ${5}`;
   connection.query(queryStr, (err, data) => {
     if (err) {
       callback(err, null);

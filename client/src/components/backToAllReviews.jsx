@@ -4,18 +4,18 @@ import styles from './styles/backToAllReviews.css';
 
 const BackToAllReviews = ({ handleBacktoAllReviewsClick, currentReviewsLength, searchedWord }) => (
   <div className={styles.backToReviewsContainer}>
-    <div>
-    <div className={styles.mentions}>
-      {currentReviewsLength} guests have mentioned
+    <div className={styles.mentionsContainer}>
+      <div className={styles.mentions}>
+        {currentReviewsLength} guests have mentioned
+        <div className={styles.searchBold} dangerouslySetInnerHTML={{ __html: `"${searchedWord}"` }} />
+      </div>
+      <button
+        className={styles.backToAllReviews}
+        onClick={handleBacktoAllReviewsClick}
+      >
+        Back to all reviews
+      </button>
     </div>
-    <div className={styles.searchBold} dangerouslySetInnerHTML={{ __html: `"${searchedWord}"` }} />
-    </div>
-    <button
-      className={styles.backToAllReviews}
-      onClick={handleBacktoAllReviewsClick}
-    >
-      Back to all reviews
-    </button>
     <div className={styles.borders}>
       <div className={styles.innerBorder} />
     </div>

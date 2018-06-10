@@ -1,3 +1,6 @@
+.backToReviewsContainer {
+  margin-bottom: 75px;
+}
 
 .mentions {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
@@ -5,12 +8,15 @@
   line-height: 18px;
   color: rgb(72, 72, 72);
   position: relative;
-  left: -440px;
-  top: 55px;
+  top: 30px;
+  display: inline-block;
 }
 
-.backToReviewsContainer {
-  margin-bottom: 75px;
+.mentionsContainer {
+  height: 20px;
+  width: 648px;
+  margin-bottom: 15px;
+  margin-top: 5px;
 }
 
 .backToAllReviews {
@@ -25,7 +31,8 @@
   margin: 0px;
   padding: 0px;
   position: relative;
-  left: 530px;
+  float: right;
+  left: 215px;
   top: 30px;
 }
 
@@ -36,9 +43,8 @@
   line-height: 18px;
   color: rgb(72, 72, 72);
   position: relative;
-  left: 175px;
-  top: 35px;
-
+  float: right;
+  margin-left: 5px;
 }
 
 .borders {
