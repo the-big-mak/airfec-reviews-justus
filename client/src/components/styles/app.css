@@ -9,7 +9,7 @@ body {
 }
 
 .fullContainer {
-  width: 648px;
+  max-width: 648px;
 }
 
 .searchBold {

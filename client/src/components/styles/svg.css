@@ -83,3 +83,13 @@
   fill: url(#half);
   margin-left: 5px;
 }
+
+.radio {
+  height: 6px;
+  width: 6px;
+  display: block;
+  fill: rgb(0, 132, 137);
+  position: relative;
+  left: 5px;
+  top: 5px;
+}

@@ -16,11 +16,11 @@
   padding-top: 2px;
   padding-bottom: 2px;
   color: #484848;
+  margin-right: 10px;
 }
 
 .totalReviewStars {
   display: inline-block;
-  margin-left: 10px;
 }
 
 .star {
@@ -39,7 +39,8 @@
   padding-right: 8px;
   position: relative;
   height: 56px;
-  top: -35px;
+  top: -40px;
+  left: 7px;
 }
 
 .searchContainer1 {
@@ -90,7 +91,7 @@
 .close {
   position: relative;
   left: 180px;
-  top: -20px;
+  top: -23px;
   height: 15px;
   width: 15px;
 }

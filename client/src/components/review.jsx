@@ -48,6 +48,7 @@ class Review extends React.Component {
       showThankyou: false,
       buttonDisabled: true,
       shortText: true,
+      labelValue: '',
     };
     this.handleFlagClick = this.handleFlagClick.bind(this);
     this.handleSubmitClick = this.handleSubmitClick.bind(this);
@@ -100,9 +101,10 @@ class Review extends React.Component {
     this.handleClose();
   }
 
-  handleLabelClick() {
+  handleLabelClick(e) {
     this.setState({
       buttonDisabled: false,
+      labelValue: e.target.value,
     });
   }
 
@@ -156,6 +158,7 @@ class Review extends React.Component {
         handleOutsideClick={this.handleOutsideClick}
         handleClose={this.handleClose}
         handleSubmitClick={this.handleSubmitClick}
+        labelValue={this.state.labelValue}
       />) :
       null;
 
