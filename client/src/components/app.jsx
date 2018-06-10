@@ -142,21 +142,21 @@ export default class App extends React.Component {
     });
   }
 
-  filterReviews(query) {
+  filterReviews() {
     const copyData = JSON.parse(JSON.stringify(this.state.allReviewData));
-    const query1 = query.toLowerCase();
+    const query = this.state.searchText.toLowerCase();
     const filteredReviews = copyData.filter((review) => {
       const preparedReview = review;
       preparedReview.review_text = review.review_text.toLowerCase();
       preparedReview.host_text = review.host_text.toLowerCase();
       if (review.id % 10 === 0) {
-        return preparedReview.host_text.includes(query1);
+        return preparedReview.host_text.includes(query);
       }
-      return preparedReview.review_text.includes(query1);
+      return preparedReview.review_text.includes(query);
     }).map((review) => {
       const preparedReview = review;
-      preparedReview.review_text = App.findAndBoldWord(review.review_text, query1);
-      preparedReview.host_text = App.findAndBoldWord(review.host_text, query1);
+      preparedReview.review_text = App.findAndBoldWord(review.review_text, query);
+      preparedReview.host_text = App.findAndBoldWord(review.host_text, query);
       return review;
     });
     this.setState({

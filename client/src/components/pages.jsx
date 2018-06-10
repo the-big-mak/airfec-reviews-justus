@@ -82,17 +82,9 @@ class Pages extends React.Component {
 
   loop(start, end) {
     const pages = [];
+    const whereToEnd = end <= this.props.numberOfPages ? end : this.props.numberOfPages;
     if (end <= this.props.numberOfPages) {
-      //debugger;
-      for (let i = start; i <= end; i += 1) {
-        let isDisabled = false;
-        if (this.props.currentPage + 1 === i) {
-          isDisabled = true;
-        }
-        pages.push(<button className={styles.pageButton} value={i} key={i} onClick={this.props.handlePageClick} disabled={isDisabled}>{i}</button>);
-      }
-    } else {
-      for (let i = start; i < this.props.numberOfPages; i += 1) {
+      for (let i = start; i <= whereToEnd; i += 1) {
         let isDisabled = false;
         if (this.props.currentPage + 1 === i) {
           isDisabled = true;
