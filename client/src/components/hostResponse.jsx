@@ -14,6 +14,7 @@ const HostResponse = ({
   const superUser = hostResponse.id % 5 === 0 ? svg.superUser : null;
   return (
     <div className={styles.container}>
+      {/* photo is hardcoded in until I buy a computer with more RAM */}
       <img className={styles.hostPhoto} src="1Spy3bu.jpg" alt="" />
       <div className={styles.superUser}>
         {superUser}

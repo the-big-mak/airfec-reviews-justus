@@ -11,7 +11,6 @@ class Pages extends React.Component {
       }
       intersectionObserver.unobserve(id);
     });
-    id.scrollIntoView({ behavior: 'smooth' });
     intersectionObserver.observe(id);
   }
 

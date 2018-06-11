@@ -6,9 +6,8 @@ import styles from './styles/reportThankyou.css';
 const ReportThankyou = ({
   handleClose,
   setWrapperRef,
-  handleOutsideClick,
 }) => (
-  <div onClick={handleOutsideClick} className={styles.tyContainer}>
+  <div className={styles.tyContainer}>
     <div className={styles.tyContainerBackground}>
       <div className={styles.tyPadding}>
         <div ref={setWrapperRef} className={styles.reportTy}>
@@ -30,7 +29,6 @@ const ReportThankyou = ({
 );
 
 ReportThankyou.propTypes = {
-  handleOutsideClick: PropTypes.func.isRequired,
   handleClose: PropTypes.func.isRequired,
   setWrapperRef: PropTypes.func.isRequired,
 };

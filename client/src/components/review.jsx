@@ -156,7 +156,6 @@ class Review extends React.Component {
         buttonState={this.state.buttonDisabled}
         handleLabelClick={this.handleLabelClick}
         setWrapperRef={this.setWrapperRef}
-        handleOutsideClick={this.handleOutsideClick}
         handleClose={this.handleClose}
         handleSubmitClick={this.handleSubmitClick}
         labelValue={this.state.labelValue}
@@ -166,7 +165,6 @@ class Review extends React.Component {
     const showThankyouPopup = this.state.showThankyou ?
       (<ReportThankyou
         setWrapperRef={this.setWrapperRef}
-        handleOutsideClick={this.handleOutsideClick}
         handleClose={this.handleClose}
       />) :
       null;
@@ -174,6 +172,7 @@ class Review extends React.Component {
     return (
       <div className={styles.review}>
         <div className={styles.photoAndSuperUser}>
+          {/* photo is hardcoded in until I buy a computer with more RAM */}
           <img className={styles.guestPhoto} src="2RTqR9s.jpg" alt="" />
           <div className={styles.superUser}>
             {superUser}

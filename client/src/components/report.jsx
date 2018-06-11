@@ -4,7 +4,6 @@ import svg from './svg';
 import styles from './styles/report.css';
 
 const Report = ({
-  handleOutsideClick,
   handleClose,
   handleSubmitClick,
   setWrapperRef,
@@ -16,7 +15,7 @@ const Report = ({
   const dishonest = labelValue === 'Dishonest' ? svg.radio : null;
   const fake = labelValue === 'Fake' ? svg.radio : null;
   return (
-    <div onClick={handleOutsideClick} className={styles.reportContainer}>
+    <div className={styles.reportContainer}>
       <div className={styles.reportBackground}>
         <div className={styles.reportPadding}>
           <div ref={setWrapperRef} className={styles.reportMain}>
@@ -85,7 +84,6 @@ const Report = ({
 };
 
 Report.propTypes = {
-  handleOutsideClick: PropTypes.func.isRequired,
   handleClose: PropTypes.func.isRequired,
   handleSubmitClick: PropTypes.func.isRequired,
   setWrapperRef: PropTypes.func.isRequired,
