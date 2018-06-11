@@ -148,7 +148,7 @@ export default class App extends React.Component {
       }
       return preparedReview.review_text.includes(query);
     }).map((review) => {
-      const preparedReview = JSON.parse(JSON.stringify(review));
+      const preparedReview = review;
       preparedReview.review_text = App.findAndBoldWord(review.review_text, query);
       preparedReview.host_text = App.findAndBoldWord(review.host_text, query);
       return review;
