@@ -14,7 +14,7 @@ class Pages extends React.Component {
     intersectionObserver.observe(id);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     if (nextProps.currentPage !== this.props.currentPage) {
       Pages.scrollToId(document.getElementById('top'));
     }
