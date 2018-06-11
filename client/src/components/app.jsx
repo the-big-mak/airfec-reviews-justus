@@ -17,16 +17,16 @@ export default class App extends React.Component {
     });
   }
 
-  static displayStarRatings(rating) {
+  static displayStarRatings(rating, key) {
     let starRating = rating;
     const stars = [];
     for (let i = 0; i < 5; i += 1) {
       if (starRating >= 1) {
-        stars.push(svg.star);
+        stars.push(<span key={i + key}>{svg.star}</span>);
       } else if (starRating < 1 && starRating > 0) {
-        stars.push(svg.halfStar);
+        stars.push(<span key={i + key}>{svg.halfStar}</span>);
       } else {
-        stars.push(svg.emptyStar);
+        stars.push(<span key={i + key}>{svg.emptyStar}</span>);
       }
       starRating -= 1;
     }

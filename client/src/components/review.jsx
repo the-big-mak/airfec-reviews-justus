@@ -82,6 +82,7 @@ class Review extends React.Component {
       showThankyou: false,
       showReport: false,
       buttonDisabled: true,
+      labelValue: '',
     });
     document.body.style.overflow = 'auto';
   }

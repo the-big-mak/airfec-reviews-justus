@@ -12,9 +12,9 @@ const Search = ({
   displayStarRatings,
   handleSearchClose,
 }) => {
-  const showClose = searchText !== ''
-    ? svg.searchClose
-    : null;
+  const showClose = searchText !== '' ?
+    svg.searchClose :
+    null;
 
   return (
     <div className={styles.searchAndTotalContainer}>
@@ -22,7 +22,7 @@ const Search = ({
         <div className={styles.totalReviewsWords}>
           {totalReviews} Reviews
           <div className={styles.star}>
-            {displayStarRatings(totalRating).map(star => star)}
+            {displayStarRatings(totalRating, 6).map(star => star)}
           </div>
         </div>
       </div>

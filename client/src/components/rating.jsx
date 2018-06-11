@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles/rating.css';
 
-const Rating = ({ rating, displayStarRatings }) => (
+const Rating = ({ rating, displayStarRatings, id }) => (
   <div className={styles.ratingContainer}>
     <div className={styles.words}>{rating[1]}
-      <div className={styles.star} key={rating}>
-        {displayStarRatings(rating[0]).map(star => star)}
+      <div className={styles.star}>
+        {displayStarRatings(rating[0], id).map(star => star)}
       </div>
     </div>
   </div>
