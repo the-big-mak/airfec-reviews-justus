@@ -29,29 +29,38 @@ const getData = (callback) => {
   });
 };
 
+
+// I will deal with this when I buy a new computer
 const addPhotos = (photos) => {
+  const promisesToMake = [];
+  console.log('hello in addphotos')
   for (let i = 0; i < 100; i + 1) {
     // update the host photos, only 100 hosts
     if (i <= 100) {
       const hostPhotosQuery = `UPDATE properties SET host_photo='${photos[i].Key}' WHERE id=${i}`;
-      connection.query(hostPhotosQuery, (err) => {
-        if (err) {
-          console.log('failed to update host photos', err);
-        } else {
-          console.log('succefully updated host photos');
-        }
+      promisesToMake.push(() => {
+        connection.query(hostPhotosQuery, (err) => {
+          if (err) {
+            console.log('failed to update host photos');
+          } else {
+            console.log('succefully updated host photos');
+          }
+        });
       });
     }
-    // update the guests photos
-    const guestPhotosQuery = `UPDATE reviews SET photo='${photos[i].Key}' WHERE id=${i}`;
-    connection.query(guestPhotosQuery, (err) => {
-      if (err) {
-        console.log('failed to update guest photos', err);
-      } else {
-        console.log('succefully updated guest photos');
-      }
-    });
   }
+  console.log('promises to make', promisesToMake);
+  const promises = Promise.all(promisesToMake);
+  promises.then(results => console.log('these are the results', results));
+    // update the guests photos
+    // const guestPhotosQuery = `UPDATE reviews SET guest_photo='${photos[i].Key}' WHERE id=${i}`;
+    // connection.query(guestPhotosQuery, (err) => {
+    //   if (err) {
+    //     console.log('failed to update guest photos', err);
+    //   } else {
+    //     console.log('succefully updated guest photos');
+    //   }
+    // });
 };
 
 module.exports = {

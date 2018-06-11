@@ -21,8 +21,10 @@ app.get('/reviews', (req, res) => {
 app.get('/photos', (req, res) => {
   helper.getPhotos((err, photos) => {
     if (err) {
+      console.log('error in server photos', err)
       res.status(400).send(err);
     } else {
+      console.log(photos);
       db.addPhotos(photos);
       res.status(200).send('successfully added photos');
     }

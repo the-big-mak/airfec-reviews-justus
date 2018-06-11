@@ -26,7 +26,7 @@ class Review extends React.Component {
             }
           }
           strings.push(tempString);
-        } else {
+        } else if (!isTooLong) {
           strings.push(text);
         }
       });

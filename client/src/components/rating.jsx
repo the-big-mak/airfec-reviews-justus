@@ -15,6 +15,7 @@ const Rating = ({ rating, displayStarRatings, id }) => (
 Rating.propTypes = {
   rating: PropTypes.node.isRequired,
   displayStarRatings: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Rating;
