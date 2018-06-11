@@ -5,7 +5,10 @@ import Review from './review';
 const ReviewList = ({ reviews }) => (
   <div>
     {reviews.map(review =>
-      <Review review={review} key={review.id} />)}
+      (<Review
+        review={review}
+        key={review.id}
+      />))}
   </div>
 );
 

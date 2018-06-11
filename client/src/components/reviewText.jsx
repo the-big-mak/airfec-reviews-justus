@@ -2,35 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles/reviewText.css';
 
-export default class ReviewText extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      shortText: this.props.reviewText.substring(0, 280),
-      fullText: this.props.reviewText,
-    };
-    this.handleReadMoreClick = this.handleReadMoreClick.bind(this);
-  }
-
-  handleReadMoreClick(e) {
-    e.preventDefault();
-    this.setState({
-      fullText: '',
-    });
-  }
-
-  render() {
-    if (this.state.fullText.length >= 280) {
-      return (
-        <div>{this.state.shortText}...<button className={styles.readMore} onClick={this.handleReadMoreClick}>Read More</button></div>
-      );
-    }
+const ReviewText = ({
+  reviewText,
+  shortText,
+  shortenText,
+  handleReadMoreClick,
+}) => {
+  if (shortenText(reviewText) && shortText) {
     return (
-      <div>{this.props.reviewText}</div>
+      <div>{shortenText(reviewText)}...
+        <button className={styles.readMore} onClick={handleReadMoreClick}>Read More</button>
+      </div>
     );
   }
-}
+  return (
+    <div>{reviewText}</div>
+  );
+};
 
 ReviewText.propTypes = {
-  reviewText: PropTypes.string.isRequired,
+  reviewText: PropTypes.node.isRequired,
+  shortText: PropTypes.bool.isRequired,
+  shortenText: PropTypes.func.isRequired,
+  handleReadMoreClick: PropTypes.func.isRequired,
 };
+
+export default ReviewText;

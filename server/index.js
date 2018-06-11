@@ -24,7 +24,7 @@ app.get('/photos', (req, res) => {
       res.status(400).send(err);
     } else {
       db.addPhotos(photos);
-      res.status(200).send('successfully added photos');
+      res.status(200).send('sucessfully added photos');
     }
   });
 });

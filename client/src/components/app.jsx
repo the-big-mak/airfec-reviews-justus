@@ -5,14 +5,46 @@ import RatingsList from './ratingsList';
 import Search from './search';
 import BackToAllReviews from './backToAllReviews';
 import Pages from './pages';
+import svg from './svg';
+import styles from './styles/app.css';
 
 export default class App extends React.Component {
   static sortedByDate(reviews) {
     return reviews.sort((a, b) => {
-      const aa = a.date.split('/');
-      const bb = b.date.split('/');
+      const aa = a.review_date.split('/');
+      const bb = b.review_date.split('/');
       return bb[0] - aa[0] || bb[1] - aa[1] || bb[2] - aa[2];
     });
+  }
+
+  static displayStarRatings(rating, key) {
+    let starRating = rating;
+    const stars = [];
+    for (let i = 0; i < 5; i += 1) {
+      if (starRating >= 1) {
+        stars.push(<span key={i + key}>{svg.star}</span>);
+      } else if (starRating < 1 && starRating > 0) {
+        stars.push(<span key={i + key}>{svg.halfStar}</span>);
+      } else {
+        stars.push(<span key={i + key}>{svg.emptyStar}</span>);
+      }
+      starRating -= 1;
+    }
+    return stars;
+  }
+
+  static findAndBoldWord(text, word) {
+    return (
+      <span>
+        { text.split(word)
+          .reduce((prev, current, i) => {
+            if (!i) {
+              return [current];
+            }
+            return prev.concat(<span className={styles.searchBold} key={word + current}>{ word }</span>, current);
+          }, [])
+        }
+      </span>);
   }
 
   constructor(props) {
@@ -34,6 +66,7 @@ export default class App extends React.Component {
     this.handlePrevClick = this.handlePrevClick.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
     this.getTotalRating = this.getTotalRating.bind(this);
+    this.handleSearchClose = this.handleSearchClose.bind(this);
   }
 
   componentDidMount() {
@@ -53,20 +86,14 @@ export default class App extends React.Component {
   }
 
   static getAverageRating(reviewRatings, subclass) {
-    let sum = 0;
-    reviewRatings.forEach((review) => {
-      sum += review[subclass];
-    });
+    const sum = reviewRatings.reduce(((total, review) => total + review[subclass]), 0);
     const average = sum / reviewRatings.length;
     return Math.round(average * 2) / 2;
   }
 
   getTotalRating() {
-    let sum = 0;
-    this.state.ratings.forEach((rating) => {
-      sum += rating;
-    });
-    return Math.round((2 * sum) / 6) / 2;
+    const sum = this.state.ratings.reduce(((total, rating) => total + rating), 0);
+    return Math.round((2 * sum) / this.state.ratings.length) / 2;
   }
 
   handleReceivedReviewData(data) {
@@ -78,7 +105,6 @@ export default class App extends React.Component {
       'checkin_rating',
       'value_rating',
     ];
-
     App.sortedByDate(data);
     this.setState({
       allReviewData: data,
@@ -104,20 +130,34 @@ export default class App extends React.Component {
     }
   }
 
-  filterReviews(query) {
-    const filteredReviews = this.state.allReviewData.filter((review) => {
-      const reviewText = review.review_text.toLowerCase();
-      const hostText = review.host_text.toLowerCase();
-      const query1 = query.toLowerCase();
+  handleSearchClose() {
+    this.setState({
+      searchText: '',
+    });
+  }
+
+  filterReviews() {
+    const copyData = JSON.parse(JSON.stringify(this.state.allReviewData));
+    const query = this.state.searchText.toLowerCase();
+    const filteredReviews = copyData.filter((review) => {
+      const preparedReview = JSON.parse(JSON.stringify(review));
+      preparedReview.review_text = review.review_text.toLowerCase();
+      preparedReview.host_text = review.host_text.toLowerCase();
       if (review.id % 10 === 0) {
-        return hostText.includes(query1);
+        return preparedReview.host_text.includes(query);
       }
-      return reviewText.includes(query1);
+      return preparedReview.review_text.includes(query);
+    }).map((review) => {
+      const preparedReview = review;
+      preparedReview.review_text = App.findAndBoldWord(review.review_text, query);
+      preparedReview.host_text = App.findAndBoldWord(review.host_text, query);
+      return review;
     });
     this.setState({
       currentReviews: filteredReviews,
     });
   }
+
 
   handleBackToAllReviewsClick() {
     this.setState({
@@ -132,7 +172,6 @@ export default class App extends React.Component {
       this.setState({
         currentPage: this.state.currentPage + 1,
       });
-      document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
     }
   }
 
@@ -141,7 +180,6 @@ export default class App extends React.Component {
       this.setState({
         currentPage: this.state.currentPage - 1,
       });
-      document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
     }
   }
 
@@ -150,7 +188,6 @@ export default class App extends React.Component {
     this.setState({
       currentPage: e.target.value - 1,
     });
-    document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
   }
 
   render() {
@@ -162,9 +199,10 @@ export default class App extends React.Component {
       />) :
       (<RatingsList
         ratings={this.state.ratings}
+        displayStarRatings={App.displayStarRatings}
       />);
     return (
-      <div className="fullContainer">
+      <div className={styles.fullContainer}>
         <div id="top" />
         <div><Search
           handleSearchTextChange={this.handleSearchTextChange}
@@ -172,13 +210,18 @@ export default class App extends React.Component {
           totalRating={this.getTotalRating()}
           totalReviews={this.state.allReviewData.length}
           searchText={this.state.searchText}
+          displayStarRatings={App.displayStarRatings}
+          handleSearchClose={this.handleSearchClose}
         />
         </div>
         <div>
           {hasBeenSearched}
         </div>
-        <div><ReviewList reviews={this.state.currentReviews.slice(7 * this.state.currentPage, (7 * this.state.currentPage) + 7)} /></div>
-        <div className="pagesContainer"><Pages
+        <div><ReviewList
+          reviews={this.state.currentReviews.slice(7 * this.state.currentPage, (7 * this.state.currentPage) + 7)}
+        />
+        </div>
+        <div><Pages
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}

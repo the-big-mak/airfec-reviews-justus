@@ -3,6 +3,7 @@
   font-size: 14px;
   line-height: 1.43;
   color: #484848;
+  margin-top: -10px;
 }
 
 
@@ -24,14 +25,26 @@
   line-height: 22px;
 }
 
+.photoAndSuperUser {
+  position: relative;
+  left: 7px;
+  top: 10px;
+}
+
+.superUser {
+  z-index: 1;
+  position: relative;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 23px;
+}
+
 .guestPhoto {
   float: left;
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  position: relative;
-  left: 7px;
-  top: 10px;
 }
 
 .date {
@@ -53,6 +66,7 @@
   color: buttontext;
   border: 0px;
   left: 580px;
+  top: 5px;
 }
 
 .reviewText {
@@ -73,3 +87,4 @@
 .bottomBorder {
   border-bottom: 1px solid #DBDBDB;
 }
+
