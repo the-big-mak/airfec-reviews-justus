@@ -34,7 +34,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.css'],
   },
   output: {
-    filename: 'bundle.js',
+    filename: 'reviewBundle.js',
     path: __dirname + '/public/dist'
   }
 };
