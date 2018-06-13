@@ -10,7 +10,7 @@ const port = 3001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/rooms/:id', express.static(path.join(__dirname, '../public/dist/')));
+app.use('/rooms/:id/', express.static(path.join(__dirname, '../public/dist/')));
 
 app.get('/reviews', (req, res) => {
   db.getData(req.query.ID, (err, data) => {

@@ -81,7 +81,7 @@ class Pages extends React.Component {
 
   loop(start, end) {
     const pages = [];
-    const whereToEnd = end <= this.props.numberOfPages ? end : this.props.numberOfPages;
+    const whereToEnd = end <= this.props.numberOfPages ? end : Math.round(this.props.numberOfPages);
     for (let i = start; i <= whereToEnd; i += 1) {
       let isDisabled = false;
       if (this.props.currentPage + 1 === i) {
