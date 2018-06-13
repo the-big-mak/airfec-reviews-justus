@@ -50,7 +50,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      roomId: 5,
+      roomId: window.location.pathname.split('/')[2],
       allReviewData: [],
       currentReviews: [],
       ratings: [],
@@ -226,7 +226,7 @@ export default class App extends React.Component {
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}
           handlePageClick={this.handlePageClick}
-          numberOfPages={this.state.currentReviews.length / 7}
+          numberOfPages={Math.round(this.state.currentReviews.length / 7)}
         />
         </div>
       </div>

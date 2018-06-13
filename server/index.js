@@ -1,15 +1,19 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 const db = require('../database/index');
 const helper = require('../s3Helpers/getPhotos');
 
 const app = express();
 const port = 3001;
 
-app.use(express.static(path.join(__dirname, '../public/dist/')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/rooms/:id/', express.static(path.join(__dirname, '../public/dist/')));
 
 app.get('/reviews', (req, res) => {
-  db.getData((err, data) => {
+  db.getData(req.query.ID, (err, data) => {
     if (err) {
       res.status(400).send(err);
     } else {
