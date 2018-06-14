@@ -49,14 +49,17 @@
   width: 203px;
   height: 34px;
   border-radius: 2px;
+  box-sizing: border-box;
 }
 .searchContainer2 {
   overflow: hidden;
   position: relative;
+  box-sizing: border-box;
 }
 
 .searchInput {
   border-width: 1px;
+  box-sizing: border-box;
   border-style: solid;
   border-color: rgb(219, 219, 219);
   width: 169px;

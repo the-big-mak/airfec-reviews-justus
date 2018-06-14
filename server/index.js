@@ -5,7 +5,7 @@ const db = require('../database/index');
 const helper = require('../s3Helpers/getPhotos');
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,6 +32,9 @@ app.get('/photos', (req, res) => {
     }
   });
 });
+
+// uncomment this and to input photos into your mysql database, only needs to be run once
+// helper.inputPhotos();
 
 app.listen(port, () => {
   console.log('server listening on port ', port);

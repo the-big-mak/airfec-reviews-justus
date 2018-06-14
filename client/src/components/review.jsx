@@ -172,8 +172,7 @@ class Review extends React.Component {
     return (
       <div className={styles.review}>
         <div className={styles.photoAndSuperUser}>
-          {/* photo is hardcoded in until I buy a computer with more RAM */}
-          <img className={styles.guestPhoto} src="2RTqR9s.jpg" alt="" />
+          <img className={styles.guestPhoto} src={review.guest_photo} alt="" />
           <div className={styles.superUser}>
             {superUser}
           </div>
