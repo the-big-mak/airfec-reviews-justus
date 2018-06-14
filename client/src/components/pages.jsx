@@ -81,7 +81,11 @@ class Pages extends React.Component {
 
   loop(start, end) {
     const pages = [];
-    const whereToEnd = end <= this.props.numberOfPages ? end : Math.round(this.props.numberOfPages);
+    let pageNumber = this.props.numberOfPages;
+    if (this.props.numberOfPages % 1 === 0) {
+      pageNumber -= 1;
+    }
+    const whereToEnd = end <= this.props.numberOfPages ? end : pageNumber;
     for (let i = start; i <= whereToEnd; i += 1) {
       let isDisabled = false;
       if (this.props.currentPage + 1 === i) {
@@ -93,7 +97,7 @@ class Pages extends React.Component {
   }
 
   renderEndingDots() {
-    if (this.props.currentPage < this.props.numberOfPages - 4 && this.props.numberOfPages >= 5) {
+    if (this.props.currentPage <= Math.ceil(this.props.numberOfPages) - 4 && this.props.numberOfPages > 5) {
       return <div className={styles.dots}>...</div>;
     }
     return null;
@@ -106,7 +110,7 @@ class Pages extends React.Component {
   }
 
   renderPages(currentPage) {
-    const pages = Math.floor(this.props.numberOfPages);
+    const pages = this.props.numberOfPages;
     if (this.props.numberOfPages < 5) {
       return this.loop(2, 4);
     } else if (currentPage < 2) {
@@ -117,11 +121,11 @@ class Pages extends React.Component {
       return this.loop(2, 5);
     } else if (currentPage > 3 && currentPage < pages - 4) {
       return this.loop(currentPage, currentPage + 2);
-    } else if (currentPage <= pages - 3) {
+    } else if (currentPage < pages - 3) {
       return this.loop(currentPage, currentPage + 3);
-    } else if (currentPage <= pages - 2) {
+    } else if (currentPage < pages - 2) {
       return this.loop(currentPage, currentPage + 2);
-    } else if (currentPage <= pages - 1 && pages > 4) {
+    } else if (currentPage < pages - 1 && pages > 4) {
       return this.loop(currentPage, currentPage + 1);
     } else if (pages > 4) {
       return this.loop(currentPage - 1, currentPage);
