@@ -22,6 +22,8 @@ app.get('/reviews', (req, res) => {
   });
 });
 
+console.log('test');
+
 app.get('/photos', (req, res) => {
   helper.getPhotos((err, photos) => {
     if (err) {
