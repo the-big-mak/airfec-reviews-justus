@@ -1,12 +1,5 @@
 const mysql = require('mysql');
-
-
-const config = {
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'airFeC_reviews',
-};
+const config = require('./mysqlConfig');
 
 const connection = mysql.createConnection(config);
 
@@ -18,8 +11,8 @@ connection.connect((err) => {
   }
 });
 
-const getData = (callback) => {
-  const queryStr = `SELECT reviews.*, properties.host_name, properties.host_photo, properties.host_text FROM reviews, properties WHERE reviews.host_id = ${5} AND properties.id = ${5}`;
+const getData = (id, callback) => {
+  const queryStr = `SELECT reviews.*, properties.host_name, properties.host_photo, properties.host_text FROM reviews, properties WHERE reviews.host_id = ${id} AND properties.id = ${id}`;
   connection.query(queryStr, (err, data) => {
     if (err) {
       callback(err, null);
@@ -29,41 +22,34 @@ const getData = (callback) => {
   });
 };
 
-
-// I will deal with this when I buy a new computer
 const addPhotos = (photos) => {
-  const promisesToMake = [];
-  for (let i = 0; i < 100; i + 1) {
-    // update the host photos, only 100 hosts
-    if (i <= 100) {
-      const hostPhotosQuery = `UPDATE properties SET host_photo='${photos[i].Key}' WHERE id=${i}`;
-      promisesToMake.push(() => {
+  for (let j = 0; j < 13; j += 1) {
+    for (let i = 1; i < 490; i += 1) {
+      // update the host photos, only 100 hosts
+      if (i <= 100) {
+        const hostPhotosQuery = `UPDATE properties SET host_photo='https://s3-us-west-1.amazonaws.com/guestpics/${photos[i].Key}' WHERE id=${i}`;
         connection.query(hostPhotosQuery, (err) => {
           if (err) {
             console.log('failed to update host photos');
           } else {
             console.log('succefully updated host photos');
           }
-        });
+        });      
+      }
+      // update the guest photos
+      const guestPhotosQuery = `UPDATE reviews SET guest_photo='https://s3-us-west-1.amazonaws.com/guestpics/${photos[i].Key}' WHERE id=${i + (400 * j)}`;
+      connection.query(guestPhotosQuery, (err) => {
+        if (err) {
+          console.log('failed to update guest photos', err);
+        } else {
+          console.log('succefully updated guest photos');
+        }
       });
     }
   }
-  console.log('promises to make', promisesToMake);
-  const promises = Promise.all(promisesToMake);
-  promises.then(results => console.log('these are the results', results));
-  // update the guests photos
-  // const guestPhotosQuery = `UPDATE reviews SET guest_photo='${photos[i].Key}' WHERE id=${i}`;
-  // connection.query(guestPhotosQuery, (err) => {
-  //   if (err) {
-  //     console.log('failed to update guest photos', err);
-  //   } else {
-  //     console.log('succefully updated guest photos');
-  //   }
-  // });
 };
 
 module.exports = {
-  connection,
   getData,
   addPhotos,
 };

@@ -1,4 +1,5 @@
 const aws = require('aws-sdk');
+const axios = require('axios');
 const cred = require('./config');
 
 aws.config.update({
@@ -17,11 +18,19 @@ const getPhotos = (callback) => {
     if (err) {
       callback(err, null);
     } else {
+      console.log(data);
       callback(null, data.Contents);
     }
   });
 };
 
+const inputPhotos = () => {
+  axios.get('http://localhost:3001/photos')
+    .then(() => console.log('added photos'))
+    .catch(error => console.error(error));
+};
+
 module.exports = {
   getPhotos,
+  inputPhotos,
 };

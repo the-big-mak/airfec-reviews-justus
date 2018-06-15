@@ -57,9 +57,10 @@
 
 .searchInput {
   border-width: 1px;
+  box-sizing: border-box;
   border-style: solid;
   border-color: rgb(219, 219, 219);
-  width: 169px;
+  width: 203px;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 14px;
   line-height: 18px;
