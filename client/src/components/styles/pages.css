@@ -24,6 +24,7 @@
   -moz-transition: all 0.5s ease 0s;
   -webkit-transition: all 0.5s ease 0s;
   -o-transition: all 0.5s ease 0s;
+  outline: none;
 }
 
 .pageButton:disabled {

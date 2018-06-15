@@ -49,17 +49,20 @@
   width: 203px;
   height: 34px;
   border-radius: 2px;
+
 }
 .searchContainer2 {
   overflow: hidden;
   position: relative;
+
 }
 
 .searchInput {
   border-width: 1px;
+ 
   border-style: solid;
   border-color: rgb(219, 219, 219);
-  width: 169px;
+  width: 203px;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 14px;
   line-height: 18px;

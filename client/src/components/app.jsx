@@ -50,7 +50,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      roomId: 5,
+      roomId: window.location.pathname.split('/')[2],
       allReviewData: [],
       currentReviews: [],
       ratings: [],
@@ -76,7 +76,7 @@ export default class App extends React.Component {
   getReviewData(callback) {
     axios.get('/reviews', {
       params: {
-        ID: this.state.roomId,
+        id: this.state.roomId,
       },
     })
       .then((response) => {
