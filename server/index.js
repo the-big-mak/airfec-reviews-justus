@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-// const cors = require('cors');
 const db = require('../database/index');
 const helper = require('../s3Helpers/getPhotos');
 
@@ -30,6 +29,8 @@ app.get('/reviews', (req, res) => {
     }
   });
 });
+
+console.log('test');
 
 app.get('/photos', (req, res) => {
   helper.getPhotos((err, photos) => {

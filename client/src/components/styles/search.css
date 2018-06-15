@@ -49,16 +49,15 @@
   width: 203px;
   height: 34px;
   border-radius: 2px;
-
 }
 .searchContainer2 {
   overflow: hidden;
   position: relative;
-
 }
 
 .searchInput {
   border-width: 1px;
+  box-sizing: border-box;
   border-style: solid;
   border-color: rgb(219, 219, 219);
   width: 203px;
