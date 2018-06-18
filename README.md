@@ -19,8 +19,9 @@ Reviews for an Airbnb page
 INITIAL SET UP 
 1. Create an account on https://aws.amazon.com/s3/
 2. Retrieve Generate Security Credentials (https://imgur.com/Mb1AkoG, https://imgur.com/bffxIfi)
+3. Create and upload pictures to a S3 bucket
 3. Rename helpers/example.config.js into config.js with your credentials
-4. Look at mysqlConfig.js file inside database folder and make changes if necessary to configure to your mysql
+4. Rename database/example-mysqlConfig.js file to mysqlConfigs and make changes to configure to your mysql
 5. Run mysql.server start in terminal to start your database
 6. Populate schema with a fake data: mysql -u [USERNAME] -p < schema.sql
 7. In the server/index.js, uncomment helper.inputPhotos()
