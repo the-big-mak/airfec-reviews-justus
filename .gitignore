@@ -1,6 +1,6 @@
 node_modules
 config.js
 reviewBundle.js
-1Spy3bu.jpg
-2rTqR9s.jpg
 coverage
+mysqlConfig.js
+db_backup.sql

@@ -119,7 +119,7 @@ class Pages extends React.Component {
       return this.loop(2, 4);
     } else if (currentPage === 3) {
       return this.loop(2, 5);
-    } else if (currentPage > 3 && currentPage < pages - 4) {
+    } else if (currentPage > 3 && currentPage < pages - 3) {
       return this.loop(currentPage, currentPage + 2);
     } else if (currentPage < pages - 3) {
       return this.loop(currentPage, currentPage + 3);

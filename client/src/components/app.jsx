@@ -74,11 +74,7 @@ export default class App extends React.Component {
   }
 
   getReviewData(callback) {
-    axios.get('/reviews', {
-      params: {
-        id: this.state.roomId,
-      },
-    })
+    axios.get(`/reviews/${this.state.roomId}`)
       .then((response) => {
         callback(response.data);
       })
@@ -158,7 +154,6 @@ export default class App extends React.Component {
     });
   }
 
-
   handleBackToAllReviewsClick() {
     this.setState({
       hasBeenSearched: false,
@@ -168,21 +163,16 @@ export default class App extends React.Component {
   }
 
   handleNextClick() {
-    if (this.state.currentPage < this.state.allReviewData.length / 7) {
-      this.setState({
-        currentPage: this.state.currentPage + 1,
-      });
-    }
+    this.setState({
+      currentPage: this.state.currentPage + 1,
+    });
   }
 
   handlePrevClick() {
-    if (this.state.currentPage > 0) {
-      this.setState({
-        currentPage: this.state.currentPage - 1,
-      });
-    }
+    this.setState({
+      currentPage: this.state.currentPage - 1,
+    });
   }
-
 
   handlePageClick(e) {
     this.setState({

@@ -89,11 +89,7 @@ Report.propTypes = {
   setWrapperRef: PropTypes.func.isRequired,
   handleLabelClick: PropTypes.func.isRequired,
   buttonState: PropTypes.bool.isRequired,
-  labelValue: PropTypes.string,
-};
-
-Report.defaultProps = {
-  labelValue: '',
+  labelValue: PropTypes.string.isRequired,
 };
 
 export default Report;

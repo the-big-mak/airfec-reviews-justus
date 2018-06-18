@@ -1,6 +1,7 @@
 module.exports = {
-  host: 'database',
-  user: 'root', // put in your user if not root
-  password: '', // input your password if you have one
+  host: 'airfec-reviews-mysql.c9xtzxski01n.us-east-1.rds.amazonaws.com',
+  user: 'justuskw',
+  password: 'Lilojet1.',
   database: 'airFeC_reviews',
+  port: '3306',
 };
