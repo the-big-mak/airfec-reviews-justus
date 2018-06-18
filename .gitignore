@@ -4,3 +4,4 @@ reviewBundle.js
 coverage
 mysqlConfig.js
 db_backup.sql
+database/mysqlConfig.js
