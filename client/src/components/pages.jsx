@@ -4,19 +4,9 @@ import svg from './svg';
 import styles from './styles/pages.css';
 
 class Pages extends React.Component {
-  static scrollToId(id) {
-    const intersectionObserver = new IntersectionObserver((entry) => {
-      if (!entry.isIntersecting) {
-        id.scrollIntoView({ behavior: 'smooth' });
-      }
-      intersectionObserver.unobserve(id);
-    });
-    intersectionObserver.observe(id);
-  }
-
   componentDidUpdate(nextProps) {
     if (nextProps.currentPage !== this.props.currentPage) {
-      Pages.scrollToId(document.getElementById('top'));
+      document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
     }
   }
 
