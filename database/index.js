@@ -42,7 +42,7 @@ const addPhotos = (photos) => {
         if (err) {
           console.log('failed to update guest photos', err);
         } else {
-          console.log('succefully updated guest photos');
+          console.log('successfully updated guest photos');
         }
       });
     }

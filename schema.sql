@@ -2,6 +2,8 @@ CREATE DATABASE IF NOT EXISTS airFeC_reviews;
 
 USE airFeC_reviews;
 
+set global max_allowed_packet=33554432;
+
 CREATE TABLE IF NOT EXISTS properties (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   host_name VARCHAR(250),

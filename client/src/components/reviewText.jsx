@@ -16,7 +16,9 @@ const ReviewText = ({
     );
   }
   return (
-    <div>{reviewText}</div>
+    <div>
+      {reviewText}
+    </div>
   );
 };
 

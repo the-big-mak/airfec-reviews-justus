@@ -54,16 +54,11 @@ const Search = ({
 Search.propTypes = {
   handleSearchTextChange: PropTypes.func.isRequired,
   handleKeyPress: PropTypes.func.isRequired,
-  totalRating: PropTypes.number,
-  totalReviews: PropTypes.number,
+  totalRating: PropTypes.number.isRequired,
+  totalReviews: PropTypes.number.isRequired,
   searchText: PropTypes.string.isRequired,
   displayStarRatings: PropTypes.func.isRequired,
   handleSearchClose: PropTypes.func.isRequired,
-};
-
-Search.defaultProps = {
-  totalRating: 0,
-  totalReviews: 0,
 };
 
 export default Search;

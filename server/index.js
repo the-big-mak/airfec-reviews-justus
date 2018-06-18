@@ -11,17 +11,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,application/xml');
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
 
-app.use('/rooms/:id/', express.static(path.join(__dirname, '../public/dist/')));
+app.use('/rooms/:id', express.static(path.join(__dirname, '../public/dist/')));
 
-app.get('/reviews', (req, res) => {
-  db.getData(req.query.id, (err, data) => {
+app.get('/reviews/:id', (req, res) => {
+  db.getData(req.params.id, (err, data) => {
     if (err) {
       res.status(400).send(err);
     } else {
@@ -29,8 +29,6 @@ app.get('/reviews', (req, res) => {
     }
   });
 });
-
-console.log('test');
 
 app.get('/photos', (req, res) => {
   helper.getPhotos((err, photos) => {
@@ -43,7 +41,7 @@ app.get('/photos', (req, res) => {
   });
 });
 
-// uncomment this and to input photos into your mysql database, only needs to be run once
+// uncomment this to input photos into your mysql database, only needs to be run once
 // helper.inputPhotos();
 
 app.listen(port, () => {

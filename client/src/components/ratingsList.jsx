@@ -18,7 +18,8 @@ const RatingsList = ({ ratings, displayStarRatings }) => {
     <div>
       <div className={styles.ratings}>
         <div className={styles.accComCle}>
-          {accuracyCommunicationCleanliness.map((rating, i) => (<Rating
+          {accuracyCommunicationCleanliness.map((rating, i) =>
+          (<Rating
             displayStarRatings={displayStarRatings}
             rating={rating}
             id={i}
@@ -26,7 +27,8 @@ const RatingsList = ({ ratings, displayStarRatings }) => {
           />))}
         </div>
         <div className={styles.locCheVal}>
-          {locationCheckinValue.map((rating, i) => (<Rating
+          {locationCheckinValue.map((rating, i) =>
+          (<Rating
             displayStarRatings={displayStarRatings}
             rating={rating}
             id={i}
