@@ -1,17 +1,29 @@
 const express = require('express');
 const path = require('path');
-const db = require('../database/index.js');
-const helper = require('../s3Helpers/getPhotos.js');
+const bodyParser = require('body-parser');
+const db = require('../database/index');
+const helper = require('../s3Helpers/getPhotos');
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
-app.use(express.static(path.join(__dirname, '../public/dist/')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/reviews', (req, res) => {
-  db.getData((err, data) => {
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,application/xml');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
+app.use('/rooms/:id', express.static(path.join(__dirname, '../public/dist/')));
+
+app.get('/reviews/:id', (req, res) => {
+  db.getData(req.params.id, (err, data) => {
     if (err) {
-      res.status(400).send('failed to get data from db');
+      res.status(400).send(err);
     } else {
       res.status(200).send(data);
     }
@@ -21,13 +33,16 @@ app.get('/reviews', (req, res) => {
 app.get('/photos', (req, res) => {
   helper.getPhotos((err, photos) => {
     if (err) {
-      res.status(400).send('failed to get photos');
+      res.status(400).send(err);
     } else {
       db.addPhotos(photos);
-      res.status(200).send('successfully added photos');
+      res.status(200).send('sucessfully added photos');
     }
   });
 });
+
+// uncomment this to input photos into your mysql database, only needs to be run once
+// helper.inputPhotos();
 
 app.listen(port, () => {
   console.log('server listening on port ', port);
