@@ -192,9 +192,9 @@ export default class App extends React.Component {
         displayStarRatings={App.displayStarRatings}
       />);
     return (
-      <div className={styles.fullContainer}>
+      <div id="app" className={styles.fullContainer}>
         <div id="top" />
-        <div><Search
+        <div id="search"><Search
           handleSearchTextChange={this.handleSearchTextChange}
           handleKeyPress={this.handleKeyPress}
           totalRating={this.getTotalRating()}
@@ -204,14 +204,14 @@ export default class App extends React.Component {
           handleSearchClose={this.handleSearchClose}
         />
         </div>
-        <div>
+        <div id="ratings">
           {hasBeenSearched}
         </div>
-        <div><ReviewList
+        <div id="reviewList"><ReviewList
           reviews={this.state.currentReviews.slice(7 * this.state.currentPage, (7 * this.state.currentPage) + 7)}
         />
         </div>
-        <div><Pages
+        <div id="pages"><Pages
           handleNextClick={this.handleNextClick}
           handlePrevClick={this.handlePrevClick}
           currentPage={this.state.currentPage}

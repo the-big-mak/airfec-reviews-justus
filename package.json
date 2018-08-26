@@ -1,5 +1,11 @@
 {
   "name": "airfec-reviews-justus",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
   "version": "1.0.0",
   "description": "Reviews for houses on Airbnb",
   "main": "server/index.js",
@@ -47,6 +53,7 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.1.0",
     "jest-enzyme": "^6.0.1",
     "style-loader": "^0.21.0",

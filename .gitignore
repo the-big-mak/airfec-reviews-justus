@@ -5,3 +5,4 @@ coverage
 mysqlConfig.js
 db_backup.sql
 database/mysqlConfig.js
+client/src/components/__tests__/reference.js
