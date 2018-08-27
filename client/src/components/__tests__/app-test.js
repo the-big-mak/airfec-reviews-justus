@@ -57,5 +57,17 @@ describe('App Component', () => {
     ];
     expect(App.getAverageRating(data, 'accuracy_rating')).toEqual(3);
   });
-  
+  // it('should change the searchText state', () => {
+  //   const wrapper = shallow(<App />);
+  //   const searchState = wrapper.state().searchText;
+  //   expect(searchState).toEqual('');
+  //   const e = {
+  //     target: {
+  //       event: 'text',
+  //     },
+  //   };
+  //   wrapper.instance().handleSearchTextChange(e);
+  //   wrapper.update();
+  //   expect(searchState).toEqual('text');
+  // });
 });

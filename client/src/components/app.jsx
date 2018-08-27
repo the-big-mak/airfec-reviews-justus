@@ -110,6 +110,7 @@ export default class App extends React.Component {
   }
 
   handleSearchTextChange(e) {
+    console.log(e.target.value)
     this.setState({
       searchText: e.target.value,
     });
