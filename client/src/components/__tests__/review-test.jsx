@@ -17,7 +17,7 @@ describe('ReviewList Component', () => {
     id: 1915,
     location_rating: 2,
     review_date: '2018/04/27',
-    review_text: 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.↵↵Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.',
+    review_text: 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.↵↵Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Add more length to this sentance for the test.',
     value_rating: 2,
   };
   const hostResponse = {
@@ -72,4 +72,11 @@ describe('ReviewList Component', () => {
     expect(wrapper.find('#hostResponse').exists()).toBe(true);
   });
 
+  it('should change the date data into a more readable format', () => {
+    expect(wrapper.find('.date').text()).toBe('April 2018');
+  });
+
+  it('should only display 280 character even if the length is longer', () => {
+    expect(Review.shortenText(wrapper.instance().props.review.review_text).length).toBe(280);
+  });
 });

@@ -42,15 +42,12 @@ describe('ReviewList Component', () => {
 
   const wrapper = mount(<ReviewList reviews={reviews} />);
 
-
   it('should render without throwing an error', () => {
     expect(wrapper.find('#reviewList').exists()).toBe(true);
   });
+
   it('should render a Review Component for each index of reviews', () => {
     expect(wrapper.find('.review').length).toEqual(2);
   });
 });
 
-test('true = true', () => {
-  expect(true).toBe(true);
-});

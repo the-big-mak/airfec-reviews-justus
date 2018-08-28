@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Rating from '../rating';
 
 describe('Ratings Component', () => {
@@ -12,7 +12,6 @@ describe('Ratings Component', () => {
 
     />).find('#rating').exists()).toBe(true);
   });
-  
   it('should render 5 stars', () => {
     const wrapper = shallow(<Rating
       displayStarRatings={() => [1, 2, 3, 4, 5]}
