@@ -154,14 +154,14 @@ class Review extends React.Component {
       null;
 
     const showReport = this.state.showReport ?
-      (<Report
+      (<div id="report"><Report
         buttonState={this.state.buttonDisabled}
         handleLabelClick={this.handleLabelClick}
         setWrapperRef={this.setWrapperRef}
         handleClose={this.handleClose}
         handleSubmitClick={this.handleSubmitClick}
         labelValue={this.state.labelValue}
-      />) :
+      /></div>) :
       null;
 
     const showThankyouPopup = this.state.showThankyou ?

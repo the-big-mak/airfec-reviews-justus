@@ -23,13 +23,16 @@ describe('ReviewList Component', () => {
 
   const wrapper = mount(<Review review={review} />);
 
-
   it('should render without throwing an error', () => {
     expect(wrapper.find('.review').exists()).toBe(true);
   });
 
-});
+  it('should not show report component', () => {
+    expect(wrapper.find('#report').exists()).toBe(false);
+  });
 
-test('true = true', () => {
-  expect(true).toBe(true);
+  it('should render report when report button is clicked', () => {
+    wrapper.find('.report').simulate('click');
+    expect(wrapper.find('#report').exists()).toBe(true);
+  });
 });
