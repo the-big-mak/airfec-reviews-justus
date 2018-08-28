@@ -14,7 +14,7 @@ describe('ReviewList Component', () => {
     host_name: 'Correna',
     host_photo: 'https://s3-us-west-1.amazonaws.com/guestpics/7DXR56r (1).jpg',
     host_text: 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.',
-    id: 1915,
+    id: 1916,
     location_rating: 2,
     review_date: '2018/04/27',
     review_text: 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.↵↵Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Add more length to this sentance for the test.',
@@ -27,7 +27,7 @@ describe('ReviewList Component', () => {
     communication_rating: 1,
     guest_name: 'Kitti',
     guest_photo: 'https://s3-us-west-1.amazonaws.com/guestpics/GpXTZBo-9.jpg',
-    host_id: 30,
+    host_id: 31,
     host_name: 'Correna',
     host_photo: 'https://s3-us-west-1.amazonaws.com/guestpics/7DXR56r (1).jpg',
     host_text: 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.',
@@ -78,5 +78,23 @@ describe('ReviewList Component', () => {
 
   it('should only display 280 character even if the length is longer', () => {
     expect(Review.shortenText(wrapper.instance().props.review.review_text).length).toBe(280);
+  });
+
+  // redo this test
+  it('should only display 280 character even if the length is longer and object is not a string', () => {
+    const text = {
+      props: {
+        children: ['In hac habitasse platea dictumst.', <span>Morbi</span>, 'vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.↵↵Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.'],
+      },
+    };
+    expect(Review.shortenText(text).length).toBe(undefined);
+  });
+
+  it('should be a super user if id % 5 === 0', () => {
+    expect(wrapper.find('.superUser')).toBeTruthy();
+  });
+
+  it('should not be a super user if id % 5 !== 0', () => {
+    expect(wrapper.find('#superUser').length).toEqual(0);
   });
 });

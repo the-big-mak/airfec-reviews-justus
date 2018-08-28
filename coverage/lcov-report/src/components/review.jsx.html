@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">75.86% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>29/58</span>
+        <span class='fraction'>44/58</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">41.67% </span>
+        <span class="strong">70.83% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>10/24</span>
+        <span class='fraction'>17/24</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">53.85% </span>
+        <span class="strong">61.54% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/13</span>
+        <span class='fraction'>8/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">75.86% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>29/58</span>
+        <span class='fraction'>44/58</span>
       </div>
     </div>
     <p class="quiet">
@@ -279,31 +279,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">269x</span>
+<span class="cline-any cline-yes">269x</span>
+<span class="cline-any cline-yes">269x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">7x</span>
@@ -501,31 +501,31 @@ import styles from './styles/review.css';
 &nbsp;
 class Review extends React.Component {
   static shortenText(reviewText) {
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof reviewText !== 'string') {
-      const strings = <span class="cstat-no" title="statement not covered" >[];</span>
-      let counter = <span class="cstat-no" title="statement not covered" >0;</span>
-      let isTooLong = <span class="cstat-no" title="statement not covered" >false;</span>
-<span class="cstat-no" title="statement not covered" >      reviewText.props.children.forEach(<span class="fstat-no" title="function not covered" >(t</span>ext) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if (typeof text === 'string') {</span>
-          let tempString = <span class="cstat-no" title="statement not covered" >'';</span>
-<span class="cstat-no" title="statement not covered" >          for (let i = 0; i &lt; text.length; i += 1) {</span>
-<span class="cstat-no" title="statement not covered" >            tempString += text[i];</span>
-<span class="cstat-no" title="statement not covered" >            counter += 1;</span>
-<span class="cstat-no" title="statement not covered" >            if (counter &gt; 280) {</span>
+    if (typeof reviewText !== 'string') {
+      const strings = [];
+      let counter = 0;
+      let isTooLong = false;
+      reviewText.props.children.forEach((text) =&gt; {
+        if (typeof text === 'string') {
+          let tempString = '';
+          for (let i = 0; i &lt; text.length; i += 1) {
+            tempString += text[i];
+            counter += 1;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (counter &gt; 280) {
 <span class="cstat-no" title="statement not covered" >              strings.push(tempString);</span>
 <span class="cstat-no" title="statement not covered" >              isTooLong = true;</span>
 <span class="cstat-no" title="statement not covered" >              return;</span>
             }
           }
-<span class="cstat-no" title="statement not covered" >          strings.push(tempString);</span>
-        } else <span class="cstat-no" title="statement not covered" >if (!isTooLong) {</span>
-<span class="cstat-no" title="statement not covered" >          strings.push(text);</span>
+          strings.push(tempString);
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (!isTooLong) {
+          strings.push(text);
         }
       });
-<span class="cstat-no" title="statement not covered" >      if (isTooLong) {</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (isTooLong) {
 <span class="cstat-no" title="statement not covered" >        return strings;</span>
       }
-<span class="cstat-no" title="statement not covered" >      return false;</span>
+      return false;
     }
     if (reviewText.length &gt; 280) {
       return reviewText.substring(0, 280);
@@ -642,8 +642,8 @@ class Review extends React.Component {
       null;
 &nbsp;
     const superUser = review.id % 5 === 0 ?
-      svg.superUser :
-<span class="branch-1 cbranch-no" title="branch not covered" >      null;</span>
+      &lt;div id="superUser"&gt;svg.superUser&lt;/div&gt; :
+      null;
 &nbsp;
     const showReport = this.state.showReport ?
       (&lt;div id="report"&gt;&lt;Report
@@ -718,7 +718,7 @@ export default Review;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Aug 28 2018 12:47:40 GMT-0700 (PDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Aug 28 2018 13:11:19 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
