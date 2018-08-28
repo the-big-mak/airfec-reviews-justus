@@ -1,24 +1,20 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Rating from '../rating';
+import Search from '../search';
 
-describe('Ratings Component', () => {
+describe('Search Component', () => {
+
+  const wrapper = mount(<Search
+    handleSearchTextChange={() => {}}
+    handleKeyPress={() => {}}
+    totalRating={3}
+    totalReviews={37}
+    searchText="text"
+    displayStarRatings={() => [1, 2, 3, 4, 5]}
+    handleSearchClose={() => {}}
+  />);
+
   it('should render without throwing an error', () => {
-    expect(shallow(<Rating
-      displayStarRatings={() => [1, 2, 3]}
-      rating={[3, 'Accuracy']}
-      id={1}
-      key={[3, 'Accuracy']}
-
-    />).find('#rating').exists()).toBe(true);
-  });
-  it('should render 5 stars', () => {
-    const wrapper = shallow(<Rating
-      displayStarRatings={() => [1, 2, 3, 4, 5]}
-      rating={[3, 'Accuracy']}
-      id={1}
-      key={[3, 'Accuracy']}
-    />);
-    expect(wrapper.find('.stars').length).toEqual(5);
+    expect(wrapper.find('#search').exists()).toBe(true);
   });
 });

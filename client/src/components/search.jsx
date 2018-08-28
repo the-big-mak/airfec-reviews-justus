@@ -17,35 +17,37 @@ const Search = ({
     null;
 
   return (
-    <div className={styles.searchAndTotalContainer}>
-      <div className={styles.totalReviews}>
-        <div className={styles.totalReviewsWords}>
-          {totalReviews} Reviews
-          <div className={styles.star}>
-            {displayStarRatings(totalRating, 6).map(star => star)}
+    <div id="search">
+      <div className={styles.searchAndTotalContainer}>
+        <div className={styles.totalReviews}>
+          <div className={styles.totalReviewsWords}>
+            {totalReviews} Reviews
+            <div className={styles.star}>
+              {displayStarRatings(totalRating, 6).map(star => star)}
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.searchContainer}>
-        <div className={styles.searchContainer1}>
-          <div className={styles.searchContainer2}>
-            <input
-              className={styles.searchInput}
-              type="text"
-              value={searchText}
-              placeholder="Search reviews"
-              onChange={handleSearchTextChange}
-              onKeyPress={handleKeyPress}
-            />
+        <div className={styles.searchContainer}>
+          <div className={styles.searchContainer1}>
+            <div className={styles.searchContainer2}>
+              <input
+                className={styles.searchInput}
+                type="text"
+                value={searchText}
+                placeholder="Search reviews"
+                onChange={handleSearchTextChange}
+                onKeyPress={handleKeyPress}
+              />
+            </div>
+            <div className={styles.close} onClick={handleSearchClose} role="button">
+              {showClose}
+            </div>
+            {svg.search}
           </div>
-          <div className={styles.close} onClick={handleSearchClose} role="button">
-            {showClose}
-          </div>
-          {svg.search}
         </div>
-      </div>
-      <div className={styles.borders}>
-        <div className={styles.innerBorder} />
+        <div className={styles.borders}>
+          <div className={styles.innerBorder} />
+        </div>
       </div>
     </div>
   );

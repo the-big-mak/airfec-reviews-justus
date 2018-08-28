@@ -126,15 +126,17 @@ class Pages extends React.Component {
   render() {
     if (Math.floor(this.props.numberOfPages)) {
       return (
-        <div className={styles.pagesContainer}>
-          <div className={styles.pages}>
-            {this.prev()}
-            {this.firstPage()}
-            {this.renderBeginningDots()}
-            {this.renderPages(this.props.currentPage).map(page => page)}
-            {this.renderEndingDots()}
-            {this.lastPage()}
-            {this.next()}
+        <div id="pages">
+          <div className={styles.pagesContainer}>
+            <div className={styles.pages}>
+              {this.prev()}
+              {this.firstPage()}
+              {this.renderBeginningDots()}
+              {this.renderPages(this.props.currentPage).map(page => page)}
+              {this.renderEndingDots()}
+              {this.lastPage()}
+              {this.next()}
+            </div>
           </div>
         </div>
       );

@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/5</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/5</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -110,8 +110,23 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -122,19 +137,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,7 +166,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,7 +183,7 @@ import PropTypes from 'prop-types';
 import svg from './svg';
 import styles from './styles/search.css';
 &nbsp;
-const Search = <span class="fstat-no" title="function not covered" >({</span>
+const Search = ({
   handleSearchTextChange,
   handleKeyPress,
   totalRating,
@@ -188,40 +192,42 @@ const Search = <span class="fstat-no" title="function not covered" >({</span>
   displayStarRatings,
   handleSearchClose,
 }) =&gt; {
-  const showClose = <span class="cstat-no" title="statement not covered" >searchText !== '' ?</span>
+  const showClose = searchText !== '' ?
     svg.searchClose :
-    null;
+<span class="branch-1 cbranch-no" title="branch not covered" >    null;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;div className={styles.searchAndTotalContainer}&gt;
-      &lt;div className={styles.totalReviews}&gt;
-        &lt;div className={styles.totalReviewsWords}&gt;
-          {totalReviews} Reviews
-          &lt;div className={styles.star}&gt;
-            {displayStarRatings(totalRating, 6).map(<span class="fstat-no" title="function not covered" >st</span>ar =&gt; <span class="cstat-no" title="statement not covered" >star)</span>}
+  return (
+    &lt;div id="search"&gt;
+      &lt;div className={styles.searchAndTotalContainer}&gt;
+        &lt;div className={styles.totalReviews}&gt;
+          &lt;div className={styles.totalReviewsWords}&gt;
+            {totalReviews} Reviews
+            &lt;div className={styles.star}&gt;
+              {displayStarRatings(totalRating, 6).map(star =&gt; star)}
+            &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div className={styles.searchContainer}&gt;
-        &lt;div className={styles.searchContainer1}&gt;
-          &lt;div className={styles.searchContainer2}&gt;
-            &lt;input
-              className={styles.searchInput}
-              type="text"
-              value={searchText}
-              placeholder="Search reviews"
-              onChange={handleSearchTextChange}
-              onKeyPress={handleKeyPress}
-            /&gt;
+        &lt;div className={styles.searchContainer}&gt;
+          &lt;div className={styles.searchContainer1}&gt;
+            &lt;div className={styles.searchContainer2}&gt;
+              &lt;input
+                className={styles.searchInput}
+                type="text"
+                value={searchText}
+                placeholder="Search reviews"
+                onChange={handleSearchTextChange}
+                onKeyPress={handleKeyPress}
+              /&gt;
+            &lt;/div&gt;
+            &lt;div className={styles.close} onClick={handleSearchClose} role="button"&gt;
+              {showClose}
+            &lt;/div&gt;
+            {svg.search}
           &lt;/div&gt;
-          &lt;div className={styles.close} onClick={handleSearchClose} role="button"&gt;
-            {showClose}
-          &lt;/div&gt;
-          {svg.search}
         &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div className={styles.borders}&gt;
-        &lt;div className={styles.innerBorder} /&gt;
+        &lt;div className={styles.borders}&gt;
+          &lt;div className={styles.innerBorder} /&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   );
@@ -244,7 +250,7 @@ export default Search;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Aug 28 2018 10:32:25 GMT-0700 (PDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Aug 28 2018 10:47:10 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

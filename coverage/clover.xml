@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1535477545980" clover="3.2.0">
-  <project timestamp="1535477545980" name="All files">
-    <metrics statements="226" coveredstatements="90" conditionals="103" coveredconditionals="19" methods="65" coveredmethods="27" elements="394" coveredelements="136" complexity="0" loc="226" ncloc="226" packages="2" files="14" classes="14">
+<coverage generated="1535478430322" clover="3.2.0">
+  <project timestamp="1535478430322" name="All files">
+    <metrics statements="226" coveredstatements="125" conditionals="103" coveredconditionals="36" methods="65" coveredmethods="39" elements="394" coveredelements="200" complexity="0" loc="226" ncloc="226" packages="2" files="14" classes="14">
       <package name="spec">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="setup.js" path="/Users/justuskovats-wildenradt/hack-reactor/fec/airfec-reviews-justus/client/spec/setup.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="4" count="7" type="stmt"/>
+          <line num="4" count="9" type="stmt"/>
         </file>
       </package>
       <package name="src.components">
-        <metrics statements="225" coveredstatements="89" conditionals="103" coveredconditionals="19" methods="65" coveredmethods="27"/>
+        <metrics statements="225" coveredstatements="124" conditionals="103" coveredconditionals="36" methods="65" coveredmethods="39"/>
         <file name="app.jsx" path="/Users/justuskovats-wildenradt/hack-reactor/fec/airfec-reviews-justus/client/src/components/app.jsx">
           <metrics statements="67" coveredstatements="20" conditionals="17" coveredconditionals="1" methods="27" coveredmethods="8"/>
           <line num="13" count="0" type="stmt"/>
@@ -95,45 +95,45 @@
           <line num="43" count="3" type="stmt"/>
         </file>
         <file name="pages.jsx" path="/Users/justuskovats-wildenradt/hack-reactor/fec/airfec-reviews-justus/client/src/components/pages.jsx">
-          <metrics statements="58" coveredstatements="1" conditionals="48" coveredconditionals="0" methods="11" coveredmethods="0"/>
+          <metrics statements="58" coveredstatements="33" conditionals="48" coveredconditionals="16" methods="11" coveredmethods="10"/>
           <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="9" count="0" type="stmt"/>
-          <line num="15" count="0" type="stmt"/>
-          <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="1" type="cond" truecount="1" falsecount="1"/>
           <line num="17" count="0" type="stmt"/>
-          <line num="19" count="0" type="stmt"/>
-          <line num="31" count="0" type="stmt"/>
-          <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="32" count="1" type="cond" truecount="1" falsecount="1"/>
           <line num="33" count="0" type="stmt"/>
-          <line num="35" count="0" type="stmt"/>
-          <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="48" count="0" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="47" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="48" count="1" type="stmt"/>
           <line num="56" count="0" type="stmt"/>
-          <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="61" count="0" type="stmt"/>
+          <line num="60" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="61" count="1" type="stmt"/>
           <line num="69" count="0" type="stmt"/>
-          <line num="73" count="0" type="stmt"/>
-          <line num="74" count="0" type="stmt"/>
-          <line num="75" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="76" count="0" type="stmt"/>
-          <line num="78" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="79" count="0" type="stmt"/>
-          <line num="80" count="0" type="stmt"/>
-          <line num="81" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="82" count="0" type="stmt"/>
-          <line num="84" count="0" type="stmt"/>
-          <line num="86" count="0" type="stmt"/>
-          <line num="90" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="91" count="0" type="stmt"/>
+          <line num="73" count="1" type="stmt"/>
+          <line num="74" count="1" type="stmt"/>
+          <line num="75" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="76" count="1" type="stmt"/>
+          <line num="78" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="79" count="1" type="stmt"/>
+          <line num="80" count="2" type="stmt"/>
+          <line num="81" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="82" count="1" type="stmt"/>
+          <line num="84" count="2" type="stmt"/>
+          <line num="86" count="1" type="stmt"/>
+          <line num="90" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="91" count="1" type="stmt"/>
           <line num="93" count="0" type="stmt"/>
-          <line num="96" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="96" count="1" type="cond" truecount="2" falsecount="2"/>
           <line num="97" count="0" type="stmt"/>
-          <line num="99" count="0" type="stmt"/>
-          <line num="103" count="0" type="stmt"/>
-          <line num="104" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="99" count="1" type="stmt"/>
+          <line num="103" count="1" type="stmt"/>
+          <line num="104" count="1" type="cond" truecount="1" falsecount="1"/>
           <line num="105" count="0" type="stmt"/>
-          <line num="106" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="107" count="0" type="stmt"/>
+          <line num="106" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="107" count="1" type="stmt"/>
           <line num="108" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="109" count="0" type="stmt"/>
           <line num="110" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -149,11 +149,11 @@
           <line num="120" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="121" count="0" type="stmt"/>
           <line num="123" count="0" type="stmt"/>
-          <line num="127" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="128" count="0" type="stmt"/>
-          <line num="134" count="0" type="stmt"/>
-          <line num="142" count="0" type="stmt"/>
-          <line num="146" count="1" type="stmt"/>
+          <line num="127" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="128" count="1" type="stmt"/>
+          <line num="135" count="2" type="stmt"/>
+          <line num="144" count="0" type="stmt"/>
+          <line num="148" count="2" type="stmt"/>
         </file>
         <file name="rating.jsx" path="/Users/justuskovats-wildenradt/hack-reactor/fec/airfec-reviews-justus/client/src/components/rating.jsx">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -264,16 +264,16 @@
           <line num="25" count="3" type="stmt"/>
         </file>
         <file name="search.jsx" path="/Users/justuskovats-wildenradt/hack-reactor/fec/airfec-reviews-justus/client/src/components/search.jsx">
-          <metrics statements="5" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-          <line num="6" count="1" type="stmt"/>
-          <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="19" count="0" type="stmt"/>
-          <line num="25" count="0" type="stmt"/>
-          <line num="54" count="1" type="stmt"/>
+          <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="26" count="5" type="stmt"/>
+          <line num="56" count="2" type="stmt"/>
         </file>
         <file name="svg.jsx" path="/Users/justuskovats-wildenradt/hack-reactor/fec/airfec-reviews-justus/client/src/components/svg.jsx">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="4" count="3" type="stmt"/>
+          <line num="4" count="5" type="stmt"/>
         </file>
       </package>
     </metrics>
