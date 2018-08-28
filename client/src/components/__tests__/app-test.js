@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import App from '../app';
+import BackToAllReviews from '../backToAllReviews';
 const request = require('supertest')('http://localhost:3001');
 
 describe('App Component', () => {
@@ -18,6 +19,15 @@ describe('App Component', () => {
   });
   it('renders a pages input', () => {
     expect(shallow(<App />).find('#pages').length).toEqual(1);
+  });
+  it('does not render BackToAllReviews component', () => {
+    expect(shallow(<App />).find('#backToReviews').length).toEqual(0);
+  });
+  it('should render BackToAllReviews when word is searched', () => {
+    const wrapperApp = shallow(<App />);
+    wrapperApp.state().hasBeenSearched = true;
+    wrapperApp.update();
+    expect(wrapperApp.exists('#backToReviews')).toEqual(true);
   });
   it('starts with allReviewData being an empty array', () => {
     const wrapper = shallow(<App />);

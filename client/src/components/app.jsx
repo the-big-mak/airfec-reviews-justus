@@ -110,7 +110,6 @@ export default class App extends React.Component {
   }
 
   handleSearchTextChange(e) {
-    console.log(e.target.value)
     this.setState({
       searchText: e.target.value,
     });
@@ -183,11 +182,13 @@ export default class App extends React.Component {
 
   render() {
     const hasBeenSearched = this.state.hasBeenSearched ?
-      (<BackToAllReviews
-        handleBacktoAllReviewsClick={this.handleBackToAllReviewsClick}
-        currentReviewsLength={this.state.currentReviews.length}
-        searchedWord={this.state.searchedWord}
-      />) :
+      (<div id="backToReviews">
+        <BackToAllReviews
+          handleBacktoAllReviewsClick={this.handleBackToAllReviewsClick}
+          currentReviewsLength={this.state.currentReviews.length}
+          searchedWord={this.state.searchedWord}
+        />
+      </div>) :
       (<RatingsList
         ratings={this.state.ratings}
         displayStarRatings={App.displayStarRatings}
