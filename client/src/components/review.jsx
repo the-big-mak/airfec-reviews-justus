@@ -140,13 +140,13 @@ class Review extends React.Component {
     const formatedDate = `${month[date[1]]} ${date[0]}`;
 
     const hostResponse = review.id % 10 === 0 ?
-      (<HostResponse
+      (<div id="hostResponse"><HostResponse
         date={formatedDate}
         hostResponse={review}
         shortenText={Review.shortenText}
         shortText={this.state.shortText}
         handleReadMoreClick={this.handleReadMoreClick}
-      />) :
+      /></div>) :
       null;
 
     const superUser = review.id % 5 === 0 ?
@@ -165,10 +165,10 @@ class Review extends React.Component {
       null;
 
     const showThankyouPopup = this.state.showThankyou ?
-      (<ReportThankyou
+      (<div id="reportThankyou"><ReportThankyou
         setWrapperRef={this.setWrapperRef}
         handleClose={this.handleClose}
-      />) :
+      /></div>) :
       null;
 
     return (
