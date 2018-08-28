@@ -102,7 +102,6 @@ export default class App extends React.Component {
       'value_rating',
     ];
     App.sortedByDate(data);
-    console.log(data)
     this.setState({
       allReviewData: data,
       currentReviews: data,
@@ -190,10 +189,10 @@ export default class App extends React.Component {
           searchedWord={this.state.searchedWord}
         />
       </div>) :
-      (<RatingsList
+      (<div id="ratings"><RatingsList
         ratings={this.state.ratings}
         displayStarRatings={App.displayStarRatings}
-      />);
+      /></div>);
     return (
       <div id="app" className={styles.fullContainer}>
         <div id="top" />
@@ -207,7 +206,7 @@ export default class App extends React.Component {
           handleSearchClose={this.handleSearchClose}
         />
         </div>
-        <div id="ratings">
+        <div>
           {hasBeenSearched}
         </div>
         <div id="reviewList"><ReviewList

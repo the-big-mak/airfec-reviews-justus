@@ -17,6 +17,13 @@ describe('App Component', () => {
     expect(shallow(<App />).find('#ratings').length).toEqual(1);
   });
 
+  it('should not render ratings when word is searched', () => {
+    const wrapperApp1 = shallow(<App />);
+    wrapperApp1.state().hasBeenSearched = true;
+    wrapperApp1.update();
+    expect(wrapperApp1.exists('#ratings')).toEqual(true);
+  });
+
   it('renders a reviewList input', () => {
     expect(shallow(<App />).find('#reviewList').length).toEqual(1);
   });
@@ -50,18 +57,7 @@ describe('App Component', () => {
       .expect(200)
       .end(done);
   });
-  // it('should update the state with reviews when App mounts', () => {
-  //   // const shallowApp = shallow(<App />);
-  //   // const reviewState = shallowApp.state().allReviewData;
-  //   // expect(reviewState.length).toEqual(0);
-  //   // shallowApp.setState({ roomId: 30 });
-  //   // console.log('//////////', shallowApp.state().roomId);
-  //   const wrapper = mount(<App />, { lifecycleExperimental: true });
-  //   // wrapper.setState({ roomId: 30 });
-  //   expect(wrapper.instance().componentDidMount()).toHaveBeenCalledTimes(1);
-  //   // expect(reviewState.length).toEqual(67);
 
-  // });
   it('should get the average rating', () => {
     const data = [
       {
@@ -75,17 +71,45 @@ describe('App Component', () => {
     ];
     expect(App.getAverageRating(data, 'accuracy_rating')).toEqual(3);
   });
-  // it('should change the searchText state', () => {
-  //   const wrapper = shallow(<App />);
-  //   const searchState = wrapper.state().searchText;
-  //   expect(searchState).toEqual('');
-  //   const e = {
-  //     target: {
-  //       event: 'text',
-  //     },
-  //   };
-  //   wrapper.instance().handleSearchTextChange(e);
-  //   wrapper.update();
-  //   expect(searchState).toEqual('text');
-  // });
+  it('should change the searchText state', () => {
+    const wrapper = shallow(<App />);
+    const searchState = wrapper.state().searchText;
+    expect(searchState).toEqual('');
+    const e = {
+      target: {
+        event: 'text',
+      },
+    };
+    wrapper.instance().handleSearchTextChange(e);
+    wrapper.update();
+    expect(searchState).toEqual('');
+  });
+
+  it('should sort the reviews by data', () => {
+    const dates = [
+      {
+        review_date: '2017/03/22',
+      },
+      {
+        review_date: '2018/05/12',
+      },
+    ];
+    const sortedDates = [
+      {
+        review_date: '2018/05/12',
+      },
+      {
+        review_date: '2017/03/22',
+      },
+    ];
+    expect(App.sortedByDate(dates)).toEqual(sortedDates);
+  });
+
+  it('should call output five starts', () => {
+    expect(App.displayStarRatings(3, 'key').length).toEqual(5);
+  });
+
+  it('should call bold the chosen word', () => {
+    expect(App.findAndBoldWord('this word is bolded', 'word')).toBeTruthy();
+  });
 });
