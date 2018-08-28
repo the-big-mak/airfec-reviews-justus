@@ -102,6 +102,7 @@ export default class App extends React.Component {
       'value_rating',
     ];
     App.sortedByDate(data);
+    console.log(data)
     this.setState({
       allReviewData: data,
       currentReviews: data,

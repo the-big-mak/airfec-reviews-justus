@@ -3,7 +3,7 @@ import React from 'react';
 import Review from './review';
 
 const ReviewList = ({ reviews }) => (
-  <div>
+  <div id="reviewList">
     {reviews.map(review =>
       (<Review
         review={review}

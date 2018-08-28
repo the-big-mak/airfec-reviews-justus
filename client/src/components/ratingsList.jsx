@@ -15,7 +15,7 @@ const RatingsList = ({ ratings, displayStarRatings }) => {
     [ratings[5], 'Value'],
   ];
   return (
-    <div>
+    <div className="ratingList">
       <div className={styles.ratings}>
         <div className={styles.accComCle}>
           {accuracyCommunicationCleanliness.map((rating, i) =>
