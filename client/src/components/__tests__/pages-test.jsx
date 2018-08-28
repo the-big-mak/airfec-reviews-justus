@@ -74,4 +74,9 @@ describe('Pages Component', () => {
   it('should render ending dots', () => {
     expect(wrapper.instance().renderEndingDots()).toBeTruthy();
   });
+
+  it('should render 3 pages', () => {
+    const current = wrapper.instance().props.currentPage;
+    expect(wrapper.instance().loop(current, current + 2).length).toBe(3);
+  });
 });
