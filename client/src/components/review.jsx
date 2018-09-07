@@ -150,7 +150,7 @@ class Review extends React.Component {
       null;
 
     const superUser = review.id % 5 === 0 ?
-      <div id="superUser">svg.superUser</div> :
+      <div id="superUser">{svg.superUser}</div> :
       null;
 
     const showReport = this.state.showReport ?

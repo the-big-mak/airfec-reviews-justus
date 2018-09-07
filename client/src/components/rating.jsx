@@ -7,7 +7,7 @@ const Rating = ({ rating, displayStarRatings, id }) => (
     <div className={styles.ratingContainer}>
       <div className={styles.words}>{rating[1]}
         <div className={styles.star}>
-          {displayStarRatings(rating[0], id).map(star => <div className="stars">{ star }</div>)}
+          {displayStarRatings(rating[0], id).map(star => star)}
         </div>
       </div>
     </div>
